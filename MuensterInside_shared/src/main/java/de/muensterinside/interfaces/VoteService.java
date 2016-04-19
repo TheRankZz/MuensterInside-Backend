@@ -1,5 +1,8 @@
 package de.muensterinside.interfaces;
 
+import java.util.List;
+import de.muensterinside.modals.Location;
+
 public interface VoteService {
 
 	public boolean upVote(int location_id, String deviceId);

@@ -1,10 +1,13 @@
 package de.muensterinside.interfaces;
 
+import java.util.List;
+import de.muensterinside.modals.Category;
+
 public interface CategoryService {
 
 	public Category getCategory(int cat_id);
 	
-	public List<Catergory> getCategories();
+	public List<Category> getCategories();
 	
 	public boolean addCategory(Category cat);
 	

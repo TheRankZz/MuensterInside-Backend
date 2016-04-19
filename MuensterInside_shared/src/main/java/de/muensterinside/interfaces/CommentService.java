@@ -1,5 +1,8 @@
 package de.muensterinside.interfaces;
 
+import java.util.List;
+import de.muensterinside.modals.Comment;
+
 public interface CommentService {
 
 	public Comment getComment(int com_id);
