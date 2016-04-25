@@ -1,4 +1,4 @@
-package de.muensterinside.modals;
+package de.muensterinside.shared.entities;
 
 import java.io.Serializable;
 
