@@ -3,6 +3,11 @@ package de.muensterinside.shared.entities;
 import java.io.Serializable;
 import java.util.List;
 
+/**
+ * Datenklasse: Kategorie
+ * @author Lennart Giesen, Julius Wessing
+ * 
+ */
 public class Category implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
@@ -16,6 +21,7 @@ public class Category implements Serializable {
 	private List<Location> locations;
 	
 	/**
+	 * 
 	 * @param name
 	 */
 	public Category(String name) {

@@ -2,6 +2,11 @@ package de.muensterinside.shared.entities;
 
 import java.io.Serializable;
 
+/**
+ * Datenklasse: Kommentar
+ * @author Lennart Giesen, Julius Wessing
+ *
+ */
 public class Comment implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
