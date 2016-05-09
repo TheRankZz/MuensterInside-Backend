@@ -1,6 +1,7 @@
-package de.muensterinside.shared.entities;
+package de.muensterinside.system.entities;
 
 import java.io.Serializable;
+
 
 /**
  * Datenklasse: Bewertung/Stimme

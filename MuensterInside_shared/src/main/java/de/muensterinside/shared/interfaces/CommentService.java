@@ -2,7 +2,7 @@ package de.muensterinside.shared.interfaces;
 
 import java.util.List;
 
-import de.muensterinside.shared.entities.Comment;
+import de.muensterinside.system.entities.Comment;
 
 /**
  * Dieses Business Interface ist zuständig für die Kommentare.

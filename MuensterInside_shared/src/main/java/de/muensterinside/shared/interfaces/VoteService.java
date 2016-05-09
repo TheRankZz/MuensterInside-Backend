@@ -2,7 +2,7 @@ package de.muensterinside.shared.interfaces;
 
 import java.util.List;
 
-import de.muensterinside.shared.entities.Location;
+import de.muensterinside.system.entities.Location;
 
 /**
  * Dieses Business Interface ist zuständig für die Bewertung.

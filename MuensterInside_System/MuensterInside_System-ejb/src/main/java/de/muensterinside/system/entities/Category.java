@@ -1,17 +1,22 @@
-package de.muensterinside.shared.entities;
+package de.muensterinside.system.entities;
 
 import java.io.Serializable;
 import java.util.List;
+
+import javax.persistence.*;
+
 
 /**
  * Datenklasse: Kategorie
  * @author Lennart Giesen, Julius Wessing
  * 
  */
+@Entity
 public class Category implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	
+	@Id @GeneratedValue
 	private int id;
 	
 	private String name;
@@ -19,6 +24,8 @@ public class Category implements Serializable {
 	/* Beziehungen */
 	
 	private List<Location> locations;
+	
+	public Category(){}
 	
 	/**
 	 * 

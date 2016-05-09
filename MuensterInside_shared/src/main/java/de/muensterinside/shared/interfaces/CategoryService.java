@@ -2,7 +2,7 @@ package de.muensterinside.shared.interfaces;
 
 import java.util.List;
 
-import de.muensterinside.shared.entities.Category;
+import de.muensterinside.system.entities.Category;
 
 /**
  * Dieses Business Interface ist zuständig für die Kategorien.
