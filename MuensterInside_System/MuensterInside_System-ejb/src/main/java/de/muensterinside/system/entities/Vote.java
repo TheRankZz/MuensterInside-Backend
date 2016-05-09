@@ -2,6 +2,8 @@ package de.muensterinside.system.entities;
 
 import java.io.Serializable;
 
+import javax.persistence.*;
+
 
 /**
  * Datenklasse: Bewertung/Stimme
@@ -11,60 +13,25 @@ import java.io.Serializable;
 public class Vote implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-
-	private int locationId;
-	
-	private String deviceId;
 	
 	/* Beziehungen */
 	
 	private VoteType type;
 	
+	@ManyToOne
 	private Location location;
 	
+	@ManyToOne
+	private Device device;
+	
 
-	/**
-	 * 
-	 * @param locationId
-	 * @param deviceId
-	 * @param location
-	 * @param type
-	 */
-	public Vote(int locationId, String deviceId, Location location, VoteType type) {
-		this.locationId = locationId;
-		this.deviceId = deviceId;
+	public Vote(Location location, Device device, VoteType type){
 		this.location = location;
+		this.device = device;
 		this.type = type;
 	}
+
 	
-	/**
-	 * @return the locationId
-	 */
-	public int getLocationId() {
-		return locationId;
-	}
-
-	/**
-	 * @param locationId the locationId to set
-	 */
-	public void setLocationId(int locationId) {
-		this.locationId = locationId;
-	}
-
-	/**
-	 * @return the deviceId
-	 */
-	public String getDeviceId() {
-		return deviceId;
-	}
-
-	/**
-	 * @param deviceId the deviceId to set
-	 */
-	public void setDeviceId(String deviceId) {
-		this.deviceId = deviceId;
-	}
-
 	/**
 	 * @return the type
 	 */

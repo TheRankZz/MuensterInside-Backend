@@ -2,6 +2,8 @@ package de.muensterinside.system.entities;
 
 import java.io.Serializable;
 
+import javax.persistence.*;
+
 
 /**
  * Datenklasse: Kommentar
@@ -16,22 +18,25 @@ public class Comment implements Serializable {
 	
 	private String text;
 	
-	private String deviceId;
+	@ManyToOne
+	private Device device;
 	
 	/* Beziehungen */
-	
+	@ManyToOne
 	private Location location;
 		
 
+	public Comment(){}
+	
 	/**
 	 * 
 	 * @param text
 	 * @param deviceId
 	 * @param location
 	 */
-	public Comment(String text, String deviceId, Location location) {
+	public Comment(String text, Device device, Location location) {
 		this.text = text;
-		this.deviceId = deviceId;
+		this.device = device;
 		this.location = location;
 	}
 
@@ -56,19 +61,6 @@ public class Comment implements Serializable {
 		this.text = text;
 	}
 
-	/**
-	 * @return the deviceId
-	 */
-	public String getDeviceId() {
-		return deviceId;
-	}
-
-	/**
-	 * @param deviceId the deviceId to set
-	 */
-	public void setDeviceId(String deviceId) {
-		this.deviceId = deviceId;
-	}
 
 	/**
 	 * @return the location

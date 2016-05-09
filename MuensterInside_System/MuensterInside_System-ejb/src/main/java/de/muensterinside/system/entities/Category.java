@@ -22,7 +22,7 @@ public class Category implements Serializable {
 	private String name;
 	
 	/* Beziehungen */
-	
+	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER, mappedBy="category")
 	private List<Location> locations;
 	
 	public Category(){}

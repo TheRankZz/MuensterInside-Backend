@@ -3,16 +3,20 @@ package de.muensterinside.system.entities;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.*;
+
 
 /**
  * Datenklasse: Location
  * @author Lennart Giesen, Julius Wessing
  *
  */
+@Entity
 public class Location implements Serializable { 
 	
 	private static final long serialVersionUID = 1L;
 
+	@Id @GeneratedValue
 	private int id;
 	
 	private String name;
@@ -23,14 +27,17 @@ public class Location implements Serializable {
 	
 	private int voteValue;
 	
-	private String deviceId;
+	@ManyToOne
+	private Device device;
 	
 	/* Beziehungen */
-	
+	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER, mappedBy="location")
 	private List<Comment> comments;
 	
+	@ManyToOne
 	private Category category;
 	
+	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER, mappedBy="location")
 	private List<Vote> votes;
 	
 
@@ -41,9 +48,9 @@ public class Location implements Serializable {
 	 * @param deviceId
 	 * @param category
 	 */
-	public Location(String name, String deviceId, Category category) {
+	public Location(String name, Device device, Category category) {
 		this.name = name;
-		this.deviceId = deviceId;
+		this.device = device;
 		this.category = category;
 	}
 	
@@ -97,19 +104,6 @@ public class Location implements Serializable {
 		this.link = link;
 	}
 
-	/**
-	 * @return the deviceId
-	 */
-	public String getDeviceId() {
-		return deviceId;
-	}
-	
-	/**
-	 * @param deviceId the deviceId to set
-	 */
-	public void setDeviceId(String deviceId) {
-		this.deviceId = deviceId;
-	}
 
 	/**
 	 * @return the voteValue
