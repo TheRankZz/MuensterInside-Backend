@@ -10,10 +10,12 @@ import javax.persistence.*;
  * @author Lennart Giesen, Julius Wessing
  *
  */
+@Entity
 public class Comment implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	
+	@Id @GeneratedValue
 	private int id;
 	
 	private String text;
@@ -28,12 +30,7 @@ public class Comment implements Serializable {
 
 	public Comment(){}
 	
-	/**
-	 * 
-	 * @param text
-	 * @param deviceId
-	 * @param location
-	 */
+	
 	public Comment(String text, Device device, Location location) {
 		this.text = text;
 		this.device = device;

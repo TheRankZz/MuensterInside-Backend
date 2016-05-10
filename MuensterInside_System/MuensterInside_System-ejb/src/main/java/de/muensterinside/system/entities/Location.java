@@ -41,13 +41,8 @@ public class Location implements Serializable {
 	private List<Vote> votes;
 	
 
+	public Location() {}
 	
-	/**
-	 * 
-	 * @param name
-	 * @param deviceId
-	 * @param category
-	 */
 	public Location(String name, Device device, Category category) {
 		this.name = name;
 		this.device = device;

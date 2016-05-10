@@ -25,12 +25,8 @@ public class Category implements Serializable {
 	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER, mappedBy="category")
 	private List<Location> locations;
 	
-	public Category(){}
+	public Category() { }
 	
-	/**
-	 * 
-	 * @param name
-	 */
 	public Category(String name) {
 		this.setName(name);
 	}

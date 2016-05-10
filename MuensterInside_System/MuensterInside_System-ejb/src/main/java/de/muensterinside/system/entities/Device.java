@@ -10,9 +10,13 @@ import javax.persistence.*;
  * @author Lennart Giesen, Julius Wessing
  *
  */
+@Entity
 public class Device implements Serializable{
 
 	private static final long serialVersionUID = 1L;
+	
+	@Id @GeneratedValue
+	private int Id; 
 
 	@Column(unique=true, nullable=false)
 	private int deviceId;
@@ -26,5 +30,5 @@ public class Device implements Serializable{
 	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER, mappedBy="device")
 	private List<Vote> votes;
 	
-	public Device(){}
+	public Device() { }
 }

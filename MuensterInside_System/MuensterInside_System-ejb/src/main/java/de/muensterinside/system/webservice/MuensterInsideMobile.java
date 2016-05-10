@@ -10,6 +10,7 @@ import de.muensterinside.system.dto.*;
  *
  */
 public interface MuensterInsideMobile {
+	/*
 	
 
 	public CategoryListResponse getCategories();
@@ -37,5 +38,5 @@ public interface MuensterInsideMobile {
 	public ReturncodeResponse upVote(int location_id, String deviceId);
 	
 	public ReturncodeResponse downVote(int location_id, String deviceId);	
-	
+	*/
 }

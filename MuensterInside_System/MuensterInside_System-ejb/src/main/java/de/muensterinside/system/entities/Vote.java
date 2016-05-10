@@ -10,11 +10,13 @@ import javax.persistence.*;
  * @author Lennart Giesen, Julius Wessing
  *
  */
+@Entity
 public class Vote implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
-	/* Beziehungen */
+	@Id @GeneratedValue
+	private int id;
 	
 	private VoteType type;
 	
@@ -24,7 +26,8 @@ public class Vote implements Serializable {
 	@ManyToOne
 	private Device device;
 	
-
+	public Vote() {}
+	
 	public Vote(Location location, Device device, VoteType type){
 		this.location = location;
 		this.device = device;
