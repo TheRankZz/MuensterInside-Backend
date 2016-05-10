@@ -16,7 +16,12 @@ public class DataBuilder {
 	@PostConstruct
 	private void CreateTestData(){
 		
-		Category cat = new Category("Test");
-		em.persist(cat);
+		String[] test = {"Essen", "Shopping", "Hotel", "Sehenswürdigkeiten", "Veranstaltungen"};
+	
+		for(int i = 0; i < test.length; i++) {
+			Category cat = new Category(test[i]);
+			em.persist(cat);
+		}
+
 	}
 }
