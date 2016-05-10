@@ -26,6 +26,13 @@
       <!-- The datasource is deployed as <EAR>/META-INF/10_WS_Xbank-OnlineSystem-ds.xml, you
          can find it in the source at ear/src/main/application/META-INF/10_WS_Xbank-OnlineSystem-ds.xml -->
       <jta-data-source>java:jboss/datasources/muensterinside</jta-data-source>
+
+      <class>de.muensterinside.system.entities.Category</class>
+      <class>de.muensterinside.system.entities.Comment</class>
+      <class>de.muensterinside.system.entities.Device</class>
+      <class>de.muensterinside.system.entities.Location</class> 
+      <class>de.muensterinside.system.entities.Vote</class>     
+
       <properties>
          <!-- Properties for Hibernate -->
          <property name="javax.persistence.schema-generation.database.action" value="drop-and-create" />
