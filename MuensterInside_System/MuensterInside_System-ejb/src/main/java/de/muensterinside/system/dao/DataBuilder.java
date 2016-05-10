@@ -10,7 +10,7 @@ import de.muensterinside.system.entities.Category;
 @Startup
 public class DataBuilder {
 
-	 @PersistenceContext(unitName = "muenster")
+	@PersistenceContext
 	EntityManager em;
 	
 	@PostConstruct

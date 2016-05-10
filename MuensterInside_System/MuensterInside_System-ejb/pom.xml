@@ -61,4 +61,5 @@
         </plugins>
     </build>
     
+    <url>http://wildfly.org</url>
 </project>

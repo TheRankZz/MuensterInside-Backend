@@ -20,16 +20,16 @@
    xsi:schemaLocation="
         http://xmlns.jcp.org/xml/ns/persistence
         http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
-   <persistence-unit name="muenster">
+   <persistence-unit name="primary">
       <!-- If you are running in a production environment, add a managed 
          data source, this example data source is just for development and testing! -->
       <!-- The datasource is deployed as <EAR>/META-INF/10_WS_Xbank-OnlineSystem-ds.xml, you
          can find it in the source at ear/src/main/application/META-INF/10_WS_Xbank-OnlineSystem-ds.xml -->
-      <jta-data-source>java:jboss/datasources/muensterinside</jta-data-source>
+      <jta-data-source>java:jboss/datasources/MySQLDS</jta-data-source>
       <properties>
          <!-- Properties for Hibernate -->
-         <property name="javax.persistence.schema-generation.databse.action" value="drop-and-create" />
-         <property name="hibernate.show_sql" value="false" />
+         <property name="javax.persistence.schema-generation.database.action" value="drop-and-create" />
+         <property name="hibernate.show_sql" value="true" />
       </properties>
    </persistence-unit>
 </persistence>
