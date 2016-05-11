@@ -5,55 +5,44 @@ import java.util.List;
 
 import javax.persistence.*;
 
-
 /**
  * Datenklasse: Location
+ * 
  * @author Lennart Giesen, Julius Wessing
  *
  */
 @Entity
-public class Location implements Serializable { 
-	
-	private static final long serialVersionUID = 1L;
+@Table(name = "locations") 
+public class Location extends BaseEntity {
 
-	@Id @GeneratedValue
-	private int id;
-	
 	private String name;
-	
+
 	private String description;
-	
+
 	private String link;
-	
+
 	private int voteValue;
-	
+
 	@ManyToOne
 	private Device device;
-	
+
 	/* Beziehungen */
-	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER, mappedBy="location")
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "location")
 	private List<Comment> comments;
-	
+
 	@ManyToOne
 	private Category category;
-	
-	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER, mappedBy="location")
-	private List<Vote> votes;
-	
 
-	public Location() {}
-	
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "location")
+	private List<Vote> votes;
+
+	public Location() {
+	}
+
 	public Location(String name, Device device, Category category) {
 		this.name = name;
 		this.device = device;
 		this.category = category;
-	}
-	
-	/**
-	 * @return the id
-	 */
-	public int getId() {
-		return id;
 	}
 
 	/**
@@ -65,7 +54,8 @@ public class Location implements Serializable {
 	}
 
 	/**
-	 * @param name the name to set
+	 * @param name
+	 *            the name to set
 	 */
 	public void setName(String name) {
 		this.name = name;
@@ -79,7 +69,8 @@ public class Location implements Serializable {
 	}
 
 	/**
-	 * @param description the description to set
+	 * @param description
+	 *            the description to set
 	 */
 	public void setDescription(String description) {
 		this.description = description;
@@ -93,12 +84,12 @@ public class Location implements Serializable {
 	}
 
 	/**
-	 * @param link the link to set
+	 * @param link
+	 *            the link to set
 	 */
 	public void setLink(String link) {
 		this.link = link;
 	}
-
 
 	/**
 	 * @return the voteValue
@@ -108,7 +99,8 @@ public class Location implements Serializable {
 	}
 
 	/**
-	 * @param voteValue the voteValue to set
+	 * @param voteValue
+	 *            the voteValue to set
 	 */
 	public void setVoteValue(int voteValue) {
 		this.voteValue = voteValue;
@@ -129,7 +121,8 @@ public class Location implements Serializable {
 	}
 
 	/**
-	 * @param category the category to set
+	 * @param category
+	 *            the category to set
 	 */
 	public void setCategory(Category category) {
 		this.category = category;
@@ -141,9 +134,10 @@ public class Location implements Serializable {
 	public List<Vote> getVotes() {
 		return votes;
 	}
-	
+
 	/**
 	 * Zählt den VoteValue um eins hoch
+	 * 
 	 * @return the new VoteValue
 	 */
 	public int upVote() {
@@ -151,9 +145,10 @@ public class Location implements Serializable {
 		this.setVoteValue(temp);
 		return temp;
 	}
-	
+
 	/**
 	 * Zählt den VoteValue um eins runter
+	 * 
 	 * @return the new VoteValue
 	 */
 	public int downVote() {
