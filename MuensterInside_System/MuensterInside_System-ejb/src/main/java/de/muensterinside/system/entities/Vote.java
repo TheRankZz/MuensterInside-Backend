@@ -1,6 +1,5 @@
 package de.muensterinside.system.entities;
 
-import java.io.Serializable;
 
 import javax.persistence.*;
 
