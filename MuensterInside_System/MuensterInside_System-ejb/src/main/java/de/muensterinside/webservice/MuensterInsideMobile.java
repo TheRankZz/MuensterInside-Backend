@@ -1,8 +1,8 @@
-package de.muensterinside.system.webservice;
+package de.muensterinside.webservice;
 
 import java.util.List;
 
-import de.muensterinside.system.dto.*;
+import de.muensterinside.dto.*;
 
 /**
  * Interface: Webservice für Mobile-Clients

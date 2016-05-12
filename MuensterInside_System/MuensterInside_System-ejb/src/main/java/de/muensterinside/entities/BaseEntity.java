@@ -1,4 +1,4 @@
-package de.muensterinside.system.entities;
+package de.muensterinside.entities;
 
 import java.io.Serializable;
 import java.util.Date;

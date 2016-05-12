@@ -1,4 +1,4 @@
-package de.muensterinside.system.dto;
+package de.muensterinside.dto;
 
 import java.io.Serializable;
 

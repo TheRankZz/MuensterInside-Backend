@@ -1,10 +1,10 @@
-package de.muensterinside.system.dao;
+package de.muensterinside.dao;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.*;
 import javax.persistence.*;
 
-import de.muensterinside.system.entities.Category;
+import de.muensterinside.entities.Category;
 
 @Singleton
 @Startup

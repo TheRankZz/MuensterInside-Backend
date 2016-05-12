@@ -1,4 +1,4 @@
-package de.muensterinside.system.dto;
+package de.muensterinside.dto;
 
 public class ReturncodeResponse extends DataTransferObject  {
 	

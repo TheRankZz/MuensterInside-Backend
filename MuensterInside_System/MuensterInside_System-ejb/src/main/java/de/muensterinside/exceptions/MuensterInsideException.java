@@ -1,4 +1,4 @@
-package de.muensterinside.system.exceptions;
+package de.muensterinside.exceptions;
 
 public class MuensterInsideException extends Exception {
 
