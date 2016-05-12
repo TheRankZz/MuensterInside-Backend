@@ -27,11 +27,12 @@
          can find it in the source at ear/src/main/application/META-INF/10_WS_Xbank-OnlineSystem-ds.xml -->
       <jta-data-source>java:jboss/datasources/muensterinside</jta-data-source>
 
-      <class>de.muensterinside.system.entities.Category</class>
-      <class>de.muensterinside.system.entities.Comment</class>
-      <class>de.muensterinside.system.entities.Device</class>
-      <class>de.muensterinside.system.entities.Location</class> 
-      <class>de.muensterinside.system.entities.Vote</class>     
+      <class>de.muensterinside.entities.Category</class>
+      <class>de.muensterinside.entities.Comment</class>
+      <class>de.muensterinside.entities.Device</class>
+      <class>de.muensterinside.entities.Location</class> 
+      <class>de.muensterinside.entities.Vote</class>     
+      <class>de.muensterinside.entities.BaseEntity</class>     
 
       <properties>
          <!-- Properties for Hibernate -->
