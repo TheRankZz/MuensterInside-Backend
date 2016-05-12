@@ -5,6 +5,11 @@ import java.util.List;
 import javax.ejb.Local;
 import de.muensterinside.entities.Location;;
 
+/**
+ * 
+ * @author Lennart Giesen, Julius Wessing
+ *
+ */
 @Local
 public interface LocationDAO {
 	
@@ -14,7 +19,7 @@ public interface LocationDAO {
 	
 	boolean insert(Location loc);
 	
-	boolean update(Location loc);
+	Location update(Location loc);
 	
 	boolean delete(int location_id);
 

@@ -6,6 +6,11 @@ import javax.ejb.Local;
 
 import de.muensterinside.entities.Vote;
 
+/**
+ * 
+ * @author Lennart Giesen, Julius Wessing
+ *
+ */
 @Local
 public interface VoteDAO {
 	
@@ -15,7 +20,7 @@ public interface VoteDAO {
 	
 	boolean insert(Vote vote);
 	
-	boolean update(Vote vote);
+	Vote update(Vote vote);
 	
 	boolean delete(int vote_id);
 
