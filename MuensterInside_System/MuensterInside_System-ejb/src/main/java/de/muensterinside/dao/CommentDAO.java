@@ -2,7 +2,6 @@ package de.muensterinside.dao;
 
 import java.util.List;
 
-import javax.ejb.Local;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -15,7 +14,7 @@ import de.muensterinside.entities.Comment;
  *
  */
 @Stateless
-public class CommentDAO implements de.muensterinside.dao.interfaces.CommentDAO {
+public class CommentDAO implements de.muensterinside.dao.interfaces.CommentDAOLocal {
 
 	@PersistenceContext
 	private EntityManager em;
@@ -25,9 +24,11 @@ public class CommentDAO implements de.muensterinside.dao.interfaces.CommentDAO {
 		return em.find(Comment.class, id);
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Comment> findAll() {
-		return (List<Comment>) em.createQuery("SELECT * FROM Comments").getResultList();
+		List<Comment> resultList = (List<Comment>) em.createQuery("SELECT * FROM Comments").getResultList();
+		return resultList;
 	}
 
 	@Override

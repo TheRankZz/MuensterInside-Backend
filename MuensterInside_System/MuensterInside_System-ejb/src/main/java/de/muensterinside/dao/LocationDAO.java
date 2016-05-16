@@ -15,7 +15,7 @@ import de.muensterinside.entities.Location;
  *
  */
 @Stateless
-public class LocationDAO implements de.muensterinside.dao.interfaces.LocationDAO {
+public class LocationDAO implements de.muensterinside.dao.interfaces.LocationDAOLocal {
 
 	@PersistenceContext
 	private EntityManager em;

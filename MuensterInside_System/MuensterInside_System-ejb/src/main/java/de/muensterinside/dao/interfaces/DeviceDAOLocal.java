@@ -4,7 +4,7 @@ import java.util.List;
 
 import de.muensterinside.entities.Device;
 
-public interface DeviceDAO {
+public interface DeviceDAOLocal {
 
 	public Device findByID(int id);
 	

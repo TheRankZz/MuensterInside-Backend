@@ -9,7 +9,7 @@ import javax.persistence.PersistenceContext;
 import de.muensterinside.entities.Device;
 
 @Stateless
-public class DeviceDAO implements de.muensterinside.dao.interfaces.DeviceDAO{
+public class DeviceDAO implements de.muensterinside.dao.interfaces.DeviceDAOLocal{
 
 	@PersistenceContext
 	private EntityManager em;	
@@ -19,6 +19,7 @@ public class DeviceDAO implements de.muensterinside.dao.interfaces.DeviceDAO{
 		return em.find(Device.class, id);
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Device> findAll() {
 		List<Device> resultList = em.createQuery("SELECT * FROM devices").getResultList();

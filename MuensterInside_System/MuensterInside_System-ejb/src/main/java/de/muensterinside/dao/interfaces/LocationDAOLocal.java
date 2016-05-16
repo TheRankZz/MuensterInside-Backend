@@ -11,7 +11,7 @@ import de.muensterinside.entities.Location;;
  *
  */
 @Local
-public interface LocationDAO {
+public interface LocationDAOLocal {
 	
 	List<Location> findAll();
 	

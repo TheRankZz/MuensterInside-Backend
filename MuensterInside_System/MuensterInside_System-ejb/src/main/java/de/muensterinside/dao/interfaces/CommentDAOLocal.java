@@ -7,7 +7,7 @@ import javax.ejb.Local;
 import de.muensterinside.entities.Comment;
 
 @Local
-public interface CommentDAO {
+public interface CommentDAOLocal {
 
 	public Comment findByID(int id);
 	

@@ -12,7 +12,7 @@ import de.muensterinside.entities.Vote;
  *
  */
 @Local
-public interface VoteDAO {
+public interface VoteDAOLocal {
 	
 	List<Vote> findAll();
 	

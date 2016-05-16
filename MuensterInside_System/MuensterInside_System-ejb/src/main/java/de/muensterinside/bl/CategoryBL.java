@@ -9,6 +9,7 @@ import javax.ejb.Stateless;
 import de.muensterinside.dao.CategoryDAO;
 import de.muensterinside.dto.CategoryListResponse;
 import de.muensterinside.entities.Category;
+import de.muensterinside.exceptions.MuensterInsideException;
 import de.muensterinside.util.DtoAssembler;
 
 @Local
@@ -16,18 +17,28 @@ import de.muensterinside.util.DtoAssembler;
 public class CategoryBL {
 	
 	@EJB
-	private CategoryDAO categoryDAO;
+	private CategoryDAO daoCategory;
 	
 	@EJB
 	private DtoAssembler dtoAssembler;
 
+	/**
+	 * 
+	 * @return
+	 */
 	public CategoryListResponse getCategories() {
 		CategoryListResponse response = new CategoryListResponse();
 		
-		List<Category> categoryList = categoryDAO.findAll();
-		
-		response.setCategoryList(dtoAssembler.makeDTO(categoryList));
+		try {
+			List<Category> categories = daoCategory.findAll();
+			
+			
+		} catch (MuensterInsideException ex) {
+			
+		}
 		
 		return response;	
 	}
+	
+	
 }

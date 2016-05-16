@@ -1,6 +1,7 @@
 package de.muensterinside.util;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import javax.ejb.Stateless;
@@ -30,7 +31,7 @@ public class DtoAssembler {
 		  return dto;
 	  }
 	  
-	  public List<CategoryTO> makeDTO(List<Category> categories) {
+	  public List<CategoryTO> makeDTO(Collection<Category> categories) {
 		  ArrayList<CategoryTO> dtoList = new ArrayList<>();
 		  for (Category category : categories) {
 			  dtoList.add(this.makeDTO(category));
@@ -62,7 +63,7 @@ public class DtoAssembler {
 		  return dto;
 	  }
 	  
-	  public List<LocationTO> makeDTO(List<Location> locations) {
+	  public List<LocationTO> makeDTO(Collection<Location> locations) {
 		  ArrayList<LocationTO> dtoList = new ArrayList<>();
 		  for (Location location : locations) {
 			  dtoList.add(this.makeDTO(location));

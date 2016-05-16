@@ -1,7 +1,5 @@
 package de.muensterinside.webservices;
 
-import java.util.List;
-
 import de.muensterinside.dto.*;
 
 /**

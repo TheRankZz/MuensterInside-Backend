@@ -7,7 +7,7 @@ import java.util.List;
  * @author Lennart Giesen, Julius Wessing
  *
  */
-public class CategoryListResponse {
+public class CategoryListResponse extends ReturncodeResponse {
 
 	private List<CategoryTO> categoryList;
 	
