@@ -1,70 +1,125 @@
 package de.muensterinside.webservices;
 
-import java.util.List;
-
 import javax.ejb.EJB;
 
+import de.muensterinside.bl.CategoryBL;
 import de.muensterinside.dto.CategoryListResponse;
+import de.muensterinside.dto.CommentListResponse;
+import de.muensterinside.dto.IsVotedRepsonse;
 import de.muensterinside.dto.LocationListResponse;
 import de.muensterinside.dto.ReturncodeResponse;
-import de.muensterinside.entities.*;
-import de.muensterinside.util.DtoAssembler;
-import de.muensterinside.dao.*;
+import de.muensterinside.dto.VoteListResponse;
 
 /**
  * 
  * @author Lennart Giesen, Julius Wessing
  *
  */
-public class MobileWebserviceImpl {
+public class MobileWebserviceImpl implements MobileWebservice {
 
 	@EJB
-	private CategoryDAO categoryDAO;
+	private CategoryBL categoryBL;
 	
-	@EJB 
-	private DeviceDAO deviceDAO;
-	
-	@EJB
-	private DtoAssembler dtoAssembler;
-	
-	@EJB
-	private LocationDAO locationDAO;
+
 	
 	public CategoryListResponse getCategories() {
-		CategoryListResponse response = new CategoryListResponse();
-		
-		List<Category> categoryList = categoryDAO.findAll();
-		
-		response.setCategoryList(dtoAssembler.makeDTO(categoryList));
-		
-		return response;	
+		return categoryBL.getCategories();
 	}
-	
+
+
+	@Override
+	public ReturncodeResponse register(String deviceId, String username) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+	@Override
+	public ReturncodeResponse login(String deviceId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+	@Override
 	public LocationListResponse getLocationsByCategory(int cat_id) {
-		LocationListResponse response = new LocationListResponse();
-		
-		List<Location> locationList = locationDAO.getLocationsByCategory(cat_id);
-		
-		response.setLocationList(dtoAssembler.makeDTO(locationList));
-		
-		return response;
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+	@Override
+	public ReturncodeResponse saveLocation(String name, String description, String link, String deviceId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+	@Override
+	public CommentListResponse getCommentsByLocation(int loc_id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+	@Override
+	public CommentListResponse getMyComments(String deviceId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+	@Override
+	public ReturncodeResponse saveComment(String text, String deviceId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+	@Override
+	public ReturncodeResponse deleteComment(int comment_id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+	@Override
+	public VoteListResponse getMyVotes(String deviceId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+	@Override
+	public ReturncodeResponse upVote(int location_id, String deviceId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+	@Override
+	public ReturncodeResponse downVote(int location_id, String deviceId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+	@Override
+	public IsVotedRepsonse isVoted(int location_id, String deviceId) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
-	public ReturncodeResponse saveLocation(String name, String description, 
-			String link, int deviceId, int categoryId){
-		
-		ReturncodeResponse returncodeResponse = new ReturncodeResponse();
-		
-		Device device;
-		
-		Category category = categoryDAO.findByID(categoryId);
-		
-		if(deviceDAO.isExists(deviceId) == true) {
-			device = deviceDAO.findByID(deviceId);
-		} else {
-			//DEVICE erstellen
-		}
-		
-		Location location = new Location();
-	}
+
 }
