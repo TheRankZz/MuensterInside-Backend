@@ -14,14 +14,12 @@ import javax.persistence.*;
 @Table(name = "devices") 
 public class Device extends BaseEntity {
 	
-	@Column(nullable = false)
-	private String firstname;
+	@Column(unique = true, nullable = false)
+	private String deviceId;
 	
 	@Column(nullable = false)
-	private String lastname;
+	private String username;
 
-	@Column(unique = true, nullable = false)
-	private int deviceId;
 
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "device")
 	private List<Comment> comments;
@@ -31,23 +29,46 @@ public class Device extends BaseEntity {
 
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "device")
 	private List<Vote> votes;
+	
+	
+	
+	public String getUsername() {
+		return username;
+	}
 
-	public Device() {
+	public void setUsername(String username) {
+		this.username = username;
 	}
-	
-	public String getFirstname(){
-		return firstname;
+
+	public String getDeviceId() {
+		return deviceId;
 	}
-	
-	public void setFirstname(String firstname) {
-		this.firstname = firstname;
+
+	public void setDeviceId(String deviceId) {
+		this.deviceId = deviceId;
 	}
-	
-	public String getLastname(){
-		return lastname;
+
+	public List<Comment> getComments() {
+		return comments;
 	}
-	
-	public void setLastname(String lastname) {
-		this.lastname = lastname;
+
+	public void setComments(List<Comment> comments) {
+		this.comments = comments;
+	}
+
+	public List<Location> getLocation() {
+		return location;
+	}
+
+	public void setLocation(List<Location> location) {
+		this.location = location;
+	}
+
+	public List<Vote> getVotes() {
+		return votes;
+	}
+
+	public void setVotes(List<Vote> votes) {
+		this.votes = votes;
 	}
 }

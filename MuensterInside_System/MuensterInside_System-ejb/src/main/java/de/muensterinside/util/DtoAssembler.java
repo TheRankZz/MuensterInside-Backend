@@ -55,9 +55,8 @@ public class DtoAssembler {
 
 	public DeviceTO makeDTO(Device device) {
 		DeviceTO dto = new DeviceTO();
-		dto.setId(device.getId());
-		dto.setFirstname(device.getFirstname());
-		dto.setLastname(device.getLastname());
+		dto.setId(device.getDeviceId());
+		dto.setUsername(device.getUsername());
 		return dto;
 	}
 

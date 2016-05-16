@@ -6,7 +6,7 @@ import javax.ejb.EJB;
 import javax.ejb.Local;
 import javax.ejb.Stateless;
 
-import de.muensterinside.dao.CategoryDAO;
+import de.muensterinside.dao.interfaces.CategoryDAOLocal;
 import de.muensterinside.dto.CategoryListResponse;
 import de.muensterinside.entities.Category;
 import de.muensterinside.exceptions.MuensterInsideException;
@@ -23,7 +23,7 @@ import de.muensterinside.util.DtoAssembler;
 public class CategoryBL {
 	
 	@EJB
-	private CategoryDAO daoCategory;
+	private CategoryDAOLocal daoCategory;
 	
 	@EJB
 	private DtoAssembler dtoAssembler;

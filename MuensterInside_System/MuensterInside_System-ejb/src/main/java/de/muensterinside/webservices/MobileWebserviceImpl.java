@@ -1,6 +1,10 @@
 package de.muensterinside.webservices;
 
 import javax.ejb.EJB;
+import javax.ejb.Stateless;
+import javax.jws.WebService;
+
+import org.jboss.ws.api.annotation.WebContext;
 
 import de.muensterinside.bl.*;
 import de.muensterinside.dto.*;
@@ -10,6 +14,9 @@ import de.muensterinside.dto.*;
  * @author Lennart Giesen, Julius Wessing
  *
  */
+@WebService(name="mobile")
+@WebContext(contextRoot="/muensterinside")
+@Stateless
 public class MobileWebserviceImpl implements MobileWebservice {
 
 	@EJB
