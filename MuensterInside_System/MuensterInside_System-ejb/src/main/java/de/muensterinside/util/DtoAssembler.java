@@ -1,5 +1,8 @@
 package de.muensterinside.util;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.ejb.Stateless;
 
 import de.muensterinside.dto.CategoryTO;
@@ -12,6 +15,11 @@ import de.muensterinside.entities.Device;
 import de.muensterinside.entities.Location;
 
 
+/**
+ * 
+ * @author Lennart Giesen, Julius Wessing
+ *
+ */
 @Stateless
 public class DtoAssembler {
 
@@ -20,6 +28,14 @@ public class DtoAssembler {
 		  dto.setId(category.getId());
 		  dto.setName(category.getName());
 		  return dto;
+	  }
+	  
+	  public List<CategoryTO> makeDTO(List<Category> categories) {
+		  ArrayList<CategoryTO> dtoList = new ArrayList<>();
+		  for (Category category : categories) {
+			  dtoList.add(this.makeDTO(category));
+		  }
+		  return dtoList;
 	  }
 	  
 	  public CommentTO makeDTO(Comment comment) {
@@ -45,6 +61,15 @@ public class DtoAssembler {
 		  dto.setVotevalue(location.getVoteValue());
 		  return dto;
 	  }
+	  
+	  public List<LocationTO> makeDTO(List<Location> locations) {
+		  ArrayList<LocationTO> dtoList = new ArrayList<>();
+		  for (Location location : locations) {
+			  dtoList.add(this.makeDTO(location));
+		  }
+		  return dtoList;
+	  }
+	  
 	  
 	  
 }

@@ -10,9 +10,7 @@ import de.muensterinside.dto.*;
  *
  */
 public interface MuensterInsideMobile {
-	/*
-	
-
+/*
 	public CategoryListResponse getCategories();
 	
 	

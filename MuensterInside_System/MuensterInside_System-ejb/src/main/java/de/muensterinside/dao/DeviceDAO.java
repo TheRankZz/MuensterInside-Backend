@@ -1,0 +1,65 @@
+package de.muensterinside.dao;
+
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
+import de.muensterinside.entities.Comment;
+import de.muensterinside.entities.Device;
+
+public class DeviceDAO implements de.muensterinside.dao.interfaces.DeviceDAO{
+
+	@PersistenceContext
+	private EntityManager em;	
+	
+	@Override
+	public Device findByID(int id) {
+		return em.find(Device.class, id);
+	}
+
+	@Override
+	public List<Device> findAll() {
+		return (List<Device>) em.createQuery("SELECT * FROM devices").getResultList();
+	}
+
+	@Override
+	public boolean insert(Device device) {
+		boolean result = false;
+		em.persist(device);
+		
+		if(device.getId() != 0)
+			result = true;
+		
+		return result;
+	}
+
+	@Override
+	public Device update(Device device) {
+		return em.merge(device);
+	}
+
+	@Override
+	public boolean delete(int id) {
+		boolean result = false;
+		Device device = em.find(Device.class, id);
+		em.remove(device);
+		
+		if(em.find(Device.class, id) == null) 
+			result = true;
+		
+		return result;	
+	}
+	
+	@Override
+	public boolean isExists(int deviceId) {
+		boolean result = false;
+		Device device = em.find(Device.class, deviceId);
+		if(device == null) 
+			result = true;
+		
+		return result;	
+	}
+	
+	
+}
