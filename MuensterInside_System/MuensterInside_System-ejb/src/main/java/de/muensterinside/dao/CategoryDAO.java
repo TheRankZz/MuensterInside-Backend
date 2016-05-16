@@ -7,6 +7,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import de.muensterinside.entities.Category;
+import de.muensterinside.entities.Device;
 /**
  * 
  * @author Lennart Giesen, Julius Wessing
@@ -56,6 +57,16 @@ public class CategoryDAO implements de.muensterinside.dao.interfaces.CategoryDAO
 			result = true;
 		
 		return result;		
+	}
+
+	@Override
+	public boolean isExists(int id) {
+		boolean result = false;
+		Category category = em.find(Category.class, id);
+		if(category != null) 
+			result = true;
+		
+		return result;	
 	}
 
 }
