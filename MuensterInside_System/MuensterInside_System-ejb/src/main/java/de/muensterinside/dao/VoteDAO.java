@@ -23,7 +23,7 @@ public class VoteDAO implements de.muensterinside.dao.interfaces.VoteDAOLocal {
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Vote> findAll() {
-		Query query = em.createQuery("SELECT v FROM votes v");
+		Query query = em.createQuery("SELECT v FROM Vote v");
 		return (List<Vote>) query.getResultList();
 	}
 
@@ -60,6 +60,22 @@ public class VoteDAO implements de.muensterinside.dao.interfaces.VoteDAOLocal {
 			result = true;
 
 		return result;
+	}
+
+	@Override
+	public Vote findByLocationAndDevice(int location_id, String deviceId) {
+		List results = em.createQuery("SELECT v FROM Vote v "
+				+ "WHERE v.device.deviceId LIKE :deviceId"
+				+ " AND v.location.id = :locationId")
+				.setParameter("deviceId", deviceId)
+				.setParameter("locationId", location_id)
+				.getResultList();
+		
+		if(results.size() == 1) {
+			return (Vote) results.get(0);
+		} else {
+			return null;
+		}
 	}
 
 }

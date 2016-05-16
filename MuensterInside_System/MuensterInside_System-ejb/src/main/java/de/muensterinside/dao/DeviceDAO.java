@@ -22,7 +22,8 @@ public class DeviceDAO implements de.muensterinside.dao.interfaces.DeviceDAOLoca
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Device> findAll() {
-		List<Device> resultList = em.createQuery("SELECT * FROM devices").getResultList();
+		List<Device> resultList = em.createQuery("SELECT d FROM Device d")
+				.getResultList();
 		return resultList;
 	}
 
@@ -53,11 +54,24 @@ public class DeviceDAO implements de.muensterinside.dao.interfaces.DeviceDAOLoca
 		
 		return result;	
 	}
-	
+
 	@Override
-	public boolean isExists(int deviceId) {
+	public Device findByDeviceId(String deviceId) {
+		List results = em.createQuery("SELECT d FROM Device d WHERE d.deviceId LIKE :deviceId")
+				.setParameter("deviceId", deviceId)
+				.getResultList();
+		
+		if(results.size() == 1) {
+			return (Device) results.get(0);
+		} else {
+			return null;
+		}
+	}
+
+	@Override
+	public boolean isExists(String deviceId) {
 		boolean result = false;
-		Device device = em.find(Device.class, deviceId);
+		Device device = findByDeviceId(deviceId);
 		if(device != null) 
 			result = true;
 		

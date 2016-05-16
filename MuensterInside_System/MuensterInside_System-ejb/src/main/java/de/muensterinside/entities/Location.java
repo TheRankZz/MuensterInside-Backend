@@ -38,8 +38,10 @@ public class Location extends BaseEntity {
 	public Location() {
 	}
 
-	public Location(String name, String description, String link, int voteValue, Device device, Category category) {
+	public Location(String name, String description, String link, Device device, Category category) {
 		this.name = name;
+		this.description = description;
+		this.link = link;
 		this.device = device;
 		this.category = category;
 	}

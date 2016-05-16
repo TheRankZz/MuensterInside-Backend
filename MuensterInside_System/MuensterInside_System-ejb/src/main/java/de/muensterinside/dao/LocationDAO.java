@@ -23,7 +23,7 @@ public class LocationDAO implements de.muensterinside.dao.interfaces.LocationDAO
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Location> findAll() {
-		Query query = em.createQuery("SELECT l FROM locations l");
+		Query query = em.createQuery("SELECT l FROM Location l");
 		return (List<Location>) query.getResultList();
 	}
 
@@ -34,8 +34,9 @@ public class LocationDAO implements de.muensterinside.dao.interfaces.LocationDAO
 	
 	@Override
 	public List<Location> findByCategory(int cat_id) {
-		List<Location> list = em.createQuery("SELECT l FROM locations l WHERE l.category_id = :categoryID")
-				.setParameter("categoryID", cat_id)
+		@SuppressWarnings("unchecked")
+		List<Location> list = em.createQuery("SELECT l FROM Location l WHERE l.category.id = :categoryId")
+				.setParameter("categoryId", cat_id)
 				.getResultList();
 		
 		return list;

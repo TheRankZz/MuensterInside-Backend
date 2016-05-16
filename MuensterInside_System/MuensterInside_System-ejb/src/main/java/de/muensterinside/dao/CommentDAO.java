@@ -28,7 +28,8 @@ public class CommentDAO implements de.muensterinside.dao.interfaces.CommentDAOLo
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Comment> findAll() {
-		List<Comment> resultList = (List<Comment>) em.createQuery("SELECT * FROM Comments").getResultList();
+		List<Comment> resultList = (List<Comment>) em.createQuery("SELECT c FROM Comment c")
+				.getResultList();
 		return resultList;
 	}
 	

@@ -3,11 +3,9 @@ package de.muensterinside.bl;
 import java.util.List;
 
 import javax.ejb.EJB;
-import javax.ejb.Local;
 import javax.ejb.Stateless;
 
-import de.muensterinside.dao.CategoryDAO;
-import de.muensterinside.dao.LocationDAO;
+import de.muensterinside.bl.interfaces.LocationBLLocal;
 import de.muensterinside.dao.interfaces.CategoryDAOLocal;
 import de.muensterinside.dao.interfaces.DeviceDAOLocal;
 import de.muensterinside.dao.interfaces.LocationDAOLocal;
@@ -26,68 +24,70 @@ import de.muensterinside.util.DtoAssembler;
  * @author Lennart Giesen, Julius Wessing
  *
  */
-@Local
+
 @Stateless
-public class LocationBL {
-	
+public class LocationBL implements LocationBLLocal {
+
 	@EJB
 	LocationDAOLocal locationDAO;
-	
+
 	@EJB
 	CategoryDAOLocal categoryDAO;
-	
+
 	@EJB
 	DeviceDAOLocal deviceDAO;
-	
+
 	@EJB
 	DtoAssembler dtoAssembler;
 
+	/**
+	 * 
+	 */
 	public LocationListResponse getLocationsByCategory(int cat_id) {
 		LocationListResponse response = new LocationListResponse();
-		try{
+		try {
 			List<Location> locationList = locationDAO.findByCategory(cat_id);
-			
-			if(locationList.isEmpty()) {
+
+			if (locationList.isEmpty()) {
 				throw new NoDataException("Keine Location gefunden.");
-			} 
-			
+			}
+
 			response.setLocationList(dtoAssembler.makeDTOLocationList(locationList));
-			
-			
-		} 
-		catch (MuensterInsideException e) {
+
+		} catch (MuensterInsideException e) {
 			response.setReturnCode(e.getErrorCode());
 			response.setMessage(e.getMessage());
 		}
 		return response;
 	}
-	
-	public ReturncodeResponse saveLocation(String name, String description, 
-			String link, int voteValue, int deviceId, int categoryId){
-		
+
+	/**
+	 * 
+	 */
+	public ReturncodeResponse saveLocation(String name, String description, String link, int category_id,
+			String deviceId) {
+
 		ReturncodeResponse response = new ReturncodeResponse();
-		
+
 		try {
-			if(!categoryDAO.isExists(categoryId)) throw new NoDataException("Keine Category gefunden.");
-			if(!deviceDAO.isExists(deviceId)) throw new NoDataException("Kein Device gefunden.");
-			
-			
-			Category category = categoryDAO.findByID(categoryId);
-			Device device = deviceDAO.findByID(deviceId);
-			
-			Location location = new Location(name, description, 
-					link, voteValue, device, category);
-			
-			if(!locationDAO.insert(location)) throw new NoSavedException("Konnte nicht gespeichert werden.");
-				
+			if (!categoryDAO.isExists(category_id))
+				throw new NoDataException("Keine Category gefunden.");
+			if (!deviceDAO.isExists(deviceId))
+				throw new NoDataException("Kein Device gefunden.");
+
+			Category category = categoryDAO.findByID(category_id);
+			Device device = deviceDAO.findByDeviceId(deviceId);
+
+			Location location = new Location(name, description, link, device, category);
+
+			if (!locationDAO.insert(location))
+				throw new NoSavedException("Konnte nicht gespeichert werden.");
+
 		} catch (MuensterInsideException e) {
 			response.setReturnCode(e.getErrorCode());
 			response.setMessage(e.getMessage());
 		}
-		
-		
-		
-		
-		return null;
+
+		return response;
 	}
 }

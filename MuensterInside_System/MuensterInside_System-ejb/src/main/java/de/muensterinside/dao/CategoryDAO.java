@@ -7,7 +7,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import de.muensterinside.entities.Category;
-import de.muensterinside.entities.Device;
+
 /**
  * 
  * @author Lennart Giesen, Julius Wessing
@@ -26,7 +26,9 @@ public class CategoryDAO implements de.muensterinside.dao.interfaces.CategoryDAO
 
 	@Override
 	public List<Category> findAll() {
-		List<Category> resultList = (List<Category>) em.createQuery("SELECT * FROM Categories").getResultList();
+		@SuppressWarnings("unchecked")
+		List<Category> resultList = (List<Category>) em.createQuery("SELECT c FROM Category c")
+				.getResultList();
 		return resultList;
 		
 	}

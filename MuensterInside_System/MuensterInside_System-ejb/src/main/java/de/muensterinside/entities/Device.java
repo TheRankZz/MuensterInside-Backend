@@ -1,5 +1,6 @@
 package de.muensterinside.entities;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.*;
@@ -11,15 +12,18 @@ import javax.persistence.*;
  *
  */
 @Entity
-@Table(name = "devices") 
+@Table(name = "devices")
 public class Device extends BaseEntity {
-	
+
 	@Column(unique = true, nullable = false)
 	private String deviceId;
-	
+
 	@Column(nullable = false)
 	private String username;
 
+	@Column(name = "lastlogin_at")
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date lastLoginAt;
 
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "device")
 	private List<Comment> comments;
@@ -29,9 +33,15 @@ public class Device extends BaseEntity {
 
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "device")
 	private List<Vote> votes;
-	
-	
-	
+
+	public Device() {
+	}
+
+	public Device(String deviceId, String username) {
+		this.deviceId = deviceId;
+		this.username = username;
+	}
+
 	public String getUsername() {
 		return username;
 	}
@@ -52,23 +62,19 @@ public class Device extends BaseEntity {
 		return comments;
 	}
 
-	public void setComments(List<Comment> comments) {
-		this.comments = comments;
-	}
-
 	public List<Location> getLocation() {
 		return location;
-	}
-
-	public void setLocation(List<Location> location) {
-		this.location = location;
 	}
 
 	public List<Vote> getVotes() {
 		return votes;
 	}
 
-	public void setVotes(List<Vote> votes) {
-		this.votes = votes;
+	public Date getLastLoginAt() {
+		return lastLoginAt;
+	}
+
+	public void setLastLoginAt() {
+		this.lastLoginAt = new Date();
 	}
 }
