@@ -1,4 +1,4 @@
-package de.muensterinside.webservice;
+package de.muensterinside.webservices;
 
 import java.util.List;
 
@@ -16,7 +16,7 @@ import de.muensterinside.dao.*;
  * @author Lennart Giesen, Julius Wessing
  *
  */
-public class MuensterInsideIntegration {
+public class MobileWebserviceImpl {
 
 	@EJB
 	private CategoryDAO categoryDAO;

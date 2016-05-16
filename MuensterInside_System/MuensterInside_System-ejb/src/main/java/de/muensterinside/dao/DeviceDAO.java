@@ -2,12 +2,13 @@ package de.muensterinside.dao;
 
 import java.util.List;
 
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-import de.muensterinside.entities.Comment;
 import de.muensterinside.entities.Device;
 
+@Stateless
 public class DeviceDAO implements de.muensterinside.dao.interfaces.DeviceDAO{
 
 	@PersistenceContext
@@ -20,7 +21,8 @@ public class DeviceDAO implements de.muensterinside.dao.interfaces.DeviceDAO{
 
 	@Override
 	public List<Device> findAll() {
-		return (List<Device>) em.createQuery("SELECT * FROM devices").getResultList();
+		List<Device> resultList = em.createQuery("SELECT * FROM devices").getResultList();
+		return resultList;
 	}
 
 	@Override
@@ -60,6 +62,5 @@ public class DeviceDAO implements de.muensterinside.dao.interfaces.DeviceDAO{
 		
 		return result;	
 	}
-	
 	
 }
