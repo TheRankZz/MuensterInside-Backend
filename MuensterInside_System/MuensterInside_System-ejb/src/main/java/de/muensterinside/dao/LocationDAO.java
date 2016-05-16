@@ -31,6 +31,15 @@ public class LocationDAO implements de.muensterinside.dao.interfaces.LocationDAO
 	public Location findById(int id) {
 		return em.find(Location.class, id);
 	}
+	
+	@Override
+	public List<Location> findByCategory(int cat_id) {
+		List<Location> list = em.createQuery("SELECT l FROM locations l WHERE l.category_id = :categoryID")
+				.setParameter("categoryID", cat_id)
+				.getResultList();
+		
+		return list;
+	}
 
 	@Override
 	public boolean insert(Location loc) {

@@ -34,11 +34,11 @@ public class Location extends BaseEntity {
 
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "location")
 	private List<Vote> votes;
-
+	
 	public Location() {
 	}
 
-	public Location(String name, String description, String link, Device device, Category category) {
+	public Location(String name, String description, String link, int voteValue, Device device, Category category) {
 		this.name = name;
 		this.device = device;
 		this.category = category;

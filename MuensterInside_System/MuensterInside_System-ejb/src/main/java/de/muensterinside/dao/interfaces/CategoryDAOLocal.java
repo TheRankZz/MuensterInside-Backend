@@ -19,5 +19,7 @@ public interface CategoryDAOLocal {
 	
 	public Category update(Category category);
 	
-	public boolean delete(int category_id);
+	public boolean delete(int id);
+	
+	public boolean isExists(int id);
 }

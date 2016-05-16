@@ -2,7 +2,9 @@ package de.muensterinside.dto;
 
 import java.util.List;
 
-public class LocationListResponse {
+import de.muensterinside.exceptions.MuensterInsideException;
+
+public class LocationListResponse extends ReturncodeResponse{
 
 	
 	

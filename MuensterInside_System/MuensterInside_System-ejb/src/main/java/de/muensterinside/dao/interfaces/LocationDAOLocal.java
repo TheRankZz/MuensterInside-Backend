@@ -17,6 +17,8 @@ public interface LocationDAOLocal {
 	
 	Location findById(int id);
 	
+	List<Location> findByCategory(int cat_id);
+	
 	boolean insert(Location loc);
 	
 	Location update(Location loc);

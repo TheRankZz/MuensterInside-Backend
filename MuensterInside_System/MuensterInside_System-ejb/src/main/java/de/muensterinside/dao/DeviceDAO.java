@@ -58,7 +58,7 @@ public class DeviceDAO implements de.muensterinside.dao.interfaces.DeviceDAOLoca
 	public boolean isExists(int deviceId) {
 		boolean result = false;
 		Device device = em.find(Device.class, deviceId);
-		if(device == null) 
+		if(device != null) 
 			result = true;
 		
 		return result;	
