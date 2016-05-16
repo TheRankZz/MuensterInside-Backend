@@ -13,6 +13,5 @@ public class CommentListResponse extends ReturncodeResponse {
 	public void setCommentList(List<CommentTO> commentList) {
 		this.commentList = commentList;
 	}
-	
 
 }

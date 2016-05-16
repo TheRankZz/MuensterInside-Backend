@@ -6,28 +6,25 @@ package de.muensterinside.dto;
  *
  */
 public class DeviceTO {
+	
+	private String id;
+	
+	private String username;
 
-	private int id;
-	private String firstname;
-	private String lastname;
-	
-	
-	public int getId() {
+	public String getId() {
 		return id;
 	}
-	public void setId(int id) {
+
+	public void setId(String id) {
 		this.id = id;
 	}
-	public String getFirstname() {
-		return firstname;
+
+	public String getUsername() {
+		return username;
 	}
-	public void setFirstname(String firstname) {
-		this.firstname = firstname;
+
+	public void setUsername(String username) {
+		this.username = username;
 	}
-	public String getLastname() {
-		return lastname;
-	}
-	public void setLastname(String lastname) {
-		this.lastname = lastname;
-	}
+
 }

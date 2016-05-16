@@ -7,8 +7,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import de.muensterinside.entities.Category;
-import de.muensterinside.exceptions.*;
-
 /**
  * 
  * @author Lennart Giesen, Julius Wessing
@@ -21,17 +19,13 @@ public class CategoryDAO implements de.muensterinside.dao.interfaces.CategoryDAO
 	private EntityManager em;
 	
 	@Override
-	public Category findByID(int id) throws NoDataException {
+	public Category findByID(int id) {
 		return em.find(Category.class, id);
 	}
 
 	@Override
-	public List<Category> findAll() throws NoDataException {
+	public List<Category> findAll() {
 		List<Category> resultList = (List<Category>) em.createQuery("SELECT * FROM Categories").getResultList();
-		
-		if(resultList.isEmpty())
-			throw new NoDataException("Keine Category-Daten gefunden.");
-		
 		return resultList;
 		
 	}

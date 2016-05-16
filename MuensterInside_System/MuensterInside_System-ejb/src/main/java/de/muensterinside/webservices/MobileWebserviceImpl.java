@@ -2,13 +2,8 @@ package de.muensterinside.webservices;
 
 import javax.ejb.EJB;
 
-import de.muensterinside.bl.CategoryBL;
-import de.muensterinside.dto.CategoryListResponse;
-import de.muensterinside.dto.CommentListResponse;
-import de.muensterinside.dto.IsVotedRepsonse;
-import de.muensterinside.dto.LocationListResponse;
-import de.muensterinside.dto.ReturncodeResponse;
-import de.muensterinside.dto.VoteListResponse;
+import de.muensterinside.bl.*;
+import de.muensterinside.dto.*;
 
 /**
  * 
@@ -92,7 +87,7 @@ public class MobileWebserviceImpl implements MobileWebservice {
 
 
 	@Override
-	public VoteListResponse getMyVotes(String deviceId) {
+	public LocationListResponse getMyVotes(String deviceId) {
 		// TODO Auto-generated method stub
 		return null;
 	}

@@ -11,9 +11,9 @@ import de.muensterinside.exceptions.NoDataException;
 @Local
 public interface CategoryDAOLocal {
 
-	public Category findByID(int id) throws NoDataException;
+	public Category findByID(int id);
 	
-	public List<Category> findAll() throws NoDataException;
+	public List<Category> findAll();
 	
 	public boolean insert(Category category);
 	

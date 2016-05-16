@@ -34,7 +34,7 @@ public interface MobileWebservice {
 	
 
 	//EJB für Vote
-	public VoteListResponse getMyVotes(String deviceId);
+	public LocationListResponse getMyVotes(String deviceId);
 	
 	public ReturncodeResponse upVote(int location_id, String deviceId);
 	

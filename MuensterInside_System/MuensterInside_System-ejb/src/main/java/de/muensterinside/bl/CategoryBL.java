@@ -10,8 +10,14 @@ import de.muensterinside.dao.CategoryDAO;
 import de.muensterinside.dto.CategoryListResponse;
 import de.muensterinside.entities.Category;
 import de.muensterinside.exceptions.MuensterInsideException;
+import de.muensterinside.exceptions.NoDataException;
 import de.muensterinside.util.DtoAssembler;
 
+/**
+ * 
+ * @author Lennart Giesen, Julius Wessing
+ *
+ */
 @Local
 @Stateless
 public class CategoryBL {
@@ -23,7 +29,7 @@ public class CategoryBL {
 	private DtoAssembler dtoAssembler;
 
 	/**
-	 * 
+	 * Holt eine Liste von allen Kategorien
 	 * @return
 	 */
 	public CategoryListResponse getCategories() {
@@ -31,12 +37,17 @@ public class CategoryBL {
 		
 		try {
 			List<Category> categories = daoCategory.findAll();
+	
+			if(categories.isEmpty()) {
+				throw new NoDataException("Es wurden keine Kategorien gefunden");
+			}
 			
+			response.setCategoryList(dtoAssembler.makeDTOCategoryList(categories));
 			
 		} catch (MuensterInsideException ex) {
-			
+			response.setReturnCode(ex.getErrorCode());
+			response.setMessage(ex.getMessage());
 		}
-		
 		return response;	
 	}
 	
