@@ -100,4 +100,14 @@ public class MobileWebserviceImpl implements MobileWebservice {
 		return voteBL.isVoted(location_id, deviceId);
 	}
 
+	@Override
+	public ReturncodeResponse uploadImage(int location_id, byte[] imageBytes) {
+		return locationBL.uploadImage(location_id, imageBytes);
+	}
+
+	@Override
+	public ImageResponse downloadImage(int location_id) {
+		return locationBL.downloadImage(location_id);
+	}
+
 }

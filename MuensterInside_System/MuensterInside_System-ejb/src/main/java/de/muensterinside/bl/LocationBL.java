@@ -9,6 +9,7 @@ import de.muensterinside.bl.interfaces.LocationBLLocal;
 import de.muensterinside.dao.interfaces.CategoryDAOLocal;
 import de.muensterinside.dao.interfaces.DeviceDAOLocal;
 import de.muensterinside.dao.interfaces.LocationDAOLocal;
+import de.muensterinside.dto.ImageResponse;
 import de.muensterinside.dto.LocationListResponse;
 import de.muensterinside.dto.ReturncodeResponse;
 import de.muensterinside.entities.Category;
@@ -89,5 +90,17 @@ public class LocationBL implements LocationBLLocal {
 		}
 
 		return response;
+	}
+
+	@Override
+	public ReturncodeResponse uploadImage(int location_id, byte[] imageBytes) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ImageResponse downloadImage(int location_id) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
