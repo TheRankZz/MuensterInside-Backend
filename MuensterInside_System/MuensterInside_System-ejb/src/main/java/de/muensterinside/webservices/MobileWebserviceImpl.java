@@ -22,6 +22,12 @@ public class MobileWebserviceImpl implements MobileWebservice {
 	@EJB
 	private CategoryBL categoryBL;
 	
+	@EJB
+	private CommentBL commentBL;
+	
+	@EJB
+	private LocationBL locationBL;
+	
 
 	
 	public CategoryListResponse getCategories() {
@@ -47,24 +53,21 @@ public class MobileWebserviceImpl implements MobileWebservice {
 
 	@Override
 	public LocationListResponse getLocationsByCategory(int cat_id) {
-		// TODO Auto-generated method stub
-		return null;
+		return locationBL.getLocationsByCategory(cat_id);
 	}
 
 
 
 	@Override
-	public ReturncodeResponse saveLocation(String name, String description, String link, String deviceId) {
-		// TODO Auto-generated method stub
-		return null;
+	public ReturncodeResponse saveLocation(String name, String description, String link, int voteValue,  int deviceId, int categoryId) {
+		return locationBL.saveLocation(name, description, link, voteValue, deviceId, categoryId);
 	}
 
 
 
 	@Override
 	public CommentListResponse getCommentsByLocation(int loc_id) {
-		// TODO Auto-generated method stub
-		return null;
+		return commentBL.getCommentsByLocation(loc_id);
 	}
 
 

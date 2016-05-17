@@ -13,6 +13,8 @@ public interface CommentDAOLocal {
 	
 	public List<Comment> findAll();
 	
+	public List<Comment> findByLocation(int loc_id);
+	
 	public boolean insert(Comment comment);
 	
 	public Comment update(Comment comment);

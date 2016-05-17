@@ -20,8 +20,8 @@ public interface MobileWebservice {
 	//EJB für Location
 	public LocationListResponse getLocationsByCategory(int cat_id);
 	
-	public ReturncodeResponse saveLocation(String name, String description, 
-			String link, String deviceId);
+	public ReturncodeResponse saveLocation(String name, String description, String link, 
+			int voteValue,  int deviceId, int categoryId);
 
 	//EJB für Comment
 	public CommentListResponse getCommentsByLocation(int loc_id);

@@ -68,4 +68,12 @@ public class DtoAssembler {
 		dto.setVotevalue(location.getVoteValue());
 		return dto;
 	}
+	
+	public List<CommentTO> makeDTOCommentList(List<Comment> comments) {
+		ArrayList<CommentTO> dtoList = new ArrayList<>();
+		for (Comment comment : comments) {
+			dtoList.add(this.makeDTO(comment));
+		}
+		return dtoList;
+	}
 }

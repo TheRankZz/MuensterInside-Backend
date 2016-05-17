@@ -7,6 +7,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import de.muensterinside.entities.Comment;
+import de.muensterinside.entities.Location;
 
 /**
  * 
@@ -29,6 +30,15 @@ public class CommentDAO implements de.muensterinside.dao.interfaces.CommentDAOLo
 	public List<Comment> findAll() {
 		List<Comment> resultList = (List<Comment>) em.createQuery("SELECT * FROM Comments").getResultList();
 		return resultList;
+	}
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Comment> findByLocation(int loc_id) {
+		List<Comment> list = em.createQuery("SELECT c FROM comments c WHERE c.location_id = :locationID")
+				.setParameter("LocationID", loc_id)
+				.getResultList();
+		return list;
 	}
 
 	@Override
