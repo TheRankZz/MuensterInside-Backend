@@ -25,4 +25,6 @@ public interface LocationDAOLocal {
 	
 	boolean delete(int location_id);
 
+	boolean isExists(int locationId);
+
 }

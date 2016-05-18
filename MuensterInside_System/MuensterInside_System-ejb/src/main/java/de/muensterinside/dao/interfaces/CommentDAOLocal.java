@@ -20,4 +20,6 @@ public interface CommentDAOLocal {
 	public Comment update(Comment comment);
 	
 	public boolean delete(int comment_id);
+
+	List<Comment> findByDevice(int dev_id);
 }

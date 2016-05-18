@@ -7,6 +7,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
+import de.muensterinside.entities.Device;
 import de.muensterinside.entities.Location;
 
 /**
@@ -68,6 +69,16 @@ public class LocationDAO implements de.muensterinside.dao.interfaces.LocationDAO
 			result = true;
 
 		return result;
+	}
+	
+	@Override
+	public boolean isExists(int locationId) {
+		boolean result = false;
+		Location location = findById(locationId);
+		if(location != null) 
+			result = true;
+		
+		return result;	
 	}
 
 }
