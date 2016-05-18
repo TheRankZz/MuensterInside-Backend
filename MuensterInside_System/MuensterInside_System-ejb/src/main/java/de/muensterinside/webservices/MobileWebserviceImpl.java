@@ -40,12 +40,12 @@ public class MobileWebserviceImpl implements MobileWebservice {
 	}
 
 	@Override
-	public ReturncodeResponse register(String deviceId, String username) {
+	public DeviceResponse register(String deviceId, String username) {
 		return deviceBL.register(deviceId, username);
 	}
 
 	@Override
-	public ReturncodeResponse login(String deviceId) {
+	public DeviceResponse login(String deviceId) {
 		return deviceBL.login(deviceId);
 	}
 

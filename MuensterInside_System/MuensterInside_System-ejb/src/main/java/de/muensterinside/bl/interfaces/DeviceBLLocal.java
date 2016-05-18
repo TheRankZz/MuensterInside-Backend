@@ -2,13 +2,13 @@ package de.muensterinside.bl.interfaces;
 
 import javax.ejb.Local;
 
-import de.muensterinside.dto.ReturncodeResponse;
+import de.muensterinside.dto.DeviceResponse;
 
 @Local
 public interface DeviceBLLocal {
 
-	public ReturncodeResponse register(String deviceId, String username);
+	public DeviceResponse register(String deviceId, String username);
 
-	public ReturncodeResponse login(String deviceId);
+	public DeviceResponse login(String deviceId);
 
 }
