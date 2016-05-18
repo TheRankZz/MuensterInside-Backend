@@ -24,6 +24,6 @@ public interface VoteDAOLocal {
 	
 	boolean delete(int vote_id);
 
-	Vote findByLocationAndDevice(int location_id, String deviceId);
+	Vote findByLocationAndDevice(int location_id, int deviceId);
 
 }

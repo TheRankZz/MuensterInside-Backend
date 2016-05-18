@@ -29,11 +29,11 @@ public class VoteBL implements VoteBLLocal {
 	private DtoAssembler dtoAssembler;
 
 	@Override
-	public LocationListResponse getMyVotes(String deviceId) {
+	public LocationListResponse getMyVotes(int deviceId) {
 		LocationListResponse response = new LocationListResponse();
 
 		try {
-			Device dev = daoDevice.findByDeviceId(deviceId);
+			Device dev = daoDevice.findByID(deviceId);
 			if (dev.getLocations().isEmpty())
 				throw new NoDataException(Messages.NoDataExceptionMsg);
 			
@@ -58,7 +58,7 @@ public class VoteBL implements VoteBLLocal {
 	 * Eine Location hochvoten
 	 */
 	@Override
-	public ReturncodeResponse upVote(int location_id, String deviceId) {
+	public ReturncodeResponse upVote(int location_id, int deviceId) {
 		return vote(location_id, deviceId, VoteType.up);
 	}
 
@@ -66,12 +66,12 @@ public class VoteBL implements VoteBLLocal {
 	 * Eine Location runtervoten
 	 */
 	@Override
-	public ReturncodeResponse downVote(int location_id, String deviceId) {
+	public ReturncodeResponse downVote(int location_id, int deviceId) {
 		return vote(location_id, deviceId, VoteType.down);
 	}
 
 	@Override
-	public IsVotedRepsonse isVoted(int location_id, String deviceId) {
+	public IsVotedRepsonse isVoted(int location_id, int deviceId) {
 		IsVotedRepsonse response = new IsVotedRepsonse();
 
 		try {
@@ -94,7 +94,7 @@ public class VoteBL implements VoteBLLocal {
 	 * @param typ
 	 * @return
 	 */
-	private ReturncodeResponse vote(int location_id, String deviceId, VoteType typ) {
+	private ReturncodeResponse vote(int location_id, int deviceId, VoteType typ) {
 
 		ReturncodeResponse response = new ReturncodeResponse();
 
@@ -103,7 +103,7 @@ public class VoteBL implements VoteBLLocal {
 			if (loc == null)
 				throw new NoDataException(Messages.NoDataExceptionMsg);
 
-			Device dev = daoDevice.findByDeviceId(deviceId);
+			Device dev = daoDevice.findByID(deviceId);
 			if (dev == null)
 				throw new NoDataException(Messages.NoDataExceptionMsg);
 

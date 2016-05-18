@@ -10,9 +10,9 @@ public interface CommentBLLocal {
 
 	public CommentListResponse getCommentsByLocation(int loc_id);
 
-	public CommentListResponse getMyComments(String deviceId);
+	public CommentListResponse getMyComments(int deviceId);
 
-	public ReturncodeResponse saveComment(String text, String deviceId, int locationId);
+	public ReturncodeResponse saveComment(String text, int deviceId, int locationId);
 
 	public ReturncodeResponse deleteComment(int comment_id);
 }

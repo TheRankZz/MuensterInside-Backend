@@ -43,8 +43,8 @@ public class CommentDAO implements de.muensterinside.dao.interfaces.CommentDAOLo
 	
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Comment> findByDevice(String dev_id) {
-		List<Comment> list = em.createQuery("SELECT c FROM Comment c WHERE c.device.id LIKE :deviceId")
+	public List<Comment> findByDevice(int dev_id) {
+		List<Comment> list = em.createQuery("SELECT c FROM Comment c WHERE c.device.id = :deviceId")
 				.setParameter("deviceId", dev_id)
 				.getResultList();
 		return list;

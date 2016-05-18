@@ -56,8 +56,9 @@ public class DtoAssembler {
 
 	public DeviceTO makeDTO(Device device) {
 		DeviceTO dto = new DeviceTO();
-		dto.setId(device.getDeviceId());
+		dto.setId(device.getId());
 		dto.setUsername(device.getUsername());
+		dto.setAndroidUuid(device.getAndroidUuid());
 		return dto;
 	}
 

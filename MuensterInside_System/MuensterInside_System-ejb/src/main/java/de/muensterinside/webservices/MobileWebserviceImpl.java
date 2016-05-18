@@ -56,7 +56,7 @@ public class MobileWebserviceImpl implements MobileWebservice {
 
 	@Override
 	public ReturncodeResponse saveLocation(String name, String description,
-			String link, int category_id, String deviceId) {
+			String link, int category_id, int deviceId) {
 		return locationBL.saveLocation(name, description, link, category_id, deviceId);
 		}
 
@@ -66,12 +66,12 @@ public class MobileWebserviceImpl implements MobileWebservice {
 	}
 
 	@Override
-	public CommentListResponse getMyComments(String deviceId) {
+	public CommentListResponse getMyComments(int deviceId) {
 		return commentBL.getMyComments(deviceId);
 	}
 
 	@Override
-	public ReturncodeResponse saveComment(String text, String deviceId, int locationId) {
+	public ReturncodeResponse saveComment(String text, int deviceId, int locationId) {
 		return commentBL.saveComment(text, deviceId, locationId);
 	}
 
@@ -81,22 +81,22 @@ public class MobileWebserviceImpl implements MobileWebservice {
 	}
 
 	@Override
-	public LocationListResponse getMyVotes(String deviceId) {
+	public LocationListResponse getMyVotes(int deviceId) {
 		return voteBL.getMyVotes(deviceId);
 	}
 
 	@Override
-	public ReturncodeResponse upVote(int location_id, String deviceId) {
+	public ReturncodeResponse upVote(int location_id, int deviceId) {
 		return voteBL.upVote(location_id, deviceId);
 	}
 
 	@Override
-	public ReturncodeResponse downVote(int location_id, String deviceId) {
+	public ReturncodeResponse downVote(int location_id, int deviceId) {
 		return voteBL.downVote(location_id, deviceId);
 	}
 
 	@Override
-	public IsVotedRepsonse isVoted(int location_id, String deviceId) {
+	public IsVotedRepsonse isVoted(int location_id, int deviceId) {
 		return voteBL.isVoted(location_id, deviceId);
 	}
 
@@ -108,6 +108,16 @@ public class MobileWebserviceImpl implements MobileWebservice {
 	@Override
 	public ImageResponse downloadImage(int location_id) {
 		return locationBL.downloadImage(location_id);
+	}
+
+	@Override
+	public LocationResponse getLocation(int id) {
+		return locationBL.getLocation(id);
+	}
+
+	@Override
+	public LocationListResponse getMyLocations(int deviceId) {
+		return locationBL.getMyLocations(deviceId);
 	}
 
 }

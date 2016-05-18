@@ -16,11 +16,12 @@ public class Image extends BaseEntity {
 	public Image(byte[] imageData, String mimeType, Location location) {
 		this.imageData = imageData;
 		this.mimeType = mimeType;
-		this.location = location;
+		/*this.location = location;*/
 	}
 	
+	/*
 	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "image")
-	private Location location;
+	private Location location; */
 	
 	private String mimeType; 
 
@@ -44,8 +45,9 @@ public class Image extends BaseEntity {
 		this.imageData = imageData;
 	}
 
+	/*
 	public Location getLocation() {
 		return location;
 	}
-
+	 */
 }

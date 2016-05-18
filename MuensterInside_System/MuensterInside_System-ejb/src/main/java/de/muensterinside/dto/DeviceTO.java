@@ -7,15 +7,17 @@ package de.muensterinside.dto;
  */
 public class DeviceTO {
 	
-	private String id;
+	private int id;
+	
+	private String androidUuid;
 	
 	private String username;
 
-	public String getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
@@ -26,5 +28,14 @@ public class DeviceTO {
 	public void setUsername(String username) {
 		this.username = username;
 	}
+
+	public String getAndroidUuid() {
+		return androidUuid;
+	}
+
+	public void setAndroidUuid(String androidUuid) {
+		this.androidUuid = androidUuid;
+	}
+
 
 }

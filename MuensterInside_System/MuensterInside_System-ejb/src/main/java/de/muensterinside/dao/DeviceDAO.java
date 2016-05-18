@@ -56,9 +56,9 @@ public class DeviceDAO implements de.muensterinside.dao.interfaces.DeviceDAOLoca
 	}
 
 	@Override
-	public Device findByDeviceId(String deviceId) {
-		List results = em.createQuery("SELECT d FROM Device d WHERE d.deviceId LIKE :deviceId")
-				.setParameter("deviceId", deviceId)
+	public Device findByAndroidUuid(String uuid) {
+		List results = em.createQuery("SELECT d FROM Device d WHERE d.androidUuid LIKE :uuid")
+				.setParameter("uuid", uuid)
 				.getResultList();
 		
 		if(results.size() == 1) {
@@ -69,9 +69,9 @@ public class DeviceDAO implements de.muensterinside.dao.interfaces.DeviceDAOLoca
 	}
 
 	@Override
-	public boolean isExists(String deviceId) {
+	public boolean isExists(int deviceId) {
 		boolean result = false;
-		Device device = findByDeviceId(deviceId);
+		Device device = findByID(deviceId);
 		if(device != null) 
 			result = true;
 		

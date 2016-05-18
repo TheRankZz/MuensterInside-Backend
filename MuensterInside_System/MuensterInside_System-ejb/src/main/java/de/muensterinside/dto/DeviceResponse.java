@@ -1,6 +1,5 @@
 package de.muensterinside.dto;
 
-import de.muensterinside.entities.Device;
 
 public class DeviceResponse extends ReturncodeResponse {
 	

@@ -63,9 +63,9 @@ public class VoteDAO implements de.muensterinside.dao.interfaces.VoteDAOLocal {
 	}
 
 	@Override
-	public Vote findByLocationAndDevice(int location_id, String deviceId) {
+	public Vote findByLocationAndDevice(int location_id, int deviceId) {
 		List results = em.createQuery("SELECT v FROM Vote v "
-				+ "WHERE v.device.deviceId LIKE :deviceId"
+				+ "WHERE v.device.id = :deviceId"
 				+ " AND v.location.id = :locationId")
 				.setParameter("deviceId", deviceId)
 				.setParameter("locationId", location_id)

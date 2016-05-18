@@ -11,7 +11,7 @@ public interface DeviceDAOLocal {
 
 	public Device findByID(int id);
 
-	public Device findByDeviceId(String deviceId);
+	public Device findByAndroidUuid(String uuid);
 
 	public List<Device> findAll();
 
@@ -21,5 +21,5 @@ public interface DeviceDAOLocal {
 
 	public boolean delete(int id);
 
-	public boolean isExists(String deviceId);
+	public boolean isExists(int deviceId);
 }

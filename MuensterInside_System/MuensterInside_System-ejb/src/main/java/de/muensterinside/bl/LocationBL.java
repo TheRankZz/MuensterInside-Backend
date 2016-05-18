@@ -11,6 +11,7 @@ import de.muensterinside.dao.interfaces.DeviceDAOLocal;
 import de.muensterinside.dao.interfaces.LocationDAOLocal;
 import de.muensterinside.dto.ImageResponse;
 import de.muensterinside.dto.LocationListResponse;
+import de.muensterinside.dto.LocationResponse;
 import de.muensterinside.dto.ReturncodeResponse;
 import de.muensterinside.entities.Category;
 import de.muensterinside.entities.Device;
@@ -71,7 +72,7 @@ public class LocationBL implements LocationBLLocal {
 	 * 
 	 */
 	public ReturncodeResponse saveLocation(String name, String description, String link, int category_id,
-			String deviceId) {
+			int deviceId) {
 
 		ReturncodeResponse response = new ReturncodeResponse();
 
@@ -82,7 +83,7 @@ public class LocationBL implements LocationBLLocal {
 				throw new NoDataException(Messages.NoDataExceptionMsg);
 
 			Category category = categoryDAO.findByID(category_id);
-			Device device = deviceDAO.findByDeviceId(deviceId);
+			Device device = deviceDAO.findByID(deviceId);
 
 			Location location = new Location(name, description, link, device, category);
 
@@ -108,6 +109,18 @@ public class LocationBL implements LocationBLLocal {
 
 	@Override
 	public ImageResponse downloadImage(int location_id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public LocationResponse getLocation(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public LocationListResponse getMyLocations(int deviceId) {
 		// TODO Auto-generated method stub
 		return null;
 	}

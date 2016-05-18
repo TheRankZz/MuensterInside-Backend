@@ -22,8 +22,8 @@ public class Location extends BaseEntity {
 
 	private int voteValue;
 	
-	@OneToOne
-	private Image image;
+	//@OneToOne
+	//private Image image;
 
 	@ManyToOne
 	private Device device;

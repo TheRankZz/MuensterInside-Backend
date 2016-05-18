@@ -16,7 +16,7 @@ import javax.persistence.*;
 public class Device extends BaseEntity {
 
 	@Column(unique = true, nullable = false)
-	private String deviceId;
+	private String androidUuid;
 
 	@Column(nullable = false)
 	private String username;
@@ -37,8 +37,8 @@ public class Device extends BaseEntity {
 	public Device() {
 	}
 
-	public Device(String deviceId, String username) {
-		this.deviceId = deviceId;
+	public Device(String androidUuid, String username) {
+		this.androidUuid = androidUuid;
 		this.username = username;
 	}
 
@@ -50,12 +50,12 @@ public class Device extends BaseEntity {
 		this.username = username;
 	}
 
-	public String getDeviceId() {
-		return deviceId;
+	public String getAndroidUuid() {
+		return androidUuid;
 	}
 
-	public void setDeviceId(String deviceId) {
-		this.deviceId = deviceId;
+	public void setAndroidUuid(String androidUuid) {
+		this.androidUuid = androidUuid;
 	}
 
 	public List<Comment> getComments() {

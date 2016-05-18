@@ -20,25 +20,25 @@ public class DeviceBL implements DeviceBLLocal {
 	DtoAssembler dtoAssembler;
 
 	@Override
-	public DeviceResponse register(String deviceId, String username) {
+	public DeviceResponse register(String androidUuid, String username) {
 		DeviceResponse response = new DeviceResponse();
 
-		if (daoDevice.findByDeviceId(deviceId) != null) {
+		if (daoDevice.findByAndroidUuid(androidUuid) != null) {
 			response.setReturnCode(222);
 			response.setMessage("Gerät wurde bereits registriert!");
 		} else {
-			Device dev = new Device(deviceId, username);
+			Device dev = new Device(androidUuid, username);
 			daoDevice.insert(dev);
-			response.setMessage("Gerät wurde erfolgreich registriert!");
+			response.setDevice(dtoAssembler.makeDTO(dev));
 		}
 
 		return response;
 	}
 
 	@Override
-	public DeviceResponse login(String deviceId) {
+	public DeviceResponse login(String androidUuid) {
 		DeviceResponse response = new DeviceResponse();
-		Device dev = daoDevice.findByDeviceId(deviceId);
+		Device dev = daoDevice.findByAndroidUuid(androidUuid);
 
 		if (dev != null) {
 			dev.setLastLoginAt();
