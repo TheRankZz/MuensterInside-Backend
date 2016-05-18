@@ -21,11 +21,13 @@ public class Location extends BaseEntity {
 	private String link;
 
 	private int voteValue;
+	
+	@OneToOne
+	private Image image;
 
 	@ManyToOne
 	private Device device;
 
-	/* Beziehungen */
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "location")
 	private List<Comment> comments;
 

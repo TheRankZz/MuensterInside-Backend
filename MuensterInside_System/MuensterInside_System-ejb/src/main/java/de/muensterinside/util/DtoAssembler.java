@@ -50,6 +50,7 @@ public class DtoAssembler {
 		CommentTO dto = new CommentTO();
 		dto.setId(comment.getId());
 		dto.setText(comment.getText());
+		dto.setCreatedAt(comment.getCreatedAt());
 		return dto;
 	}
 
