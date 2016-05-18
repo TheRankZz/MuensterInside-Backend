@@ -18,6 +18,7 @@ import de.muensterinside.exceptions.MuensterInsideException;
 import de.muensterinside.exceptions.NoDataException;
 import de.muensterinside.exceptions.NoSavedException;
 import de.muensterinside.util.DtoAssembler;
+import de.muensterinside.util.Messages;
 
 
 @Stateless
@@ -80,9 +81,9 @@ public class CommentBL implements CommentBLLocal {
 		
 		try {
 			if (!deviceDAO.isExists(deviceId))
-				throw new NoDataException("Kein Device gefunden.");
+				throw new NoDataException(Messages.NoFoundExceptionMsg);
 			if (!locationDAO.isExists(locationId))
-				throw new NoDataException("Keine Location gefunden.");
+				throw new NoDataException(Messages.NoFoundExceptionMsg);
 			
 			Device device = deviceDAO.findByDeviceId(deviceId);
 			Location location = locationDAO.findById(locationId);
@@ -90,7 +91,7 @@ public class CommentBL implements CommentBLLocal {
 			Comment comment = new Comment(text, device, location);
 			
 			if(commentDAO.insert(comment))
-				throw new NoSavedException("Konnte nicht gespeichert werden.");
+				throw new NoSavedException(Messages.NoSavedExceptionMsg);
 			
 		} catch (MuensterInsideException e) {
 			response.setReturnCode(e.getErrorCode());
@@ -102,7 +103,15 @@ public class CommentBL implements CommentBLLocal {
 
 	@Override
 	public ReturncodeResponse deleteComment(int comment_id) {
-		// TODO Auto-generated method stub
-		return null;
+		ReturncodeResponse response = new ReturncodeResponse();
+		
+		try{
+			if(commentDAO.delete(comment_id)) throw new NoSavedException(Messages.NoDeleteExceptionMsg);
+		} catch (MuensterInsideException e) {
+			response.setReturnCode(e.getErrorCode());
+			response.setMessage(e.getMessage());
+		}
+		
+		return response;
 	}	
 }

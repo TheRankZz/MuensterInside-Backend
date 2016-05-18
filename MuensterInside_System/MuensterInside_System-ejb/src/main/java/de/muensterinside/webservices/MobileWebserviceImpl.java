@@ -71,8 +71,8 @@ public class MobileWebserviceImpl implements MobileWebservice {
 	}
 
 	@Override
-	public ReturncodeResponse saveComment(String text, String deviceId) {
-		return commentBL.saveComment(text, deviceId);
+	public ReturncodeResponse saveComment(String text, String deviceId, int locationId) {
+		return commentBL.saveComment(text, deviceId, locationId);
 	}
 
 	@Override
