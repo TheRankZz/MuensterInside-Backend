@@ -56,7 +56,7 @@ public class CommentBL implements CommentBLLocal {
 	}
 
 	@Override
-	public CommentListResponse getMyComments(int deviceId) {
+	public CommentListResponse getMyComments(String deviceId) {
 		CommentListResponse response = new CommentListResponse();
 		
 		try{
@@ -84,7 +84,7 @@ public class CommentBL implements CommentBLLocal {
 			if (!locationDAO.isExists(locationId))
 				throw new NoDataException("Keine Location gefunden.");
 			
-			Device device = deviceDAO.findByID(deviceId);
+			Device device = deviceDAO.findByDeviceId(deviceId);
 			Location location = locationDAO.findById(locationId);
 			
 			Comment comment = new Comment(text, device, location);

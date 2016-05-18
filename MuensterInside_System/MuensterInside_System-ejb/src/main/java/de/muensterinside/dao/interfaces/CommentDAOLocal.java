@@ -21,5 +21,5 @@ public interface CommentDAOLocal {
 	
 	public boolean delete(int comment_id);
 
-	List<Comment> findByDevice(int dev_id);
+	List<Comment> findByDevice(String dev_id);
 }

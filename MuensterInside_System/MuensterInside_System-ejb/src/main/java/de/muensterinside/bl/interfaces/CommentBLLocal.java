@@ -12,7 +12,7 @@ public interface CommentBLLocal {
 
 	public CommentListResponse getMyComments(String deviceId);
 
-	public ReturncodeResponse saveComment(String text, String deviceId);
+	public ReturncodeResponse saveComment(String text, String deviceId, int locationId);
 
 	public ReturncodeResponse deleteComment(int comment_id);
 }
