@@ -49,6 +49,9 @@ public class CategoryBL implements CategoryBLLocal {
 		} catch (MuensterInsideException ex) {
 			response.setReturnCode(ex.getErrorCode());
 			response.setMessage(ex.getMessage());
+		} catch (Exception e) {
+			response.setReturnCode(Messages.SystemErrorCode);
+			response.setMessage(e.getMessage());
 		}
 		return response;
 	}

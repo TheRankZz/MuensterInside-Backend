@@ -29,7 +29,7 @@ public class Device extends BaseEntity {
 	private List<Comment> comments;
 
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "device")
-	private List<Location> location;
+	private List<Location> locations;
 
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "device")
 	private List<Vote> votes;
@@ -62,8 +62,8 @@ public class Device extends BaseEntity {
 		return comments;
 	}
 
-	public List<Location> getLocation() {
-		return location;
+	public List<Location> getLocations() {
+		return locations;
 	}
 
 	public List<Vote> getVotes() {

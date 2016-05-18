@@ -19,6 +19,7 @@ import de.muensterinside.exceptions.MuensterInsideException;
 import de.muensterinside.exceptions.NoDataException;
 import de.muensterinside.exceptions.NoSavedException;
 import de.muensterinside.util.DtoAssembler;
+import de.muensterinside.util.Messages;
 
 /**
  * 
@@ -50,7 +51,7 @@ public class LocationBL implements LocationBLLocal {
 			List<Location> locationList = locationDAO.findByCategory(cat_id);
 
 			if (locationList.isEmpty()) {
-				throw new NoDataException("Keine Location gefunden.");
+				throw new NoDataException(Messages.NoDataExceptionMsg);
 			}
 
 			response.setLocationList(dtoAssembler.makeDTOLocationList(locationList));
@@ -58,7 +59,11 @@ public class LocationBL implements LocationBLLocal {
 		} catch (MuensterInsideException e) {
 			response.setReturnCode(e.getErrorCode());
 			response.setMessage(e.getMessage());
+		} catch (Exception e) {
+			response.setReturnCode(Messages.SystemErrorCode);
+			response.setMessage(e.getMessage());
 		}
+		
 		return response;
 	}
 
@@ -72,9 +77,9 @@ public class LocationBL implements LocationBLLocal {
 
 		try {
 			if (!categoryDAO.isExists(category_id))
-				throw new NoDataException("Keine Category gefunden.");
+				throw new NoDataException(Messages.NoDataExceptionMsg);
 			if (!deviceDAO.isExists(deviceId))
-				throw new NoDataException("Kein Device gefunden.");
+				throw new NoDataException(Messages.NoDataExceptionMsg);
 
 			Category category = categoryDAO.findByID(category_id);
 			Device device = deviceDAO.findByDeviceId(deviceId);
@@ -82,10 +87,13 @@ public class LocationBL implements LocationBLLocal {
 			Location location = new Location(name, description, link, device, category);
 
 			if (!locationDAO.insert(location))
-				throw new NoSavedException("Konnte nicht gespeichert werden.");
+				throw new NoSavedException(Messages.NoSavedExceptionMsg);
 
 		} catch (MuensterInsideException e) {
 			response.setReturnCode(e.getErrorCode());
+			response.setMessage(e.getMessage());
+		} catch (Exception e) {
+			response.setReturnCode(Messages.SystemErrorCode);
 			response.setMessage(e.getMessage());
 		}
 

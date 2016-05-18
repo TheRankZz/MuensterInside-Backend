@@ -7,7 +7,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import de.muensterinside.entities.Comment;
-import de.muensterinside.entities.Location;
 
 /**
  * 
@@ -36,8 +35,8 @@ public class CommentDAO implements de.muensterinside.dao.interfaces.CommentDAOLo
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Comment> findByLocation(int loc_id) {
-		List<Comment> list = em.createQuery("SELECT c FROM Comment c WHERE c.location_id = :locationID")
-				.setParameter("LocationID", loc_id)
+		List<Comment> list = em.createQuery("SELECT c FROM Comment c WHERE c.location.id = :locationId")
+				.setParameter("LocationId", loc_id)
 				.getResultList();
 		return list;
 	}
@@ -45,8 +44,8 @@ public class CommentDAO implements de.muensterinside.dao.interfaces.CommentDAOLo
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Comment> findByDevice(String dev_id) {
-		List<Comment> list = em.createQuery("SELECT c FROM Comment c WHERE c.device_id LIKE :deviceID")
-				.setParameter("deviceID", dev_id)
+		List<Comment> list = em.createQuery("SELECT c FROM Comment c WHERE c.device.id LIKE :deviceId")
+				.setParameter("deviceId", dev_id)
 				.getResultList();
 		return list;
 	}
