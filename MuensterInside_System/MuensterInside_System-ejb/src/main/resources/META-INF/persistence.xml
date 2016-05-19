@@ -33,6 +33,7 @@
       <class>de.muensterinside.entities.Location</class> 
       <class>de.muensterinside.entities.Vote</class>     
       <class>de.muensterinside.entities.BaseEntity</class>     
+      <class>de.muensterinside.entities.Image</class>
 
       <properties>
          <!-- Properties for Hibernate -->
