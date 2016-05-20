@@ -1,14 +1,24 @@
 package de.muensterinside.dto;
 
 public class ImageResponse extends ReturncodeResponse {
-	
-	private byte[] imageBytes;
 
-	public byte[] getImageBytes() {
-		return imageBytes;
+	private String imageDataBase64;
+	
+	private String mimeType;
+
+	public String getImageDataBase64() {
+		return imageDataBase64;
 	}
 
-	public void setImageBytes(byte[] imageBytes) {
-		this.imageBytes = imageBytes;
+	public void setImageDataBase64(String imageDataBase64) {
+		this.imageDataBase64 = imageDataBase64;
+	}
+
+	public String getMimeType() {
+		return mimeType;
+	}
+
+	public void setMimeType(String mimeType) {
+		this.mimeType = mimeType;
 	}
 }

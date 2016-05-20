@@ -19,7 +19,7 @@ public interface LocationBLLocal {
 	public ReturncodeResponse saveLocation(String name, String description, String link, int category_id,
 			int deviceId);
 
-	public ReturncodeResponse uploadImage(int location_id, byte[] imageBytes);
+	public ReturncodeResponse uploadImage(int location_id, String mimeType, String imageDataBase64);
 
 	public ImageResponse downloadImage(int location_id);
 }

@@ -101,17 +101,7 @@ public class LocationBL implements LocationBLLocal {
 		return response;
 	}
 
-	@Override
-	public ReturncodeResponse uploadImage(int location_id, byte[] imageBytes) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
-	@Override
-	public ImageResponse downloadImage(int location_id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	@Override
 	public LocationResponse getLocation(int id) {
@@ -121,6 +111,18 @@ public class LocationBL implements LocationBLLocal {
 
 	@Override
 	public LocationListResponse getMyLocations(int deviceId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ReturncodeResponse uploadImage(int location_id, String mimeType, String imageDataBase64) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ImageResponse downloadImage(int location_id) {
 		// TODO Auto-generated method stub
 		return null;
 	}

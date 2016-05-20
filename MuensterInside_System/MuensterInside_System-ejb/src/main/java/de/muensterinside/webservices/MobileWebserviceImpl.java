@@ -101,8 +101,8 @@ public class MobileWebserviceImpl implements MobileWebservice {
 	}
 
 	@Override
-	public ReturncodeResponse uploadImage(int location_id, byte[] imageBytes) {
-		return locationBL.uploadImage(location_id, imageBytes);
+	public ReturncodeResponse uploadImage(int location_id, String mimeType, String imageDataBase64) {
+		return locationBL.uploadImage(location_id, mimeType, imageDataBase64);
 	}
 
 	@Override
