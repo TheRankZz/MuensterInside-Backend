@@ -81,4 +81,14 @@ public class LocationDAO implements de.muensterinside.dao.interfaces.LocationDAO
 		return result;	
 	}
 
+	@Override
+	public List<Location> findByDevice(int deviceId) {
+		@SuppressWarnings("unchecked")
+		List<Location> list = em.createQuery("SELECT l FROM Location l WHERE l.device.id = :deviceId")
+				.setParameter("deviceId", deviceId)
+				.getResultList();
+		
+		return list;
+	}
+
 }

@@ -27,4 +27,6 @@ public interface LocationDAOLocal {
 
 	boolean isExists(int locationId);
 
+	List<Location> findByDevice(int deviceId);
+
 }

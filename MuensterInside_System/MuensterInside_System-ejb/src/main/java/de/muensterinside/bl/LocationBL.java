@@ -28,6 +28,7 @@ import de.muensterinside.util.Messages;
  *
  */
 
+//TODO: Klasse kommentieren
 @Stateless
 public class LocationBL implements LocationBLLocal {
 
@@ -79,6 +80,7 @@ public class LocationBL implements LocationBLLocal {
 		try {
 			if (!categoryDAO.isExists(category_id))
 				throw new NoDataException(Messages.NoDataExceptionMsg);
+			
 			if (!deviceDAO.isExists(deviceId))
 				throw new NoDataException(Messages.NoDataExceptionMsg);
 
@@ -105,15 +107,51 @@ public class LocationBL implements LocationBLLocal {
 
 	@Override
 	public LocationResponse getLocation(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		LocationResponse response = new LocationResponse();
+		
+		try {
+			
+			Location loc = locationDAO.findById(id);
+			if(loc == null) 
+				throw new NoDataException(Messages.NoDataExceptionMsg);
+			
+			response.setLocation(dtoAssembler.makeDTO(loc));
+			
+		} catch (MuensterInsideException e) {
+			response.setReturnCode(e.getErrorCode());
+			response.setMessage(e.getMessage());
+		} catch (Exception e) {
+			response.setReturnCode(Messages.SystemErrorCode);
+			response.setMessage(e.getMessage());
+		}
+		
+		return response;
 	}
 
 	@Override
 	public LocationListResponse getMyLocations(int deviceId) {
-		// TODO Auto-generated method stub
-		return null;
+		LocationListResponse response = new LocationListResponse();
+		
+		try {
+			List<Location> locations = locationDAO.findByDevice(deviceId);
+			
+			if(locations.isEmpty())
+				throw new NoDataException(Messages.NoDataExceptionMsg);
+			
+			response.setLocationList(dtoAssembler.makeDTOLocationList(locations));
+			
+			
+		} catch (MuensterInsideException e) {
+			response.setReturnCode(e.getErrorCode());
+			response.setMessage(e.getMessage());
+		} catch (Exception e) {
+			response.setReturnCode(Messages.SystemErrorCode);
+			response.setMessage(e.getMessage());
+		}
+		
+		return response;
 	}
+
 
 	@Override
 	public ReturncodeResponse uploadImage(int location_id, String mimeType, String imageDataBase64) {
