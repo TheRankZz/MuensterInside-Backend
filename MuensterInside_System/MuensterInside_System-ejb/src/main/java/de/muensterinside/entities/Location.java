@@ -26,13 +26,13 @@ public class Location extends BaseEntity {
 	@ManyToOne
 	private Device device;
 
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "location")
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "location")
 	private List<Comment> comments;
 
 	@ManyToOne
 	private Category category;
 
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "location")
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "location")
 	private List<Vote> votes;
 	
 	

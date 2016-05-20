@@ -5,6 +5,8 @@ import java.util.List;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 
+import org.jboss.logging.Logger;
+
 import de.muensterinside.bl.interfaces.CategoryBLLocal;
 import de.muensterinside.dao.interfaces.CategoryDAOLocal;
 import de.muensterinside.dto.CategoryListResponse;
@@ -23,6 +25,8 @@ import de.muensterinside.util.Messages;
 
 @Stateless
 public class CategoryBL implements CategoryBLLocal {
+	
+	private static final Logger logger = Logger.getLogger(CategoryBL.class);
 
 	@EJB
 	private CategoryDAOLocal daoCategory;
@@ -46,11 +50,13 @@ public class CategoryBL implements CategoryBLLocal {
 			}
 
 			response.setCategoryList(dtoAssembler.makeDTOCategoryList(categories));
-
-		} catch (MuensterInsideException ex) {
-			response.setReturnCode(ex.getErrorCode());
-			response.setMessage(ex.getMessage());
+			logger.info("Eine Liste von Kategorien wird zurückgegeben");
+		} catch (MuensterInsideException e) {
+			logger.error("Fehler " + e.getErrorCode() + ": " + e.getMessage());
+			response.setReturnCode(e.getErrorCode());
+			response.setMessage(e.getMessage());
 		} catch (Exception e) {
+			logger.fatal("Unbekannter Fehler " + Messages.SystemErrorCode + ":" + e.getMessage());
 			response.setReturnCode(Messages.SystemErrorCode);
 			response.setMessage(e.getMessage());
 		}

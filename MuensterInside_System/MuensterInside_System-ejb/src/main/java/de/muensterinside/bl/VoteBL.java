@@ -5,6 +5,8 @@ import java.util.List;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 
+import org.jboss.logging.Logger;
+
 import de.muensterinside.bl.interfaces.VoteBLLocal;
 import de.muensterinside.dao.interfaces.*;
 import de.muensterinside.dto.*;
@@ -16,6 +18,8 @@ import de.muensterinside.util.Messages;
 //TODO: Klasse kommentieren
 @Stateless
 public class VoteBL implements VoteBLLocal {
+	
+	private static final Logger logger = Logger.getLogger(VoteBL.class);
 
 	@EJB
 	private VoteDAOLocal daoVote;
@@ -44,11 +48,13 @@ public class VoteBL implements VoteBLLocal {
 				throw new NoDataException(Messages.NoSavedExceptionMsg);
 			
 			response.setLocationList(list);
-
+			logger.info("Eine Liste von Location für Device["+ deviceId + "] wird zurückgegeben");
 		} catch (MuensterInsideException e) {
+			logger.error("Fehler " + e.getErrorCode() + ": " + e.getMessage());
 			response.setReturnCode(e.getErrorCode());
 			response.setMessage(e.getMessage());
 		} catch (Exception e) {
+			logger.fatal("Unbekannter Fehler " + Messages.SystemErrorCode + ":" + e.getMessage());
 			response.setReturnCode(Messages.SystemErrorCode);
 			response.setMessage(e.getMessage());
 		}
@@ -82,6 +88,7 @@ public class VoteBL implements VoteBLLocal {
 				response.setIsVoted(true);
 			}
 		} catch (Exception e) {
+			logger.fatal("Unbekannter Fehler " + Messages.SystemErrorCode + ":" + e.getMessage());
 			response.setReturnCode(Messages.SystemErrorCode);
 			response.setMessage(e.getMessage());
 		}
@@ -109,9 +116,9 @@ public class VoteBL implements VoteBLLocal {
 			if (dev == null)
 				throw new NoDataException(Messages.NoDataExceptionMsg);
 
-			//TODO: Noch eine Exception erstellen 
+
 			if (daoVote.findByLocationAndDevice(location_id, deviceId) != null)
-				throw new MuensterInsideException(123, "Es wurde bereits für diese Location eine Stimme abgegeben!");
+				throw new VoteExistsException("Es wurde bereits für diese Location eine Stimme abgegeben!");
 
 			// Transaktion Begin
 
@@ -125,13 +132,16 @@ public class VoteBL implements VoteBLLocal {
 				loc.upVote();
 			}
 			daoLocation.update(loc);
-
+			logger.info("Es wurde ein Vote für die Location["+ location_id + "] von Device["+ deviceId +"] gespeichert");
+			
 			// Transaktion End
 
-		} catch (MuensterInsideException ex) {
-			response.setReturnCode(ex.getErrorCode());
-			response.setMessage(ex.getMessage());
+		} catch (MuensterInsideException e) {
+			logger.error("Fehler " + e.getErrorCode() + ": " + e.getMessage());
+			response.setReturnCode(e.getErrorCode());
+			response.setMessage(e.getMessage());
 		} catch (Exception e) {
+			logger.fatal("Unbekannter Fehler " + Messages.SystemErrorCode + ":" + e.getMessage());
 			response.setReturnCode(Messages.SystemErrorCode);
 			response.setMessage(e.getMessage());
 		}
