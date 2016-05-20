@@ -35,7 +35,7 @@ public class CommentDAO implements de.muensterinside.dao.interfaces.CommentDAOLo
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Comment> findByLocation(int loc_id) {
-		List<Comment> list = em.createQuery("SELECT c FROM Comment c WHERE c.location.id = :locationId")
+		List<Comment> list = em.createQuery("SELECT c FROM Comment c WHERE c.location.id = :LocationId")
 				.setParameter("LocationId", loc_id)
 				.getResultList();
 		return list;
