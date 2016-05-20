@@ -9,11 +9,11 @@ import javax.persistence.PersistenceContext;
 import de.muensterinside.entities.Device;
 
 @Stateless
-public class DeviceDAO implements de.muensterinside.dao.interfaces.DeviceDAOLocal{
+public class DeviceDAO implements de.muensterinside.dao.interfaces.DeviceDAOLocal {
 
 	@PersistenceContext
-	private EntityManager em;	
-	
+	private EntityManager em;
+
 	@Override
 	public Device findByID(int id) {
 		return em.find(Device.class, id);
@@ -22,8 +22,7 @@ public class DeviceDAO implements de.muensterinside.dao.interfaces.DeviceDAOLoca
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Device> findAll() {
-		List<Device> resultList = em.createQuery("SELECT d FROM Device d")
-				.getResultList();
+		List<Device> resultList = em.createQuery("SELECT d FROM Device d").getResultList();
 		return resultList;
 	}
 
@@ -31,10 +30,10 @@ public class DeviceDAO implements de.muensterinside.dao.interfaces.DeviceDAOLoca
 	public boolean insert(Device device) {
 		boolean result = false;
 		em.persist(device);
-		
-		if(device.getId() != 0)
+
+		if (device.getId() != 0)
 			result = true;
-		
+
 		return result;
 	}
 
@@ -48,20 +47,19 @@ public class DeviceDAO implements de.muensterinside.dao.interfaces.DeviceDAOLoca
 		boolean result = false;
 		Device device = em.find(Device.class, id);
 		em.remove(device);
-		
-		if(em.find(Device.class, id) == null) 
+
+		if (em.find(Device.class, id) == null)
 			result = true;
-		
-		return result;	
+
+		return result;
 	}
 
 	@Override
 	public Device findByAndroidUuid(String uuid) {
 		List results = em.createQuery("SELECT d FROM Device d WHERE d.androidUuid LIKE :uuid")
-				.setParameter("uuid", uuid)
-				.getResultList();
-		
-		if(results.size() == 1) {
+				.setParameter("uuid", uuid).getResultList();
+
+		if (results.size() == 1) {
 			return (Device) results.get(0);
 		} else {
 			return null;
@@ -72,10 +70,10 @@ public class DeviceDAO implements de.muensterinside.dao.interfaces.DeviceDAOLoca
 	public boolean isExists(int deviceId) {
 		boolean result = false;
 		Device device = findByID(deviceId);
-		if(device != null) 
+		if (device != null)
 			result = true;
-		
-		return result;	
+
+		return result;
 	}
-	
+
 }

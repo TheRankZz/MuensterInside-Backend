@@ -2,6 +2,7 @@ package de.muensterinside.bl;
 
 import java.util.List;
 
+
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 
@@ -19,6 +20,9 @@ import de.muensterinside.exceptions.NoDataException;
 import de.muensterinside.exceptions.NoSavedException;
 import de.muensterinside.util.DtoAssembler;
 import de.muensterinside.util.Messages;
+
+
+//TODO: Klasse kommentieren
 
 @Stateless
 public class CommentBL implements CommentBLLocal {
@@ -96,7 +100,7 @@ public class CommentBL implements CommentBLLocal {
 
 			Comment comment = new Comment(text, device, location);
 
-			if (commentDAO.insert(comment))
+			if (!commentDAO.insert(comment))
 				throw new NoSavedException(Messages.NoSavedExceptionMsg);
 
 		} catch (MuensterInsideException e) {

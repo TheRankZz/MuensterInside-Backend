@@ -6,6 +6,7 @@ public class MuensterInsideException extends Exception {
 
 	private int errorCode;
 	
+	
 	public MuensterInsideException(int errorCode, String message) {
 		super(message);
 		this.errorCode = errorCode;

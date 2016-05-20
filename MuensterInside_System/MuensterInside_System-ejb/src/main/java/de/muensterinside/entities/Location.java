@@ -20,10 +20,8 @@ public class Location extends BaseEntity {
 
 	private String link;
 
+	@Column(name="value")
 	private int voteValue;
-	
-	//@OneToOne
-	//private Image image;
 
 	@ManyToOne
 	private Device device;
@@ -36,6 +34,7 @@ public class Location extends BaseEntity {
 
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "location")
 	private List<Vote> votes;
+	
 	
 	public Location() {
 	}

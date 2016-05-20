@@ -15,7 +15,7 @@ import javax.persistence.*;
 @Table(name = "devices")
 public class Device extends BaseEntity {
 
-	@Column(unique = true, nullable = false)
+	@Column(name = "android_uuid", unique = true, nullable = false)
 	private String androidUuid;
 
 	@Column(nullable = false)

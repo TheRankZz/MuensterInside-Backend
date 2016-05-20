@@ -13,6 +13,7 @@ import de.muensterinside.exceptions.*;
 import de.muensterinside.util.DtoAssembler;
 import de.muensterinside.util.Messages;
 
+//TODO: Klasse kommentieren
 @Stateless
 public class VoteBL implements VoteBLLocal {
 
@@ -34,6 +35,7 @@ public class VoteBL implements VoteBLLocal {
 
 		try {
 			Device dev = daoDevice.findByID(deviceId);
+			//TODO: Die Locations werden nicht geladen.
 			if (dev.getLocations().isEmpty())
 				throw new NoDataException(Messages.NoDataExceptionMsg);
 			
@@ -107,6 +109,7 @@ public class VoteBL implements VoteBLLocal {
 			if (dev == null)
 				throw new NoDataException(Messages.NoDataExceptionMsg);
 
+			//TODO: Noch eine Exception erstellen 
 			if (daoVote.findByLocationAndDevice(location_id, deviceId) != null)
 				throw new MuensterInsideException(123, "Es wurde bereits für diese Location eine Stimme abgegeben!");
 

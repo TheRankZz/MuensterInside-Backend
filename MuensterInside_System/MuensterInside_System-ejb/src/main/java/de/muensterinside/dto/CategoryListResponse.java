@@ -11,10 +11,6 @@ public class CategoryListResponse extends ReturncodeResponse {
 
 	private List<CategoryTO> categoryList;
 	
-	public CategoryListResponse() {
-		// TODO Auto-generated constructor stub
-	}
-
 	public List<CategoryTO> getCategoryList() {
 		return categoryList;
 	}

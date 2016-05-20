@@ -19,6 +19,7 @@ import de.muensterinside.util.Messages;
  * @author Lennart Giesen, Julius Wessing
  *
  */
+//TODO: Klasse kommentieren
 
 @Stateless
 public class CategoryBL implements CategoryBLLocal {

@@ -1,33 +1,33 @@
 package de.muensterinside.entities;
 
-import javax.persistence.Basic;
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "images")
 public class Image extends BaseEntity {
+	
+	@Column(name = "mimetype")
+	private String mimeType; 
+	
+	@Lob
+	private byte[] content;
+	
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name="location_id", unique=true)
+	private Location location;
 	
 	
 	public Image() { }
 	
-	public Image(byte[] imageData, String mimeType, Location location) {
-		this.imageData = imageData;
+	public Image(byte[] imageData, String mimeType) {
 		this.mimeType = mimeType;
-		/*this.location = location;*/
 	}
-	
-	/*
-	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "image")
-	private Location location; */
-	
-	private String mimeType; 
-
-	@Lob
-	@Basic(fetch=FetchType.LAZY) 
-	private  byte[]  imageData;
 
 	public String getMimeType() {
 		return mimeType;
@@ -37,17 +37,12 @@ public class Image extends BaseEntity {
 		this.mimeType = mimeType;
 	}
 
-	public byte[] getImageData() {
-		return imageData;
+	public byte[] getContent() {
+		return content;
 	}
 
-	public void setImageData(byte[] imageData) {
-		this.imageData = imageData;
+	public void setContent(byte[] content) {
+		this.content = content;
 	}
-
-	/*
-	public Location getLocation() {
-		return location;
-	}
-	 */
+	
 }
