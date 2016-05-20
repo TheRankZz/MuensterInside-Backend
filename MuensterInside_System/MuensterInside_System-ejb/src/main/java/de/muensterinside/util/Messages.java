@@ -2,7 +2,7 @@ package de.muensterinside.util;
 
 public final class Messages {
 	
-	public static final int SystemErrorCode = 501;
+	public static final int SystemErrorCode = 500;
 	
 	public static final String NoSavedExceptionMsg = "Die Daten konnten nicht gespeichert werden";
 	public static final String NoDataExceptionMsg = "Keine Daten vorhanden";
