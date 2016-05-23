@@ -1,6 +1,9 @@
 package de.muensterinside.persistencetest;
 
+import static org.junit.Assert.*;
+
 import javax.ejb.EJB;
+import javax.persistence.EntityManager;
 
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
@@ -18,6 +21,7 @@ public class MuensterInsideCategoryDAOTest {
 
 	@EJB
 	CategoryDAOLocal dao;
+	
 
 	
 	@Deployment
@@ -34,8 +38,8 @@ public class MuensterInsideCategoryDAOTest {
 	 */
 	@Test
 	public void test1() throws Exception {
-		boolean test;
-		assert test=true;
+		Category cat = new Category("Hans");
+		assertTrue (dao.insert(cat)); 
 	}
 	
 

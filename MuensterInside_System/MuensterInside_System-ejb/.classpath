@@ -29,7 +29,7 @@
 			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="/home/user/.m2/repository/org/jboss/ws/jbossws-api/1.0.3.Final/jbossws-api-1.0.3.Final.jar">
+	<classpathentry excluding="**" kind="src" output="target/test-classes" path="src/test/resources">
 		<attributes>
 			<attribute name="maven.pomderived" value="true"/>
 			<attribute name="maven.groupId" value="org.jboss.ws"/>
@@ -39,5 +39,6 @@
 			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="/home/user/.m2/repository/org/jboss/ws/jbossws-api/1.0.3.Final/jbossws-api-1.0.3.Final.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
