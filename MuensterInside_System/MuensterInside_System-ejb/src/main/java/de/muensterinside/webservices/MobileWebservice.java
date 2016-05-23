@@ -1,12 +1,15 @@
 package de.muensterinside.webservices;
 
-import de.muensterinside.bl.interfaces.*;
-
+import de.muensterinside.services.CategoryServiceLocal;
+import de.muensterinside.services.CommentServiceLocal;
+import de.muensterinside.services.DeviceServiceLocal;
+import de.muensterinside.services.LocationBLLocal;
+import de.muensterinside.services.VoteServiceLocal;
 /**
  * Interface: Webservice für Mobile-Clients
  * @author Lennart Giesen, Julius Wessing
  *
  */
 public interface MobileWebservice 
-	extends VoteBLLocal, CommentBLLocal, LocationBLLocal, CategoryBLLocal, DeviceBLLocal {
+	extends VoteServiceLocal, CommentServiceLocal, LocationBLLocal, CategoryServiceLocal, DeviceServiceLocal {
 }

@@ -1,4 +1,4 @@
-package de.muensterinside.bl;
+package de.muensterinside.services;
 
 import java.util.List;
 
@@ -7,8 +7,9 @@ import javax.ejb.Stateless;
 
 import org.jboss.logging.Logger;
 
-import de.muensterinside.bl.interfaces.VoteBLLocal;
-import de.muensterinside.dao.interfaces.*;
+import de.muensterinside.dao.DeviceDAOLocal;
+import de.muensterinside.dao.LocationDAOLocal;
+import de.muensterinside.dao.VoteDAOLocal;
 import de.muensterinside.dto.*;
 import de.muensterinside.entities.*;
 import de.muensterinside.exceptions.*;
@@ -17,9 +18,9 @@ import de.muensterinside.util.Messages;
 
 //TODO: Klasse kommentieren
 @Stateless
-public class VoteBL implements VoteBLLocal {
+public class VoteService implements VoteServiceLocal {
 	
-	private static final Logger logger = Logger.getLogger(VoteBL.class);
+	private static final Logger logger = Logger.getLogger(VoteService.class);
 
 	@EJB
 	private VoteDAOLocal daoVote;

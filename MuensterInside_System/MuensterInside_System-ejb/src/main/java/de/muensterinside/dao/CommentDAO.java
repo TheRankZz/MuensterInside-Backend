@@ -14,7 +14,7 @@ import de.muensterinside.entities.Comment;
  *
  */
 @Stateless
-public class CommentDAO implements de.muensterinside.dao.interfaces.CommentDAOLocal {
+public class CommentDAO implements de.muensterinside.dao.CommentDAOLocal {
 
 	@PersistenceContext
 	private EntityManager em;

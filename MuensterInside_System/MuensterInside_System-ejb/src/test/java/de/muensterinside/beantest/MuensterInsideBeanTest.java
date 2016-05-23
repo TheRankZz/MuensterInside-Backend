@@ -13,7 +13,7 @@ import org.jboss.shrinkwrap.api.spec.WebArchive;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import de.muensterinside.bl.CommentBL;
+import de.muensterinside.services.CommentService;
 
 
 
@@ -22,7 +22,7 @@ import de.muensterinside.bl.CommentBL;
 public class MuensterInsideBeanTest {
 
 	@EJB
-	CommentBL CommentBL;
+	CommentService CommentBL;
 	
 	
 

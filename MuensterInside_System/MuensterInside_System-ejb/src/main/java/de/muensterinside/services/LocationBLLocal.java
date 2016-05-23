@@ -1,4 +1,4 @@
-package de.muensterinside.bl.interfaces;
+package de.muensterinside.services;
 
 import javax.ejb.Local;
 

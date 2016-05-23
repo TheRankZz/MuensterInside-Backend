@@ -1,4 +1,4 @@
-package de.muensterinside.bl;
+package de.muensterinside.services;
 
 import java.util.List;
 
@@ -6,10 +6,9 @@ import java.util.List;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 
-import de.muensterinside.bl.interfaces.CommentBLLocal;
-import de.muensterinside.dao.interfaces.CommentDAOLocal;
-import de.muensterinside.dao.interfaces.DeviceDAOLocal;
-import de.muensterinside.dao.interfaces.LocationDAOLocal;
+import de.muensterinside.dao.CommentDAOLocal;
+import de.muensterinside.dao.DeviceDAOLocal;
+import de.muensterinside.dao.LocationDAOLocal;
 import de.muensterinside.dto.CommentListResponse;
 import de.muensterinside.dto.ReturncodeResponse;
 import de.muensterinside.entities.Comment;
@@ -25,7 +24,7 @@ import de.muensterinside.util.Messages;
 //TODO: Klasse kommentieren
 
 @Stateless
-public class CommentBL implements CommentBLLocal {
+public class CommentService implements CommentServiceLocal {
 
 	@EJB
 	CommentDAOLocal commentDAO;

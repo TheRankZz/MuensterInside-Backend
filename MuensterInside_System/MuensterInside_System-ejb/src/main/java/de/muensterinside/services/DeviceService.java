@@ -1,12 +1,11 @@
-package de.muensterinside.bl;
+package de.muensterinside.services;
 
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 
 import org.jboss.logging.Logger;
 
-import de.muensterinside.bl.interfaces.DeviceBLLocal;
-import de.muensterinside.dao.interfaces.DeviceDAOLocal;
+import de.muensterinside.dao.DeviceDAOLocal;
 import de.muensterinside.dto.DeviceResponse;
 import de.muensterinside.entities.Device;
 import de.muensterinside.exceptions.DeviceExistsException;
@@ -17,9 +16,9 @@ import de.muensterinside.util.Messages;
 
 //TODO: Klasse kommentieren
 @Stateless
-public class DeviceBL implements DeviceBLLocal {
+public class DeviceService implements DeviceServiceLocal {
 
-	private static final Logger logger = Logger.getLogger(DeviceBL.class);
+	private static final Logger logger = Logger.getLogger(DeviceService.class);
 
 	@EJB
 	DeviceDAOLocal daoDevice;

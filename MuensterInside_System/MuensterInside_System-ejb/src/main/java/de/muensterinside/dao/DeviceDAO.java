@@ -9,7 +9,7 @@ import javax.persistence.PersistenceContext;
 import de.muensterinside.entities.Device;
 
 @Stateless
-public class DeviceDAO implements de.muensterinside.dao.interfaces.DeviceDAOLocal {
+public class DeviceDAO implements de.muensterinside.dao.DeviceDAOLocal {
 
 	@PersistenceContext
 	private EntityManager em;

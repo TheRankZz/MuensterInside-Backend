@@ -7,7 +7,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
-import de.muensterinside.entities.Device;
 import de.muensterinside.entities.Location;
 
 /**
@@ -16,7 +15,7 @@ import de.muensterinside.entities.Location;
  *
  */
 @Stateless
-public class LocationDAO implements de.muensterinside.dao.interfaces.LocationDAOLocal {
+public class LocationDAO implements de.muensterinside.dao.LocationDAOLocal {
 
 	@PersistenceContext
 	private EntityManager em;

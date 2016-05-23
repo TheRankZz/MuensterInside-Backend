@@ -14,7 +14,7 @@ import de.muensterinside.entities.Category;
  *
  */
 @Stateless
-public class CategoryDAO implements de.muensterinside.dao.interfaces.CategoryDAOLocal {
+public class CategoryDAO implements de.muensterinside.dao.CategoryDAOLocal {
 
 	@PersistenceContext
 	private EntityManager em;

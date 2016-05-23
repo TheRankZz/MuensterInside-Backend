@@ -2,9 +2,6 @@ package de.muensterinside.dto;
 
 import java.util.Date;
 
-import de.muensterinside.entities.Device;
-import de.muensterinside.entities.Location;
-
 /**
  * 
  * @author Lennart Giesen, Julius Wessing

@@ -1,4 +1,4 @@
-package de.muensterinside.bl;
+package de.muensterinside.services;
 
 import java.util.List;
 
@@ -7,8 +7,7 @@ import javax.ejb.Stateless;
 
 import org.jboss.logging.Logger;
 
-import de.muensterinside.bl.interfaces.CategoryBLLocal;
-import de.muensterinside.dao.interfaces.CategoryDAOLocal;
+import de.muensterinside.dao.CategoryDAOLocal;
 import de.muensterinside.dto.CategoryListResponse;
 import de.muensterinside.entities.Category;
 import de.muensterinside.exceptions.MuensterInsideException;
@@ -24,9 +23,9 @@ import de.muensterinside.util.Messages;
 //TODO: Klasse kommentieren
 
 @Stateless
-public class CategoryBL implements CategoryBLLocal {
+public class CategoryService implements CategoryServiceLocal {
 	
-	private static final Logger logger = Logger.getLogger(CategoryBL.class);
+	private static final Logger logger = Logger.getLogger(CategoryService.class);
 
 	@EJB
 	private CategoryDAOLocal daoCategory;

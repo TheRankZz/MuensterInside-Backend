@@ -1,14 +1,13 @@
-package de.muensterinside.bl;
+package de.muensterinside.services;
 
 import java.util.List;
 
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 
-import de.muensterinside.bl.interfaces.LocationBLLocal;
-import de.muensterinside.dao.interfaces.CategoryDAOLocal;
-import de.muensterinside.dao.interfaces.DeviceDAOLocal;
-import de.muensterinside.dao.interfaces.LocationDAOLocal;
+import de.muensterinside.dao.CategoryDAOLocal;
+import de.muensterinside.dao.DeviceDAOLocal;
+import de.muensterinside.dao.LocationDAOLocal;
 import de.muensterinside.dto.ImageResponse;
 import de.muensterinside.dto.LocationListResponse;
 import de.muensterinside.dto.LocationResponse;
@@ -30,7 +29,7 @@ import de.muensterinside.util.Messages;
 
 //TODO: Klasse kommentieren
 @Stateless
-public class LocationBL implements LocationBLLocal {
+public class LocationService implements LocationBLLocal {
 
 	@EJB
 	LocationDAOLocal locationDAO;

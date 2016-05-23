@@ -9,7 +9,7 @@ import org.jboss.shrinkwrap.api.spec.WebArchive;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import de.muensterinside.dao.interfaces.CategoryDAOLocal;
+import de.muensterinside.dao.CategoryDAOLocal;
 import de.muensterinside.entities.Category;
 
 @RunWith(Arquillian.class)

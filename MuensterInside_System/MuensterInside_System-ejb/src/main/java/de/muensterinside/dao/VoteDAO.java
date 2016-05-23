@@ -15,7 +15,7 @@ import de.muensterinside.entities.Vote;
  *
  */
 @Stateless
-public class VoteDAO implements de.muensterinside.dao.interfaces.VoteDAOLocal {
+public class VoteDAO implements de.muensterinside.dao.VoteDAOLocal {
 
 	@PersistenceContext
 	private EntityManager em;

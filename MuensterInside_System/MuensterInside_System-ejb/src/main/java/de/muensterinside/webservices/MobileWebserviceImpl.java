@@ -7,9 +7,12 @@ import javax.jws.WebService;
 import org.jboss.logging.Logger;
 import org.jboss.ws.api.annotation.WebContext;
 
-import de.muensterinside.bl.VoteBL;
-import de.muensterinside.bl.interfaces.*;
 import de.muensterinside.dto.*;
+import de.muensterinside.services.CategoryServiceLocal;
+import de.muensterinside.services.CommentServiceLocal;
+import de.muensterinside.services.DeviceServiceLocal;
+import de.muensterinside.services.LocationBLLocal;
+import de.muensterinside.services.VoteServiceLocal;
 
 /**
  * 
@@ -24,19 +27,19 @@ public class MobileWebserviceImpl implements MobileWebservice {
 	private static final Logger logger = Logger.getLogger(MobileWebserviceImpl.class);
 
 	@EJB
-	private CategoryBLLocal categoryBL;
+	private CategoryServiceLocal categoryBL;
 
 	@EJB
-	private VoteBLLocal voteBL;
+	private VoteServiceLocal voteBL;
 
 	@EJB
-	private CommentBLLocal commentBL;
+	private CommentServiceLocal commentBL;
 
 	@EJB
 	private LocationBLLocal locationBL;
 
 	@EJB
-	private DeviceBLLocal deviceBL;
+	private DeviceServiceLocal deviceBL;
 
 	public CategoryListResponse getCategories() {
 		logger.info("Methodenaufruf: getCategories()");

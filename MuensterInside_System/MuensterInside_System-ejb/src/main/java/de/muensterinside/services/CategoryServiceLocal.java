@@ -1,11 +1,11 @@
-package de.muensterinside.bl.interfaces;
+package de.muensterinside.services;
 
 import javax.ejb.Local;
 
 import de.muensterinside.dto.CategoryListResponse;
 
 @Local
-public interface CategoryBLLocal {
+public interface CategoryServiceLocal {
 
 	public CategoryListResponse getCategories();
 	

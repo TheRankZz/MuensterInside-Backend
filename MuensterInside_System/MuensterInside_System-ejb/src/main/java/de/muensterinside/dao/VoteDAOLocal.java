@@ -1,4 +1,4 @@
-package de.muensterinside.dao.interfaces;
+package de.muensterinside.dao;
 
 import java.util.List;
 

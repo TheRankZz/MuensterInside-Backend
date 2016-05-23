@@ -1,4 +1,4 @@
-package de.muensterinside.bl.interfaces;
+package de.muensterinside.services;
 
 import javax.ejb.Local;
 
@@ -7,7 +7,7 @@ import de.muensterinside.dto.LocationListResponse;
 import de.muensterinside.dto.ReturncodeResponse;
 
 @Local
-public interface VoteBLLocal {
+public interface VoteServiceLocal {
 
 public LocationListResponse getMyVotes(int deviceId);
 	

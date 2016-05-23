@@ -6,7 +6,6 @@ import javax.ejb.*;
 import javax.persistence.*;
 
 import de.muensterinside.entities.Category;
-import de.muensterinside.entities.Location;
 
 @Singleton
 @Startup
