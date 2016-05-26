@@ -15,14 +15,24 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import de.muensterinside.dao.CategoryDAOLocal;
+import de.muensterinside.dao.DeviceDAOLocal;
+import de.muensterinside.dao.LocationDAOLocal;
 import de.muensterinside.entities.Category;
+import de.muensterinside.entities.Device;
+import de.muensterinside.entities.Location;
 
 @RunWith(Arquillian.class)
-public class MuensterInsideCategoryDAOTest {
+public class MuensterInsideLocationDAOTest {
 
 
 	@EJB
-	CategoryDAOLocal dao;
+	LocationDAOLocal dao;
+	
+	@EJB
+	DeviceDAOLocal deviceDAO;
+	
+	@EJB
+	CategoryDAOLocal categoryDAO;
 	
 
 	
@@ -40,28 +50,29 @@ public class MuensterInsideCategoryDAOTest {
 	 */
 	@Test
 	public void insert() throws Exception {
-		Category category = new Category();
-		assertTrue (dao.insert(category)); 
+		Device device = deviceDAO.findByID(1);
+		Category category = categoryDAO.findByID(1);
+		Location location = new Location("TestLocation", "TestDescription", "http://...", device, category);
+		assertTrue (dao.insert(location)); 
 	}
 	
 	@Test
 	public void findByID() throws Exception {
-		Category category = dao.findByID(1);
-		assert category!=null : "Kategorie nicht gefunden.";
+		Location location = dao.findById(1);
+		assert location!=null : "Location nicht gefunden.";
 	}
 	
 	@Test
 	public void findAll() throws Exception {
-		List<Category> categories = dao.findAll();
-		for(Category category : categories) {
-			assert category!=null : "Kategorie nicht gefunden.";
+		List<Location> locations = dao.findAll();
+		for(Location location : locations) {
+			assert location!=null : "Kategorie nicht gefunden.";
 		}
 	}
 	
 	@Test
 	public void update() throws Exception {
 		//Muss noch implementiert werden
-		//Muss es fest verdrahtet sein?
 	}
 	
 	@Test
@@ -71,7 +82,23 @@ public class MuensterInsideCategoryDAOTest {
 	
 	@Test
 	public void delete() throws Exception {
-		assertTrue (dao.delete(1));
+		assertTrue (dao.delete(2));
+	}
+	
+	@Test
+	public void findByCategory() throws Exception {
+		List<Location> locations = dao.findByCategory(1);
+		for(Location location : locations) {
+			assert location!=null : "Location nicht gefunden.";
+		}
+	}
+	
+	@Test
+	public void findByDevice() throws Exception {
+		List<Location> locations = dao.findByDevice(1);
+		for(Location location : locations) {
+			assert location!=null : "Location nicht gefunden.";
+		}
 	}
 	
 }

@@ -5,8 +5,6 @@ import static org.junit.Assert.*;
 import java.util.List;
 
 import javax.ejb.EJB;
-import javax.persistence.EntityManager;
-
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
@@ -14,15 +12,19 @@ import org.jboss.shrinkwrap.api.spec.WebArchive;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import de.muensterinside.dao.CategoryDAOLocal;
-import de.muensterinside.entities.Category;
+import de.muensterinside.dao.CommentDAOLocal;
+import de.muensterinside.dao.DeviceDAOLocal;
+import de.muensterinside.dao.LocationDAOLocal;
+import de.muensterinside.entities.Comment;
+import de.muensterinside.entities.Device;
+import de.muensterinside.entities.Location;
 
 @RunWith(Arquillian.class)
-public class MuensterInsideCategoryDAOTest {
+public class MuensterInsideDeviceDAOTest {
 
 
 	@EJB
-	CategoryDAOLocal dao;
+	DeviceDAOLocal dao;
 	
 
 	
@@ -40,21 +42,21 @@ public class MuensterInsideCategoryDAOTest {
 	 */
 	@Test
 	public void insert() throws Exception {
-		Category category = new Category();
-		assertTrue (dao.insert(category)); 
+		Device device = new Device("TestAndroidUuid", "TestUsername");
+		assertTrue (dao.insert(device)); 
 	}
 	
 	@Test
 	public void findByID() throws Exception {
-		Category category = dao.findByID(1);
-		assert category!=null : "Kategorie nicht gefunden.";
+		Device device = dao.findByID(1);
+		assert device!=null : "Device nicht gefunden.";
 	}
 	
 	@Test
 	public void findAll() throws Exception {
-		List<Category> categories = dao.findAll();
-		for(Category category : categories) {
-			assert category!=null : "Kategorie nicht gefunden.";
+		List<Device> devices = dao.findAll();
+		for(Device device : devices) {
+			assert device!=null : "Device nicht gefunden.";
 		}
 	}
 	
@@ -65,13 +67,19 @@ public class MuensterInsideCategoryDAOTest {
 	}
 	
 	@Test
-	public void isExists() throws Exception {
-		assertTrue (dao.isExists(2));
+	public void delete() throws Exception {
+		assertTrue (dao.delete(1));
 	}
 	
 	@Test
-	public void delete() throws Exception {
-		assertTrue (dao.delete(1));
+	public void findByAndroidUuid() throws Exception {
+		Device device = dao.findByAndroidUuid("TestAndroidUuid");
+		assert device!=null : "Device nicht gefunden.";
+	}
+	
+	@Test
+	public void isExists() throws Exception {
+		assertTrue (dao.isExists(2));
 	}
 	
 }

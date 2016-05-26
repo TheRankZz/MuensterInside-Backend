@@ -5,7 +5,6 @@ import static org.junit.Assert.*;
 import java.util.List;
 
 import javax.ejb.EJB;
-import javax.persistence.EntityManager;
 
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
@@ -14,15 +13,26 @@ import org.jboss.shrinkwrap.api.spec.WebArchive;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import de.muensterinside.dao.CategoryDAOLocal;
-import de.muensterinside.entities.Category;
+import de.muensterinside.dao.DeviceDAOLocal;
+import de.muensterinside.dao.LocationDAOLocal;
+import de.muensterinside.dao.VoteDAOLocal;
+import de.muensterinside.entities.Device;
+import de.muensterinside.entities.Location;
+import de.muensterinside.entities.Vote;
+import de.muensterinside.entities.VoteType;
 
 @RunWith(Arquillian.class)
-public class MuensterInsideCategoryDAOTest {
+public class MuensterInsideVoteDAOTest {
 
 
 	@EJB
-	CategoryDAOLocal dao;
+	VoteDAOLocal dao;
+	
+	@EJB
+	LocationDAOLocal locationDAO;
+	
+	@EJB
+	DeviceDAOLocal deviceDAO;
 	
 
 	
@@ -40,21 +50,25 @@ public class MuensterInsideCategoryDAOTest {
 	 */
 	@Test
 	public void insert() throws Exception {
-		Category category = new Category();
-		assertTrue (dao.insert(category)); 
+		Location location = locationDAO.findById(1);
+		Device device = deviceDAO.findByID(1);
+		VoteType voteType = VoteType.up;
+		
+		Vote vote = new Vote(location, device, voteType);
+		assertTrue (dao.insert(vote)); 
 	}
 	
 	@Test
 	public void findByID() throws Exception {
-		Category category = dao.findByID(1);
-		assert category!=null : "Kategorie nicht gefunden.";
+		Vote vote = dao.findById(1);
+		assert vote!=null : "Kategorie nicht gefunden.";
 	}
 	
 	@Test
 	public void findAll() throws Exception {
-		List<Category> categories = dao.findAll();
-		for(Category category : categories) {
-			assert category!=null : "Kategorie nicht gefunden.";
+		List<Vote> votes = dao.findAll();
+		for(Vote vote : votes) {
+			assert vote!=null : "Vote nicht gefunden.";
 		}
 	}
 	
@@ -65,8 +79,9 @@ public class MuensterInsideCategoryDAOTest {
 	}
 	
 	@Test
-	public void isExists() throws Exception {
-		assertTrue (dao.isExists(2));
+	public void findByLocationAndDevice() throws Exception {
+		Vote vote = dao.findByLocationAndDevice(1, 1);
+		assert vote!=null : "Vote nicht gefunden.";
 	}
 	
 	@Test
