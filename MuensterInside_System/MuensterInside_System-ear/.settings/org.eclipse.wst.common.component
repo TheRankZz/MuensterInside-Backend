@@ -8,5 +8,8 @@
         <dependent-module archiveName="MuensterInside_System-ejb-1.0.0.jar" deploy-path="/" handle="module:/resource/MuensterInside_System-ejb/MuensterInside_System-ejb">
             <dependency-type>uses</dependency-type>
         </dependent-module>
+        <dependent-module archiveName="jbossws-api-1.0.3.Final.jar" deploy-path="/" handle="module:/classpath/var/M2_REPO/org/jboss/ws/jbossws-api/1.0.3.Final/jbossws-api-1.0.3.Final.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
     </wb-module>
 </project-modules>
