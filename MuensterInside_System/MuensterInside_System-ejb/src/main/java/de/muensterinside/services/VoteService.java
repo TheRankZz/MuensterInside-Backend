@@ -78,6 +78,7 @@ public class VoteService implements VoteServiceLocal {
 	public ReturncodeResponse downVote(int location_id, int deviceId) {
 		return vote(location_id, deviceId, VoteType.down);
 	}
+	
 
 	@Override
 	public IsVotedRepsonse isVoted(int location_id, int deviceId) {

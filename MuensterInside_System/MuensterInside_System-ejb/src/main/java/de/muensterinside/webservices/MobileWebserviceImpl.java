@@ -11,7 +11,7 @@ import de.muensterinside.dto.*;
 import de.muensterinside.services.CategoryServiceLocal;
 import de.muensterinside.services.CommentServiceLocal;
 import de.muensterinside.services.DeviceServiceLocal;
-import de.muensterinside.services.LocationBLLocal;
+import de.muensterinside.services.LocationServiceLocal;
 import de.muensterinside.services.VoteServiceLocal;
 
 /**
@@ -36,7 +36,7 @@ public class MobileWebserviceImpl implements MobileWebservice {
 	private CommentServiceLocal commentBL;
 
 	@EJB
-	private LocationBLLocal locationBL;
+	private LocationServiceLocal locationBL;
 
 	@EJB
 	private DeviceServiceLocal deviceBL;

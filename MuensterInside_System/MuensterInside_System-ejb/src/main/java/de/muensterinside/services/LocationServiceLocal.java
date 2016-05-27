@@ -8,7 +8,7 @@ import de.muensterinside.dto.LocationResponse;
 import de.muensterinside.dto.ReturncodeResponse;
 
 @Local
-public interface LocationBLLocal {
+public interface LocationServiceLocal {
 
 	public LocationResponse getLocation(int id);
 	

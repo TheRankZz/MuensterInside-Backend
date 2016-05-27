@@ -29,7 +29,7 @@ import de.muensterinside.util.Messages;
 
 //TODO: Klasse kommentieren
 @Stateless
-public class LocationService implements LocationBLLocal {
+public class LocationService implements LocationServiceLocal {
 
 	@EJB
 	LocationDAOLocal locationDAO;
