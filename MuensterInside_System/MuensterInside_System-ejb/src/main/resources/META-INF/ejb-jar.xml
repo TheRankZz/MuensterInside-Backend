@@ -17,6 +17,26 @@
         <env-entry-type>java.lang.String</env-entry-type>
         <env-entry-value>Trinken</env-entry-value>
       </env-entry>
+      <env-entry>
+        <env-entry-name>de.muensterinside.dao.DataBuilder/androidUuid1</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>MeineAndroidUuid1</env-entry-value>
+      </env-entry>
+      <env-entry>
+        <env-entry-name>de.muensterinside.dao.DataBuilder/androidUuid2</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>MeineAndroidUuid2</env-entry-value>
+      </env-entry>
+      <env-entry>
+        <env-entry-name>de.muensterinside.dao.DataBuilder/username1</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>Julius</env-entry-value>
+      </env-entry>
+      <env-entry>
+        <env-entry-name>de.muensterinside.dao.DataBuilder/username2</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>Lennart</env-entry-value>
+      </env-entry>
     </session>
   </enterprise-beans>
 </ejb-jar>

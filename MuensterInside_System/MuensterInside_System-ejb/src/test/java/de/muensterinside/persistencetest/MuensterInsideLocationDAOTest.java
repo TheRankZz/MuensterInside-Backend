@@ -70,19 +70,20 @@ public class MuensterInsideLocationDAOTest {
 		}
 	}
 	
-	@Test
-	public void update() throws Exception {
-		//Muss noch implementiert werden
-	}
-	
+	/*
 	@Test
 	public void isExists() throws Exception {
 		assertTrue (dao.isExists(2));
-	}
+	}*/
 	
 	@Test
 	public void delete() throws Exception {
-		assertTrue (dao.delete(2));
+		Device device = deviceDAO.findByID(1);
+		Category category = categoryDAO.findByID(1);
+		Location location = new Location("TestLocation", "TestDescription", "http://...", device, category);
+		
+		dao.insert(location);
+		assertTrue (dao.delete(location.getId()));
 	}
 	
 	@Test

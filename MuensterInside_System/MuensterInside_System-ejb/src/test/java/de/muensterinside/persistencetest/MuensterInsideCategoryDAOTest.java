@@ -44,11 +44,12 @@ public class MuensterInsideCategoryDAOTest {
 		assertTrue (dao.insert(category)); 
 	}
 	
+	/*
 	@Test
 	public void findByID() throws Exception {
 		Category category = dao.findByID(1);
 		assert category!=null : "Kategorie nicht gefunden.";
-	}
+	}*/
 	
 	@Test
 	public void findAll() throws Exception {
@@ -59,19 +60,16 @@ public class MuensterInsideCategoryDAOTest {
 	}
 	
 	@Test
-	public void update() throws Exception {
-		//Muss noch implementiert werden
-		//Muss es fest verdrahtet sein?
-	}
-	
-	@Test
 	public void isExists() throws Exception {
 		assertTrue (dao.isExists(2));
 	}
 	
 	@Test
 	public void delete() throws Exception {
-		assertTrue (dao.delete(1));
+		Category category = new Category("Test");
+		
+		dao.insert(category);
+		assertTrue (dao.delete(category.getId()));
 	}
 	
 }

@@ -72,21 +72,22 @@ public class MuensterInsideVoteDAOTest {
 		}
 	}
 	
-	@Test
-	public void update() throws Exception {
-		//Muss noch implementiert werden
-		//Muss es fest verdrahtet sein?
-	}
-	
+	/*
 	@Test
 	public void findByLocationAndDevice() throws Exception {
 		Vote vote = dao.findByLocationAndDevice(1, 1);
 		assert vote!=null : "Vote nicht gefunden.";
-	}
+	}*/
 	
 	@Test
 	public void delete() throws Exception {
-		assertTrue (dao.delete(1));
+		Location location = locationDAO.findById(1);
+		Device device = deviceDAO.findByID(1);
+		VoteType voteType = VoteType.up;
+		
+		Vote vote = new Vote(location, device, voteType);
+		dao.insert(vote);
+		assertTrue (dao.delete(vote.getId()));
 	}
 	
 }

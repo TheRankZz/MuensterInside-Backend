@@ -61,14 +61,11 @@ public class MuensterInsideDeviceDAOTest {
 	}
 	
 	@Test
-	public void update() throws Exception {
-		//Muss noch implementiert werden
-		//Muss es fest verdrahtet sein?
-	}
-	
-	@Test
 	public void delete() throws Exception {
-		assertTrue (dao.delete(1));
+		Device device = new Device("TestAndroidUuid", "TestUsername");
+		
+		dao.insert(device);
+		assertTrue (dao.delete(device.getId()));
 	}
 	
 	@Test
@@ -77,9 +74,10 @@ public class MuensterInsideDeviceDAOTest {
 		assert device!=null : "Device nicht gefunden.";
 	}
 	
+	/*
 	@Test
 	public void isExists() throws Exception {
 		assertTrue (dao.isExists(2));
-	}
+	}*/
 	
 }

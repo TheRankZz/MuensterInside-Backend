@@ -69,14 +69,13 @@ public class MuensterInsideCommentDAOTest {
 	}
 	
 	@Test
-	public void update() throws Exception {
-		//Muss noch implementiert werden
-		//Muss es fest verdrahtet sein?
-	}
-	
-	@Test
 	public void delete() throws Exception {
-		assertTrue (dao.delete(1));
+		Device device = deviceDAO.findByID(1);
+		Location location = locationDAO.findById(1);
+		Comment comment = new Comment("TestComment", device, location);
+		
+		dao.insert(comment);
+		assertTrue (dao.delete(comment.getId()));
 	}
 	
 	@Test
