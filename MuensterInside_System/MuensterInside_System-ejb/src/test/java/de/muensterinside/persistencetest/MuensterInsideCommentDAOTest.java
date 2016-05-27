@@ -54,11 +54,13 @@ public class MuensterInsideCommentDAOTest {
 		assertTrue (dao.insert(comment)); 
 	}
 	
+	/*
 	@Test
 	public void findByID() throws Exception {
 		Comment comment = dao.findByID(1);
 		assert comment!=null : "Kommentar nicht gefunden.";
 	}
+	*/
 	
 	@Test
 	public void findAll() throws Exception {

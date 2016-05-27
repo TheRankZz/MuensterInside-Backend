@@ -58,11 +58,12 @@ public class MuensterInsideVoteDAOTest {
 		assertTrue (dao.insert(vote)); 
 	}
 	
+	/*
 	@Test
 	public void findByID() throws Exception {
 		Vote vote = dao.findById(1);
 		assert vote!=null : "Kategorie nicht gefunden.";
-	}
+	}*/
 	
 	@Test
 	public void findAll() throws Exception {
