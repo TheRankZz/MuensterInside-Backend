@@ -16,13 +16,13 @@ public class DataBuilder {
 	EntityManager em;
 	
 	@Resource
-	private String category1, category2, androidUuid1, androidUuid2, username1, username2, locationName1,
+	private String categoryName1, categoryName2, androidUuid1, androidUuid2, username1, username2, locationName1,
 					locationName2;
 	
 	@PostConstruct
 	private void CreateTestData(){
 		
-		String[] categoryNames = {category1, category2};
+		String[] categoryNames = {categoryName1, categoryName2};
 		String[] androidUuidNames = {androidUuid1, androidUuid2};
 		String[] usernames = {username1, username2};
 		String[] locationNames = {locationName1, locationName2};
@@ -33,10 +33,6 @@ public class DataBuilder {
 			em.persist(category);
 		}
 		
-		for(int i = 0; i < androidUuidNames.length; i++){
-			Device device = new Device(androidUuidNames[i], usernames[i]);
-			em.persist(device);
-		}
 		
 		
 		

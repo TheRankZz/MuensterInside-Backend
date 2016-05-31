@@ -8,12 +8,12 @@
       <ejb-name>DataBuilder</ejb-name>
       <ejb-class>de.muensterinside.dao.DataBuilder</ejb-class>
       <env-entry>
-        <env-entry-name>de.muensterinside.dao.DataBuilder/category1</env-entry-name>
+        <env-entry-name>de.muensterinside.dao.DataBuilder/categoryName1</env-entry-name>
         <env-entry-type>java.lang.String</env-entry-type>
         <env-entry-value>Essen</env-entry-value>
       </env-entry>
       <env-entry>
-        <env-entry-name>de.muensterinside.dao.DataBuilder/category2</env-entry-name>
+        <env-entry-name>de.muensterinside.dao.DataBuilder/categoryName2</env-entry-name>
         <env-entry-type>java.lang.String</env-entry-type>
         <env-entry-value>Trinken</env-entry-value>
       </env-entry>
@@ -36,6 +36,46 @@
         <env-entry-name>de.muensterinside.dao.DataBuilder/username2</env-entry-name>
         <env-entry-type>java.lang.String</env-entry-type>
         <env-entry-value>Lennart</env-entry-value>
+      </env-entry>
+      <env-entry>
+        <env-entry-name>de.muensterinside.dao.DataBuilder/locationName1</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>Burger Cult</env-entry-value>
+      </env-entry>
+      <env-entry>
+        <env-entry-name>de.muensterinside.dao.DataBuilder/locationName2</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>Cafe Sieben</env-entry-value>
+      </env-entry>
+      <env-entry>
+        <env-entry-name>de.muensterinside.dao.DataBuilder/locationDescription1</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>Super Burger!</env-entry-value>
+      </env-entry>
+      <env-entry>
+        <env-entry-name>de.muensterinside.dao.DataBuilder/locationDescription2</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>Gemütliche Sitzmöglichkeiten!</env-entry-value>
+      </env-entry>
+      <env-entry>
+        <env-entry-name>de.muensterinside.dao.DataBuilder/locationLink1</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>http://www.burgercult.de</env-entry-value>
+      </env-entry>
+      <env-entry>
+        <env-entry-name>de.muensterinside.dao.DataBuilder/locationLink2</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>http://www.cafesieben.de</env-entry-value>
+      </env-entry>
+      <env-entry>
+        <env-entry-name>de.muensterinside.dao.DataBuilder/commentText1</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>Gefällt mir sehr gut!</env-entry-value>
+      </env-entry>
+      <env-entry>
+        <env-entry-name>de.muensterinside.dao.DataBuilder/commentText2</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>Super!</env-entry-value>
       </env-entry>
     </session>
   </enterprise-beans>
