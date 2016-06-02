@@ -8,9 +8,11 @@ import javax.ejb.EJBContext;
 import javax.ejb.Stateless;
 import javax.ejb.TransactionManagement;
 import javax.ejb.TransactionManagementType;
-import javax.transaction.UserTransaction;
 
 import org.jboss.logging.Logger;
+
+//import javax.transaction.UserTransaction;
+
 
 import de.muensterinside.dao.DeviceDAOLocal;
 import de.muensterinside.dao.LocationDAOLocal;
@@ -141,10 +143,10 @@ public class VoteService implements VoteServiceLocal {
 
 		
 			
-			UserTransaction utx = ctx.getUserTransaction();
-			try {
+			//UserTransaction utx = ctx.getUserTransaction();
+			//try {
 				// Transaktion Begin
-				utx.begin();
+			//	utx.begin();
 				
 				if (typ == VoteType.down) {
 					loc.downVote();
@@ -158,11 +160,11 @@ public class VoteService implements VoteServiceLocal {
 					throw new NoSavedException(Messages.NoDataExceptionMsg);
 				
 				// Transaktion End
-				utx.commit();
-			} catch (Throwable t) {
-				utx.rollback();
-				throw new NoSavedException(Messages.NoDataExceptionMsg);
-			}
+			//	utx.commit();
+			//} catch (Throwable t) {
+			//	utx.rollback();
+			//	throw new NoSavedException(Messages.NoDataExceptionMsg);
+			//}
 			
 			logger.info(
 					"Es wurde ein Vote für die Location[" + location_id + "] von Device[" + deviceId + "] gespeichert");
