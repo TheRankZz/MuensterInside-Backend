@@ -2,6 +2,8 @@
     <wb-module deploy-name="MuensterInside_System-ejb">
         <wb-resource deploy-path="/" source-path="/src/main/resources" tag="defaultRootSource"/>
         <wb-resource deploy-path="/" source-path="/src/main/java"/>
+        <wb-resource deploy-path="/" source-path="/resources"/>
+        <wb-resource deploy-path="/" source-path="/src/test/resources"/>
         <property name="java-output-path" value="/MuensterInside_System-ejb/target/classes"/>
     </wb-module>
 </project-modules>

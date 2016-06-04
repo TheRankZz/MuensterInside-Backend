@@ -5,7 +5,6 @@
         http://xmlns.jcp.org/xml/ns/persistence
         http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
 	<persistence-unit name="primary">
-
 		<class>de.muensterinside.entities.Category</class>
 		<class>de.muensterinside.entities.Comment</class>
 		<class>de.muensterinside.entities.Device</class>
@@ -13,11 +12,10 @@
 		<class>de.muensterinside.entities.Vote</class>
 		<class>de.muensterinside.entities.BaseEntity</class>
 		<class>de.muensterinside.entities.Image</class>
-		
 		<properties>
 			<!-- Properties for Hibernate -->
 			<property name="javax.persistence.jdbc.driver" value="org.h2.Driver" />
-			<property name="javax.persistence.jdbc.url" value="jdbc:h2:mem:muensterinside" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:h2:mem:muensterinside-test" />
 			<property name="javax.persistence.jdbc.user" value="sa" />
 			<property name="javax.persistence.jdbc.password" value="sa" />
 			<property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect" />
