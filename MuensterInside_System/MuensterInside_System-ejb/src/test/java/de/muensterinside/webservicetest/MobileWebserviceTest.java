@@ -1,7 +1,10 @@
-/*
 package de.muensterinside.webservicetest;
 
+import de.muensterinside.entities.Category;
+
 import static org.junit.Assert.*;
+
+import java.util.List;
 
 import javax.ejb.EJB;
 
@@ -13,7 +16,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import de.muensterinside.webservices.MobileWebserviceImpl;
-import de.muensterinside.dto.CategoryListResponse;
+import de.muensterinside.dto.*;
 
 //TODO: Fertig implementieren
 
@@ -24,6 +27,21 @@ public class MobileWebserviceTest {
 	MobileWebserviceImpl mobileWebservice;
 	
 	CategoryListResponse catListResponse;
+	
+	LocationResponse locResponse;
+	
+	DeviceResponse deviceResponse;
+	
+	IsVotedRepsonse isVotedResponse;
+	
+	CommentListResponse comListResponse;
+	
+	ReturncodeResponse returnCodeRe;
+	
+	LocationListResponse locListResponse;
+	
+	
+	
 	
 
 	
@@ -43,4 +61,79 @@ public class MobileWebserviceTest {
 		
 		assertEquals(catListResponse.getReturnCode(), 0);
 	}	
-}*/
+	
+	@Test
+	public void CommentLocationTest() {
+		deviceResponse = mobileWebservice.register("DeviceID", "testUser");
+		assertEquals(deviceResponse.getReturnCode(), 0);
+		
+		
+		//TODO: LocationResponse implementieren?
+		returnCodeRe = mobileWebservice.saveLocation("TestLocation", "Dies ist eine TesLocation", "http://", 1, deviceResponse.getDevice().getId());
+		assertEquals(returnCodeRe.getReturnCode(), 0);
+		
+		
+		returnCodeRe = mobileWebservice.saveComment("TestKommentar", deviceResponse.getDevice().getId(), 1);
+		assertEquals(returnCodeRe.getReturnCode(), 0);
+		
+		comListResponse = mobileWebservice.getMyComments(deviceResponse.getDevice().getId());
+		assertEquals(comListResponse.getReturnCode(), 0);
+		
+		returnCodeRe = mobileWebservice.deleteComment(comListResponse.getCommentList().get(1).getId());
+		assertEquals(returnCodeRe.getReturnCode(), 0);
+	}
+	
+	@Test
+	public void LocationCommentTest() {
+		deviceResponse = mobileWebservice.register("DeviceID", "testUser");
+		assertEquals(deviceResponse.getReturnCode(), 0);
+		
+		//TODO: LocationResponse implementieren?
+		returnCodeRe = mobileWebservice.saveLocation("TestLocation", "Dies ist eine TesLocation", "http://", 1, deviceResponse.getDevice().getId());
+		assertEquals(returnCodeRe.getReturnCode(), 0);
+		
+		//TODO: Nicht lieber saveCategory implementieren?
+		locListResponse = mobileWebservice.getLocationsByCategory(1);
+		assertEquals(locListResponse.getReturnCode(), 0);
+		List<LocationTO> locations = locListResponse.getLocationList();
+		
+		locListResponse = mobileWebservice.getMyLocations(deviceResponse.getDevice().getId());
+		assertEquals(locListResponse.getReturnCode(), 0);
+		
+		//TODO: LocationResponse implementieren?
+		locResponse = mobileWebservice.getLocation(1);
+		assertEquals(locResponse.getReturnCode(), 0);
+		
+		
+		//TODO: CommentResponse?
+		returnCodeRe = mobileWebservice.saveComment("TestKommentar", deviceResponse.getDevice().getId(), locations.get(1).getId());
+		assertEquals(returnCodeRe.getReturnCode(), 0);
+		
+		comListResponse = mobileWebservice.getCommentsByLocation(locations.get(1).getId());
+		assertEquals(comListResponse.getReturnCode(), 0);	
+	}
+	
+	@Test
+	public void LocationVoteTest() {
+		deviceResponse = mobileWebservice.register("DeviceID", "testUser");
+		assertEquals(deviceResponse.getReturnCode(), 0);
+		
+		deviceResponse = mobileWebservice.login("DeviceID");
+		assertEquals(deviceResponse.getReturnCode(), 0);
+		
+		//TODO: LocationResponse implementieren?
+		returnCodeRe = mobileWebservice.saveLocation("TestLocation", "Dies ist eine TesLocation", "http://", 1, deviceResponse.getDevice().getId());
+		assertEquals(returnCodeRe.getReturnCode(), 0);
+		List<LocationTO> locations = locListResponse.getLocationList();
+		
+		returnCodeRe = mobileWebservice.downVote(locations.get(1).getId(), deviceResponse.getDevice().getId());
+		assertEquals(deviceResponse.getReturnCode(), 0);
+		
+		isVotedResponse = mobileWebservice.isVoted(locations.get(1).getId(), deviceResponse.getDevice().getId());
+		assertEquals(isVotedResponse.isIsVoted(), true);
+		
+		locListResponse = mobileWebservice.getMyVotes(deviceResponse.getDevice().getId());
+		assertEquals(locListResponse.getReturnCode(), 0);
+	}
+
+}
