@@ -514,16 +514,6 @@
         <env-entry-type>java.lang.String</env-entry-type>
         <env-entry-value>http://jackjones.de/?forcecountry=DE</env-entry-value>
       </env-entry>
-      <env-entry>
-        <env-entry-name>de.muensterinside.dao.DataBuilder/commentText1</env-entry-name>
-        <env-entry-type>java.lang.String</env-entry-type>
-        <env-entry-value>Gefällt mir sehr gut!</env-entry-value>
-      </env-entry>
-      <env-entry>
-        <env-entry-name>de.muensterinside.dao.DataBuilder/commentText2</env-entry-name>
-        <env-entry-type>java.lang.String</env-entry-type>
-        <env-entry-value>Super!</env-entry-value>
-      </env-entry>
     </session>
   </enterprise-beans>
 </ejb-jar>
