@@ -11,9 +11,6 @@ import javax.ejb.TransactionManagementType;
 
 import org.jboss.logging.Logger;
 
-import javax.transaction.UserTransaction;
-
-
 import de.muensterinside.dao.DeviceDAOLocal;
 import de.muensterinside.dao.LocationDAOLocal;
 import de.muensterinside.dao.VoteDAOLocal;
@@ -127,8 +124,7 @@ public class VoteService implements VoteServiceLocal {
 	private ReturncodeResponse vote(int location_id, int deviceId, VoteType typ) {
 
 		ReturncodeResponse response = new ReturncodeResponse();
-		
-		
+
 		try {
 			Location loc = daoLocation.findById(location_id);
 			if (loc == null)
@@ -141,34 +137,19 @@ public class VoteService implements VoteServiceLocal {
 			if (daoVote.findByLocationAndDevice(location_id, deviceId) != null)
 				throw new VoteExistsException("Es wurde bereits für diese Location eine Stimme abgegeben!");
 
-		
-			
-			UserTransaction utx = ctx.getUserTransaction();
-			try {
-				// Transaktion Begin
-				utx.begin();
-				
-				if (typ == VoteType.down) {
-					loc.downVote();
-				} else {
-					loc.upVote();
-				}
-				daoLocation.update(loc);
-
-				Vote vote = new Vote(loc, dev, typ);
-				if (daoVote.insert(vote))
-					throw new NoSavedException(Messages.NoSavedExceptionMsg);
-				
-				// Transaktion End
-				utx.commit();
-			} catch (Throwable t) {
-				utx.rollback();
-				throw new NoSavedException(Messages.NoSavedExceptionMsg);
+			if (typ == VoteType.down) {
+				loc.downVote();
+			} else {
+				loc.upVote();
 			}
-			
+			daoLocation.update(loc);
+
+			Vote vote = new Vote(loc, dev, typ);
+			if (daoVote.insert(vote))
+				throw new NoSavedException(Messages.NoSavedExceptionMsg);
+
 			logger.info(
 					"Es wurde ein Vote für die Location[" + location_id + "] von Device[" + deviceId + "] gespeichert");
-
 
 		} catch (MuensterInsideException e) {
 			logger.error("Fehler " + e.getErrorCode() + ": " + e.getMessage());

@@ -93,7 +93,7 @@
 				<version>5.2.1</version>
 				<configuration>
 					<!--TODO: Pfad für Ihre Datei anpassen -->
-					<projectFile>src/test/soapui/MuensterInside-soapui-project</projectFile>
+					<projectFile>src/test/soapui/MuensterInside-soapui-project.xml</projectFile>
 				</configuration>
 			</plugin>
         </plugins>
