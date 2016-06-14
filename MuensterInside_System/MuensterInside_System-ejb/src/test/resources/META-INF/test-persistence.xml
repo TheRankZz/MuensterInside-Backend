@@ -5,6 +5,7 @@
         http://xmlns.jcp.org/xml/ns/persistence
         http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
 	<persistence-unit name="primary">
+		<jta-data-source>java:jboss/datasources/ExampleDS</jta-data-source>
 		<class>de.muensterinside.entities.Category</class>
 		<class>de.muensterinside.entities.Comment</class>
 		<class>de.muensterinside.entities.Device</class>
@@ -13,15 +14,8 @@
 		<class>de.muensterinside.entities.BaseEntity</class>
 		<class>de.muensterinside.entities.Image</class>
 		<properties>
-			<!-- Properties for Hibernate -->
-			<property name="javax.persistence.jdbc.driver" value="org.h2.Driver" />
-			<property name="javax.persistence.jdbc.url" value="jdbc:h2:mem:muensterinside-test" />
-			<property name="javax.persistence.jdbc.user" value="sa" />
-			<property name="javax.persistence.jdbc.password" value="sa" />
-			<property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect" />
-			<property name="hibernate.hbm2ddl.auto" value="create-drop" />
-			<property name="show_sql" value="true" />
-			<property name="hibernate.temp.use_jdbc_metadata_defaults" value="false" />
-		</properties>
+	         <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
+	         <property name="hibernate.show_sql" value="true" />
+      	</properties>
 	</persistence-unit>
 </persistence>
