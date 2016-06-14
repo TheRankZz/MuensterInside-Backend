@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <pluginRepositories>
+		<pluginRepository>
+			<id>smartbear-sweden-plugin-repository</id>
+			<url>http://www.soapui.org/repository/maven2/</url>
+		</pluginRepository>
+	</pluginRepositories>
+	
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
@@ -86,6 +93,15 @@
                     <filterDeploymentDescriptor>true</filterDeploymentDescriptor>
                 </configuration>
             </plugin>
+            <plugin>
+				<groupId>com.smartbear.soapui</groupId>
+				<artifactId>soapui-maven-plugin</artifactId>
+				<version>5.2.1</version>
+				<configuration>
+					<!--TODO: Pfad für Ihre Datei anpassen -->
+					<projectFile>src/test/soapui/MuensterInside-soapui-project.xml</projectFile>
+				</configuration>
+			</plugin>
         </plugins>
     </build>
     
@@ -148,3 +164,4 @@
     
     <url>http://wildfly.org</url>
 </project>
+
