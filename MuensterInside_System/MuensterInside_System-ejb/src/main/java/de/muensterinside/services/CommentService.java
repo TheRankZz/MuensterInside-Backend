@@ -20,9 +20,10 @@ import de.muensterinside.exceptions.NoSavedException;
 import de.muensterinside.util.DtoAssembler;
 import de.muensterinside.util.Messages;
 
-
-//TODO: Klasse kommentieren
-
+/**
+ * siehe Interface-Beschreibung
+ * @author Lennart Giesen, Julius Wessing
+ */
 @Stateless
 public class CommentService implements CommentServiceLocal {
 
@@ -45,10 +46,12 @@ public class CommentService implements CommentServiceLocal {
 		try {
 			List<Comment> comments = commentDAO.findByLocation(loc_id);
 
+			//Prüfen ob Kommentaren vorhanden sind.
 			if (comments.isEmpty()) {
 				throw new NoDataException(Messages.NoDataExceptionMsg);
 			}
 
+			//Zum Response hinzufügen
 			response.setCommentList(dtoAssembler.makeDTOCommentList(comments));
 		} catch (MuensterInsideException e) {
 			response.setReturnCode(e.getErrorCode());
@@ -68,10 +71,12 @@ public class CommentService implements CommentServiceLocal {
 		try {
 			List<Comment> comments = commentDAO.findByDevice(deviceId);
 
+			//Prüfen ob Kommentare vorhanden sind.
 			if (comments.isEmpty()) {
 				throw new NoDataException(Messages.NoDataExceptionMsg);
 			}
-
+			
+			//Zum Response hinzufügen
 			response.setCommentList(dtoAssembler.makeDTOCommentList(comments));
 		} catch (MuensterInsideException e) {
 			response.setReturnCode(e.getErrorCode());
@@ -89,8 +94,10 @@ public class CommentService implements CommentServiceLocal {
 		ReturncodeResponse response = new ReturncodeResponse();
 
 		try {
+			//Prüfen ob das Gerät exsitiert
 			if (!deviceDAO.isExists(deviceId))
 				throw new NoDataException(Messages.NoFoundExceptionMsg);
+			//Prüfen ob die Location exsitiert
 			if (!locationDAO.isExists(locationId))
 				throw new NoDataException(Messages.NoFoundExceptionMsg);
 
@@ -99,6 +106,7 @@ public class CommentService implements CommentServiceLocal {
 
 			Comment comment = new Comment(text, device, location);
 
+			//Prüfen ob das anlegen in der db erfolgreich war.
 			if (!commentDAO.insert(comment))
 				throw new NoSavedException(Messages.NoSavedExceptionMsg);
 
@@ -118,6 +126,7 @@ public class CommentService implements CommentServiceLocal {
 		ReturncodeResponse response = new ReturncodeResponse();
 
 		try {
+			//Prüfen ob das löschen in der db erfolgreich war.
 			if (!commentDAO.delete(comment_id))
 				throw new NoSavedException(Messages.NoDeleteExceptionMsg);
 		} catch (MuensterInsideException e) {

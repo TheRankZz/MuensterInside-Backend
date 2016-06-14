@@ -8,6 +8,9 @@ import javax.persistence.PersistenceContext;
 
 import de.muensterinside.entities.Device;
 
+/**
+ * @author Lennart Giesen, Julius Wessing
+ */
 @Stateless
 public class DeviceDAO implements de.muensterinside.dao.DeviceDAOLocal {
 
@@ -56,6 +59,7 @@ public class DeviceDAO implements de.muensterinside.dao.DeviceDAOLocal {
 
 	@Override
 	public Device findByAndroidUuid(String uuid) {
+		@SuppressWarnings("rawtypes")
 		List results = em.createQuery("SELECT d FROM Device d WHERE d.androidUuid LIKE :uuid")
 				.setParameter("uuid", uuid).getResultList();
 

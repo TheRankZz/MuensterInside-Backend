@@ -15,9 +15,8 @@ import de.muensterinside.services.LocationServiceLocal;
 import de.muensterinside.services.VoteServiceLocal;
 
 /**
- * 
+ * Die Stateless-Bean stellt die MuensterInside-Operationen als Webservice bereit.
  * @author Lennart Giesen, Julius Wessing
- *
  */
 @WebService(name = "mobile")
 @WebContext(contextRoot = "/muensterinside")

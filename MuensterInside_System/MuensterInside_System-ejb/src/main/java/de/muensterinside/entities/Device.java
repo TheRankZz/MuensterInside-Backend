@@ -9,7 +9,6 @@ import javax.persistence.*;
  * Datenklasse: Bewertung/Stimme
  * 
  * @author Lennart Giesen, Julius Wessing
- *
  */
 @Entity
 @Table(name = "devices")

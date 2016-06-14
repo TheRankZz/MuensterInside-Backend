@@ -10,9 +10,7 @@ import javax.persistence.Query;
 import de.muensterinside.entities.Vote;
 
 /**
- * 
  * @author Lennart Giesen, Julius Wessing
- *
  */
 @Stateless
 public class VoteDAO implements de.muensterinside.dao.VoteDAOLocal {
@@ -64,6 +62,7 @@ public class VoteDAO implements de.muensterinside.dao.VoteDAOLocal {
 
 	@Override
 	public Vote findByLocationAndDevice(int location_id, int deviceId) {
+		@SuppressWarnings("rawtypes")
 		List results = em.createQuery("SELECT v FROM Vote v "
 				+ "WHERE v.device.id = :deviceId"
 				+ " AND v.location.id = :locationId")

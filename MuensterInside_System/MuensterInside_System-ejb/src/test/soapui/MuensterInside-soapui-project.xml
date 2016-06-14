@@ -1,5 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:soapui-project id="61e30dac-b7a9-4a75-9b97-f19f16a1bc7c" activeEnvironment="Default" name="MuensterInside" resourceRoot="" soapui-version="5.2.1" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="c7069006-d87f-4743-bcb4-5550f372aa0e" wsaVersion="NONE" name="MobileWebserviceImplServiceSoapBinding" type="wsdl" bindingName="{http://webservices.muensterinside.de/}MobileWebserviceImplServiceSoapBinding" soapVersion="1_1" anonymous="optional" definition="http://localhost:8080/muensterinside/mobile?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:8080/muensterinside/mobile?wsdl"><con:part><con:url>http://localhost:8080/muensterinside/mobile?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="MobileWebserviceImplService" targetNamespace="http://webservices.muensterinside.de/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://webservices.muensterinside.de/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http">
+<con:soapui-project id="61e30dac-b7a9-4a75-9b97-f19f16a1bc7c" activeEnvironment="Default" name="MuensterInside" resourceRoot="" soapui-version="5.2.1" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.actions.iface.tools.soapui.TestRunnerAction@values-local"><![CDATA[<xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  <con:entry key="Environment" value="Default"/>
+  <con:entry key="Global Properties" value=""/>
+  <con:entry key="TestSuite" value="MobileWebserviceServiceSoap"/>
+  <con:entry key="Password" value=""/>
+  <con:entry key="TestRunner Path" value=""/>
+  <con:entry key="Tool Args" value=""/>
+  <con:entry key="Ignore Errors" value="false"/>
+  <con:entry key="Host:Port" value=""/>
+  <con:entry key="user-settings.xml Password" value=""/>
+  <con:entry key="WSS Password Type" value=""/>
+  <con:entry key="Save Project" value="false"/>
+  <con:entry key="Enable UI" value="false"/>
+  <con:entry key="System Properties" value=""/>
+  <con:entry key="Domain" value=""/>
+  <con:entry key="Coverage Report" value="false"/>
+  <con:entry key="Export JUnit Results" value="false"/>
+  <con:entry key="Export JUnit Results with test properties" value="false"/>
+  <con:entry key="Open Report" value="false"/>
+  <con:entry key="Project Properties" value=""/>
+  <con:entry key="Export All" value="false"/>
+  <con:entry key="Project Password" value=""/>
+  <con:entry key="Report Format(s)" value=""/>
+  <con:entry key="TestCase" value="&lt;all>"/>
+  <con:entry key="Print Report" value="false"/>
+  <con:entry key="Username" value=""/>
+  <con:entry key="Root Folder" value=""/>
+  <con:entry key="Select Report Type" value=""/>
+  <con:entry key="Save After" value="false"/>
+  <con:entry key="Add Settings" value="false"/>
+  <con:entry key="Endpoint" value=""/>
+</xml-fragment>]]></con:setting></con:settings><con:interface xsi:type="con:WsdlInterface" id="c7069006-d87f-4743-bcb4-5550f372aa0e" wsaVersion="NONE" name="MobileWebserviceImplServiceSoapBinding" type="wsdl" bindingName="{http://webservices.muensterinside.de/}MobileWebserviceImplServiceSoapBinding" soapVersion="1_1" anonymous="optional" definition="http://localhost:8080/muensterinside/mobile?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:8080/muensterinside/mobile?wsdl"><con:part><con:url>http://localhost:8080/muensterinside/mobile?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="MobileWebserviceImplService" targetNamespace="http://webservices.muensterinside.de/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://webservices.muensterinside.de/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http">
   <wsdl:types>
     <xs:schema elementFormDefault="unqualified" targetNamespace="http://webservices.muensterinside.de/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
       <xs:element name="deleteComment" type="tns:deleteComment"/>
@@ -835,7 +866,7 @@
       <web:saveComment>
          <!--Optional:-->
          <arg0>SoapUI-Test</arg0>
-         <arg1>4</arg1>
+         <arg1>3</arg1>
          <arg2>1</arg2>
       </web:saveComment>
    </soapenv:Body>
@@ -868,7 +899,7 @@
          <!--Optional:-->
          <arg2>-</arg2>
          <arg3>1</arg3>
-         <arg4>4</arg4>
+         <arg4>3</arg4>
       </web:saveLocation>
    </soapenv:Body>
 </soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="3777c91f-6857-41b3-b0ca-20f7b7f805ea" name="SOAP Response"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://webservices.muensterinside.de/mobile/saveLocation"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="9adf34d6-3129-4fa1-b76b-36de8ed11f6a" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Testszenario Kommentar löschen" searchProperties="true"><con:settings/><con:testStep type="request" id="248c07ef-90e3-427e-be4c-c7cb51c168ab" name="register"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>MobileWebserviceImplServiceSoapBinding</con:interface><con:operation>register</con:operation><con:request name="register" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="d4498efd-915f-4f26-af4f-e77dac1e64ed"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/muensterinside/mobile</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://webservices.muensterinside.de/">
@@ -895,7 +926,7 @@
       <web:saveComment>
          <!--Optional:-->
          <arg0>SoapUI-Test</arg0>
-         <arg1>4</arg1>
+         <arg1>3</arg1>
          <arg2>1</arg2>
       </web:saveComment>
    </soapenv:Body>
@@ -903,14 +934,52 @@
    <soapenv:Header/>
    <soapenv:Body>
       <web:getMyComments>
-         <arg0>4</arg0>
+         <arg0>3</arg0>
       </web:getMyComments>
    </soapenv:Body>
 </soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="82b2025f-42b2-49ff-a63f-4cc569715c4c" name="SOAP Response"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://webservices.muensterinside.de/mobile/getMyComments"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="transfer" name="CommentId" id="6235d6ea-1fb4-4f61-87ed-4dd53b2a3e97"><con:settings/><con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false" disabled="false"><con:name>deviceId</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>getMyComments</con:sourceStep><con:sourcePath>//return/commentList/id</con:sourcePath><con:targetType>Request</con:targetType><con:targetStep>deleteComment</con:targetStep><con:targetPath>//arg0</con:targetPath><con:type>XPATH</con:type><con:upgraded>true</con:upgraded></con:transfers></con:config></con:testStep><con:testStep type="request" id="c8a5564c-346a-424a-a723-8ade228e01b2" name="deleteComment"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>MobileWebserviceImplServiceSoapBinding</con:interface><con:operation>deleteComment</con:operation><con:request name="deleteComment" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="7de8485f-00af-4402-88b7-1925e9838563"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/muensterinside/mobile</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://webservices.muensterinside.de/">
    <soapenv:Header/>
    <soapenv:Body>
       <web:deleteComment>
-         <arg0>14</arg0>
+         <arg0>4</arg0>
       </web:deleteComment>
    </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="c405fc81-a78c-43c6-9c5b-fe4ecd88f676" name="SOAP Response"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://webservices.muensterinside.de/mobile/deleteComment"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:sensitiveInformation/></con:soapui-project>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="c405fc81-a78c-43c6-9c5b-fe4ecd88f676" name="SOAP Response"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://webservices.muensterinside.de/mobile/deleteComment"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="2a7afc87-99ad-442a-a89e-27dc8a6383cc" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Testszenario Bewertung abgeben" searchProperties="true"><con:settings/><con:testStep type="request" id="d2d2ad6e-d857-465e-96ef-eb70dd152feb" name="register"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>MobileWebserviceImplServiceSoapBinding</con:interface><con:operation>register</con:operation><con:request name="register" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="d4498efd-915f-4f26-af4f-e77dac1e64ed"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/muensterinside/mobile</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://webservices.muensterinside.de/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <web:register>
+         <!--Optional:-->
+         <arg0>SoapUI</arg0>
+         <!--Optional:-->
+         <arg1>SoapUI-Tester</arg1>
+      </web:register>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="c01e0c8b-a1c5-44b8-9dc3-8b6e734b4397" name="SOAP Response"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://webservices.muensterinside.de/mobile/register"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" id="67920a9c-d663-42f4-a9b2-fc35b9068aae" name="login"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>MobileWebserviceImplServiceSoapBinding</con:interface><con:operation>login</con:operation><con:request name="login" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="299fdc0c-d451-4eca-802a-c61f7285f352"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/muensterinside/mobile</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://webservices.muensterinside.de/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <web:login>
+         <!--Optional:-->
+         <arg0>SoapUI</arg0>
+      </web:login>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="6046fd19-1b4d-44dc-b86e-9a5d843384aa" name="SOAP Response"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://webservices.muensterinside.de/mobile/login"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="transfer" name="DeviceId" id="cfd14605-0c47-4b45-9eb6-e288d6dc5964"><con:settings/><con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false" disabled="false"><con:name>deviceId</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>login</con:sourceStep><con:sourcePath>//return/device/id</con:sourcePath><con:targetType>Request</con:targetType><con:targetStep>upVote</con:targetStep><con:targetPath>//arg1</con:targetPath><con:type>XPATH</con:type><con:upgraded>true</con:upgraded></con:transfers></con:config></con:testStep><con:testStep type="request" id="8915244b-7294-4ae3-b576-239ec4355bb1" name="getCategories"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>MobileWebserviceImplServiceSoapBinding</con:interface><con:operation>getCategories</con:operation><con:request name="getCategories" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="78f07814-aee5-4e3c-9ef6-2d46f41a716e"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/muensterinside/mobile</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://webservices.muensterinside.de/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <web:getCategories/>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="41738285-2e6a-446b-868e-bcdb0e49b6f2" name="SOAP Response"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://webservices.muensterinside.de/mobile/getCategories"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="transfer" name="CategoryId" id="85e43dcb-efc4-47bd-a42f-2addbaa35138"><con:settings/><con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false" disabled="false"><con:name>CategoryId</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>getCategories</con:sourceStep><con:sourcePath>//return/categoryList/id</con:sourcePath><con:targetType>Request</con:targetType><con:targetStep>getLocationsByCategory</con:targetStep><con:targetPath>//arg0</con:targetPath><con:type>XPATH</con:type><con:upgraded>true</con:upgraded></con:transfers></con:config></con:testStep><con:testStep type="request" id="a0e93ba0-51fa-4079-b6f4-a4d03140bb33" name="getLocationsByCategory"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>MobileWebserviceImplServiceSoapBinding</con:interface><con:operation>getLocationsByCategory</con:operation><con:request name="getLocationsByCategory" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="7047d8a2-c654-4b8a-b0f4-8f3fb80e4556"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/muensterinside/mobile</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://webservices.muensterinside.de/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <web:getLocationsByCategory>
+         <arg0>1</arg0>
+      </web:getLocationsByCategory>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="b88db782-94f4-4044-9c54-a6f1b6b7d128" name="SOAP Response"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://webservices.muensterinside.de/mobile/getLocationsByCategory"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="transfer" name="LocationId" id="97811ee5-1cba-4db7-b19b-94bd68da33c0"><con:settings/><con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false" disabled="false"><con:name>LocationId</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>getLocationsByCategory</con:sourceStep><con:sourcePath>//return/locationList/id</con:sourcePath><con:targetType>Request</con:targetType><con:targetStep>upVote</con:targetStep><con:targetPath>//arg1</con:targetPath><con:type>XPATH</con:type><con:upgraded>true</con:upgraded></con:transfers></con:config></con:testStep><con:testStep type="request" id="9bfc9d8b-029d-42d9-ae51-32f65bd6afd6" name="upVote"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>MobileWebserviceImplServiceSoapBinding</con:interface><con:operation>upVote</con:operation><con:request name="upVote" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="95457604-ce78-408b-b798-266f33c97b01"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/muensterinside/mobile</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://webservices.muensterinside.de/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <web:upVote>
+         <arg0>1</arg0>
+         <arg1>1</arg1>
+      </web:upVote>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="bd43ba1f-60f0-45c7-881e-f818ecbfc8fd" name="SOAP Response"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://webservices.muensterinside.de/mobile/upVote"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:sensitiveInformation/></con:soapui-project>

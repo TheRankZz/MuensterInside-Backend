@@ -22,12 +22,9 @@ import de.muensterinside.util.DtoAssembler;
 import de.muensterinside.util.Messages;
 
 /**
- * 
+ * siehe Interface-Beschreibung
  * @author Lennart Giesen, Julius Wessing
- *
  */
-
-//TODO: Klasse kommentieren
 @Stateless
 public class LocationService implements LocationServiceLocal {
 
@@ -43,9 +40,7 @@ public class LocationService implements LocationServiceLocal {
 	@EJB
 	DtoAssembler dtoAssembler;
 
-	/**
-	 * 
-	 */
+	@Override
 	public LocationListResponse getLocationsByCategory(int cat_id) {
 		LocationListResponse response = new LocationListResponse();
 		try {
@@ -68,9 +63,7 @@ public class LocationService implements LocationServiceLocal {
 		return response;
 	}
 
-	/**
-	 * 
-	 */
+	@Override
 	public ReturncodeResponse saveLocation(String name, String description, String link, int category_id,
 			int deviceId) {
 
@@ -101,8 +94,6 @@ public class LocationService implements LocationServiceLocal {
 
 		return response;
 	}
-
-
 
 	@Override
 	public LocationResponse getLocation(int id) {
@@ -150,7 +141,6 @@ public class LocationService implements LocationServiceLocal {
 		
 		return response;
 	}
-
 
 	@Override
 	public ReturncodeResponse uploadImage(int location_id, String mimeType, String imageDataBase64) {

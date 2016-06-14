@@ -14,7 +14,10 @@ import de.muensterinside.exceptions.MuensterInsideException;
 import de.muensterinside.util.DtoAssembler;
 import de.muensterinside.util.Messages;
 
-//TODO: Klasse kommentieren
+/**
+ * siehe Interface-Beschreibung
+ * @author Lennart Giesen, Julius Wessing
+ */
 @Stateless
 public class DeviceService implements DeviceServiceLocal {
 
@@ -31,7 +34,7 @@ public class DeviceService implements DeviceServiceLocal {
 		DeviceResponse response = new DeviceResponse();
 
 		try {
-			// Überprüfen ob für dieses Uuid schon ein Device registriert wurde.
+			//Prüfen ob für dieses Android-ID schon ein Device registriert wurde
 			if (daoDevice.findByAndroidUuid(androidUuid) != null)
 				throw new DeviceExistsException("Dieses Gerät(" + androidUuid + ") wurde schon registriert");
 

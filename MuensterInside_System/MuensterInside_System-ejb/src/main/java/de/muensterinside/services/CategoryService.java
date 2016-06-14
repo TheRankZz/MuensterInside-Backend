@@ -16,12 +16,9 @@ import de.muensterinside.util.DtoAssembler;
 import de.muensterinside.util.Messages;
 
 /**
- * 
+ * siehe Interface-Beschreibung
  * @author Lennart Giesen, Julius Wessing
- *
  */
-//TODO: Klasse kommentieren
-
 @Stateless
 public class CategoryService implements CategoryServiceLocal {
 	
@@ -33,11 +30,6 @@ public class CategoryService implements CategoryServiceLocal {
 	@EJB
 	private DtoAssembler dtoAssembler;
 
-	/**
-	 * Holt eine Liste von allen Kategorien
-	 * 
-	 * @return
-	 */
 	public CategoryListResponse getCategories() {
 		CategoryListResponse response = new CategoryListResponse();
 

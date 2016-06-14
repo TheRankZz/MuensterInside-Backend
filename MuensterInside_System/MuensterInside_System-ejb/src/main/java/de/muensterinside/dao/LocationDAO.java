@@ -10,9 +10,7 @@ import javax.persistence.Query;
 import de.muensterinside.entities.Location;
 
 /**
- * 
  * @author Lennart Giesen, Julius Wessing
- *
  */
 @Stateless
 public class LocationDAO implements de.muensterinside.dao.LocationDAOLocal {

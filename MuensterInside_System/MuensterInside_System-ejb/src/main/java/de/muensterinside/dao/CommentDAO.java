@@ -9,9 +9,7 @@ import javax.persistence.PersistenceContext;
 import de.muensterinside.entities.Comment;
 
 /**
- * 
  * @author Lennart Giesen, Julius Wessing
- *
  */
 @Stateless
 public class CommentDAO implements de.muensterinside.dao.CommentDAOLocal {

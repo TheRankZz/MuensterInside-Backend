@@ -9,9 +9,7 @@ import javax.persistence.PersistenceContext;
 import de.muensterinside.entities.Category;
 
 /**
- * 
  * @author Lennart Giesen, Julius Wessing
- *
  */
 @Stateless
 public class CategoryDAO implements de.muensterinside.dao.CategoryDAOLocal {

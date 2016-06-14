@@ -8,7 +8,6 @@ import javax.persistence.*;
  * Datenklasse: Location
  * 
  * @author Lennart Giesen, Julius Wessing
- *
  */
 @Entity
 @Table(name = "locations") 

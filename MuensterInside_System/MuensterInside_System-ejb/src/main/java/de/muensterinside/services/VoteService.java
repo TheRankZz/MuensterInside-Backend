@@ -29,7 +29,11 @@ import de.muensterinside.exceptions.VoteExistsException;
 import de.muensterinside.util.DtoAssembler;
 import de.muensterinside.util.Messages;
 
-//TODO: Klasse kommentieren
+/**
+ * siehe Interface-Beschreibung
+ * 
+ * @author Lennart Giesen, Julius Wessing
+ */
 @Stateless
 @TransactionManagement(TransactionManagementType.BEAN)
 public class VoteService implements VoteServiceLocal {
@@ -115,10 +119,10 @@ public class VoteService implements VoteServiceLocal {
 	}
 
 	/**
-	 * 
-	 * @param location_id
-	 * @param deviceId
-	 * @param typ
+	 * Eine Bewertung für ein Location anlegen.
+	 * @param location_id Id der Location
+	 * @param deviceId Id des Device(Nicht Android-ID)
+	 * @param typ Ist es ein up-Vote oder ein down-Vote.
 	 * @return
 	 */
 	private ReturncodeResponse vote(int location_id, int deviceId, VoteType typ) {
@@ -126,24 +130,27 @@ public class VoteService implements VoteServiceLocal {
 		ReturncodeResponse response = new ReturncodeResponse();
 
 		try {
+			//Prüfen ob die Location vorhanden ist
 			Location loc = daoLocation.findById(location_id);
 			if (loc == null)
 				throw new NoDataException(Messages.NoDataExceptionMsg);
-
+			//Prüfen ob das Device vorhanden ist
 			Device dev = daoDevice.findByID(deviceId);
 			if (dev == null)
 				throw new NoDataException(Messages.NoDataExceptionMsg);
-
+			//Prüfen ob für diese Location schon eine Bewertung mit der Device-Id abgegeben wurde.
 			if (daoVote.findByLocationAndDevice(location_id, deviceId) != null)
 				throw new VoteExistsException("Es wurde bereits für diese Location eine Stimme abgegeben!");
 
+			
 			if (typ == VoteType.down) {
 				loc.downVote();
 			} else {
 				loc.upVote();
 			}
 			daoLocation.update(loc);
-
+			
+			//Eine Vote anlegen
 			Vote vote = new Vote(loc, dev, typ);
 			if (daoVote.insert(vote))
 				throw new NoSavedException(Messages.NoSavedExceptionMsg);
