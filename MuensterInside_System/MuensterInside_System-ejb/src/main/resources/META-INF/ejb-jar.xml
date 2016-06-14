@@ -7,12 +7,22 @@
       <env-entry>
         <env-entry-name>de.muensterinside.dao.DataBuilder/categoryName1</env-entry-name>
         <env-entry-type>java.lang.String</env-entry-type>
-        <env-entry-value>Essen</env-entry-value>
+        <env-entry-value>Restaurant</env-entry-value>
       </env-entry>
       <env-entry>
         <env-entry-name>de.muensterinside.dao.DataBuilder/categoryName2</env-entry-name>
         <env-entry-type>java.lang.String</env-entry-type>
-        <env-entry-value>Trinken</env-entry-value>
+        <env-entry-value>Bar</env-entry-value>
+      </env-entry>
+      <env-entry>
+        <env-entry-name>de.muensterinside.dao.DataBuilder/categoryName3</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>Hotel</env-entry-value>
+      </env-entry>
+      <env-entry>
+        <env-entry-name>de.muensterinside.dao.DataBuilder/categoryName4</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>Shopping</env-entry-value>
       </env-entry>
       <env-entry>
         <env-entry-name>de.muensterinside.dao.DataBuilder/androidUuid1</env-entry-name>
@@ -25,6 +35,31 @@
         <env-entry-value>MeineAndroidUuid2</env-entry-value>
       </env-entry>
       <env-entry>
+        <env-entry-name>de.muensterinside.dao.DataBuilder/androidUuid3</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>MeineAndroidUuid3</env-entry-value>
+      </env-entry>
+      <env-entry>
+        <env-entry-name>de.muensterinside.dao.DataBuilder/androidUuid4</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>MeineAndroidUuid4</env-entry-value>
+      </env-entry>
+      <env-entry>
+        <env-entry-name>de.muensterinside.dao.DataBuilder/androidUuid5</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>MeineAndroidUuid5</env-entry-value>
+      </env-entry>
+      <env-entry>
+        <env-entry-name>de.muensterinside.dao.DataBuilder/androidUuid6</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>MeineAndroidUuid6</env-entry-value>
+      </env-entry>
+      <env-entry>
+        <env-entry-name>de.muensterinside.dao.DataBuilder/androidUuid7</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>MeineAndroidUuid7</env-entry-value>
+      </env-entry>
+      <env-entry>
         <env-entry-name>de.muensterinside.dao.DataBuilder/username1</env-entry-name>
         <env-entry-type>java.lang.String</env-entry-type>
         <env-entry-value>Julius</env-entry-value>
@@ -35,34 +70,449 @@
         <env-entry-value>Lennart</env-entry-value>
       </env-entry>
       <env-entry>
-        <env-entry-name>de.muensterinside.dao.DataBuilder/locationName1</env-entry-name>
+        <env-entry-name>de.muensterinside.dao.DataBuilder/username3</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>Nico</env-entry-value>
+      </env-entry>
+      <env-entry>
+        <env-entry-name>de.muensterinside.dao.DataBuilder/username4</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>Julia</env-entry-value>
+      </env-entry>
+      <env-entry>
+        <env-entry-name>de.muensterinside.dao.DataBuilder/username5</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>Jamie</env-entry-value>
+      </env-entry>
+      <env-entry>
+        <env-entry-name>de.muensterinside.dao.DataBuilder/username6</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>Dominik</env-entry-value>
+      </env-entry>
+      <env-entry>
+        <env-entry-name>de.muensterinside.dao.DataBuilder/username7</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>Erika</env-entry-value>
+      </env-entry>
+      <env-entry>
+        <env-entry-name>de.muensterinside.dao.DataBuilder/locationName1Cat1</env-entry-name>
         <env-entry-type>java.lang.String</env-entry-type>
         <env-entry-value>Burger Cult</env-entry-value>
       </env-entry>
       <env-entry>
-        <env-entry-name>de.muensterinside.dao.DataBuilder/locationName2</env-entry-name>
+        <env-entry-name>de.muensterinside.dao.DataBuilder/locationName2Cat1</env-entry-name>
         <env-entry-type>java.lang.String</env-entry-type>
         <env-entry-value>Cafe Sieben</env-entry-value>
       </env-entry>
+            <env-entry>
+        <env-entry-name>de.muensterinside.dao.DataBuilder/locationName3Cat1</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>Vapiano</env-entry-value>
+      </env-entry>
       <env-entry>
-        <env-entry-name>de.muensterinside.dao.DataBuilder/locationDescription1</env-entry-name>
+        <env-entry-name>de.muensterinside.dao.DataBuilder/locationName4Cat1</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>Tennessee Mountain</env-entry-value>
+      </env-entry>
+      <env-entry>
+        <env-entry-name>de.muensterinside.dao.DataBuilder/locationName5Cat1</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>PierHouse</env-entry-value>
+      </env-entry>
+      <env-entry>
+        <env-entry-name>de.muensterinside.dao.DataBuilder/locationName6Cat1</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>LuMina</env-entry-value>
+      </env-entry>
+      <env-entry>
+        <env-entry-name>de.muensterinside.dao.DataBuilder/locationName7Cat1</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>Cafe Med</env-entry-value>
+      </env-entry>
+      <env-entry>
+        <env-entry-name>de.muensterinside.dao.DataBuilder/locationName1Cat2</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>TIDE</env-entry-value>
+      </env-entry>
+      <env-entry>
+        <env-entry-name>de.muensterinside.dao.DataBuilder/locationName2Cat2</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>Gorilla Bar</env-entry-value>
+      </env-entry>
+            <env-entry>
+        <env-entry-name>de.muensterinside.dao.DataBuilder/locationName3Cat2</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>Destille</env-entry-value>
+      </env-entry>
+      <env-entry>
+        <env-entry-name>de.muensterinside.dao.DataBuilder/locationName4Cat2</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>Peacock</env-entry-value>
+      </env-entry>
+      <env-entry>
+        <env-entry-name>de.muensterinside.dao.DataBuilder/locationName5Cat2</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>Himmel Hoelle Bar</env-entry-value>
+      </env-entry>
+      <env-entry>
+        <env-entry-name>de.muensterinside.dao.DataBuilder/locationName6Cat2</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>Mutter Birken</env-entry-value>
+      </env-entry>
+      <env-entry>
+        <env-entry-name>de.muensterinside.dao.DataBuilder/locationName7Cat2</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>Das Blaue Haus Münster</env-entry-value>
+      </env-entry>
+	  <env-entry>
+        <env-entry-name>de.muensterinside.dao.DataBuilder/locationName1Cat3</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>Hotel Kaiserhof</env-entry-value>
+      </env-entry>
+      <env-entry>
+        <env-entry-name>de.muensterinside.dao.DataBuilder/locationName2Cat3</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>Hotel Schloss Wilkinghege</env-entry-value>
+      </env-entry>
+            <env-entry>
+        <env-entry-name>de.muensterinside.dao.DataBuilder/locationName3Cat3</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>Hotel am Schlosspark</env-entry-value>
+      </env-entry>
+      <env-entry>
+        <env-entry-name>de.muensterinside.dao.DataBuilder/locationName4Cat3</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>FACTORY HOTEL</env-entry-value>
+      </env-entry>
+      <env-entry>
+        <env-entry-name>de.muensterinside.dao.DataBuilder/locationName5Cat3</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>Hotel Jellentrup</env-entry-value>
+      </env-entry>
+      <env-entry>
+        <env-entry-name>de.muensterinside.dao.DataBuilder/locationName6Cat3</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>STADTHOTEL MÜNSTER GmbH</env-entry-value>
+      </env-entry>
+      <env-entry>
+        <env-entry-name>de.muensterinside.dao.DataBuilder/locationName7Cat3</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>Cityhotel Amadeus Münster</env-entry-value>
+      </env-entry>
+      <env-entry>
+        <env-entry-name>de.muensterinside.dao.DataBuilder/locationName1Cat4</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>GALERIA Kaufhof</env-entry-value>
+      </env-entry>
+      <env-entry>
+        <env-entry-name>de.muensterinside.dao.DataBuilder/locationName2Cat4</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>Saturn</env-entry-value>
+      </env-entry>
+            <env-entry>
+        <env-entry-name>de.muensterinside.dao.DataBuilder/locationName3Cat4</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>Media-Markt</env-entry-value>
+      </env-entry>
+      <env-entry>
+        <env-entry-name>de.muensterinside.dao.DataBuilder/locationName4Cat4</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>Inter Sport</env-entry-value>
+      </env-entry>
+      <env-entry>
+        <env-entry-name>de.muensterinside.dao.DataBuilder/locationName5Cat4</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>Zara</env-entry-value>
+      </env-entry>
+      <env-entry>
+        <env-entry-name>de.muensterinside.dao.DataBuilder/locationName6Cat4</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>Vero Moda</env-entry-value>
+      </env-entry>
+      <env-entry>
+        <env-entry-name>de.muensterinside.dao.DataBuilder/locationName7Cat4</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>Jack and Jones</env-entry-value>
+      </env-entry>
+      <env-entry>
+        <env-entry-name>de.muensterinside.dao.DataBuilder/locationDescription1Cat1</env-entry-name>
         <env-entry-type>java.lang.String</env-entry-type>
         <env-entry-value>Super Burger!</env-entry-value>
       </env-entry>
       <env-entry>
-        <env-entry-name>de.muensterinside.dao.DataBuilder/locationDescription2</env-entry-name>
+        <env-entry-name>de.muensterinside.dao.DataBuilder/locationDescription2Cat1</env-entry-name>
         <env-entry-type>java.lang.String</env-entry-type>
         <env-entry-value>Gemütliche Sitzmöglichkeiten!</env-entry-value>
       </env-entry>
       <env-entry>
-        <env-entry-name>de.muensterinside.dao.DataBuilder/locationLink1</env-entry-name>
+        <env-entry-name>de.muensterinside.dao.DataBuilder/locationDescription3Cat1</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>Gemütliche Sitzmöglichkeiten!</env-entry-value>
+      </env-entry>
+      <env-entry>
+        <env-entry-name>de.muensterinside.dao.DataBuilder/locationDescription4Cat1</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>Gemütliche Sitzmöglichkeiten!</env-entry-value>
+      </env-entry>
+      <env-entry>
+        <env-entry-name>de.muensterinside.dao.DataBuilder/locationDescription5Cat1</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>Gemütliche Sitzmöglichkeiten!</env-entry-value>
+      </env-entry>
+      <env-entry>
+        <env-entry-name>de.muensterinside.dao.DataBuilder/locationDescription6Cat1</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>Gemütliche Sitzmöglichkeiten!</env-entry-value>
+      </env-entry>
+      <env-entry>
+        <env-entry-name>de.muensterinside.dao.DataBuilder/locationDescription7Cat1</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>Gemütliche Sitzmöglichkeiten!</env-entry-value>
+      </env-entry>
+      <env-entry>
+        <env-entry-name>de.muensterinside.dao.DataBuilder/locationDescription1Cat2</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>Sehr gut Musik</env-entry-value>
+      </env-entry>
+      <env-entry>
+        <env-entry-name>de.muensterinside.dao.DataBuilder/locationDescription2Cat2</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>Schöne Atmosphäre</env-entry-value>
+      </env-entry>
+      <env-entry>
+        <env-entry-name>de.muensterinside.dao.DataBuilder/locationDescription3Cat2</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>Gemütliche Sitzmöglichkeiten!</env-entry-value>
+      </env-entry>
+      <env-entry>
+        <env-entry-name>de.muensterinside.dao.DataBuilder/locationDescription4Cat2</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>Die Cocktails schmecken sehr gut</env-entry-value>
+      </env-entry>
+      <env-entry>
+        <env-entry-name>de.muensterinside.dao.DataBuilder/locationDescription5Cat2</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>Sehr lecker</env-entry-value>
+      </env-entry>
+      <env-entry>
+        <env-entry-name>de.muensterinside.dao.DataBuilder/locationDescription6Cat2</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>Preis-Leistung stimmt</env-entry-value>
+      </env-entry>
+      <env-entry>
+        <env-entry-name>de.muensterinside.dao.DataBuilder/locationDescription7Cat2</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>Gemütliche Sitzmöglichkeiten!</env-entry-value>
+      </env-entry>
+	  <env-entry>
+        <env-entry-name>de.muensterinside.dao.DataBuilder/locationDescription1Cat3</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>Leckeres Frühstück</env-entry-value>
+      </env-entry>
+      <env-entry>
+        <env-entry-name>de.muensterinside.dao.DataBuilder/locationDescription2Cat3</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>Gemütliche Zimmer</env-entry-value>
+      </env-entry>
+      <env-entry>
+        <env-entry-name>de.muensterinside.dao.DataBuilder/locationDescription3Cat3</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>Sehr sauber</env-entry-value>
+      </env-entry>
+      <env-entry>
+        <env-entry-name>de.muensterinside.dao.DataBuilder/locationDescription4Cat3</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>Sauber! - Passt alles</env-entry-value>
+      </env-entry>
+      <env-entry>
+        <env-entry-name>de.muensterinside.dao.DataBuilder/locationDescription5Cat3</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>Sehr lecker</env-entry-value>
+      </env-entry>
+      <env-entry>
+        <env-entry-name>de.muensterinside.dao.DataBuilder/locationDescription6Cat3</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>Preis-Leistung stimmt</env-entry-value>
+      </env-entry>
+      <env-entry>
+        <env-entry-name>de.muensterinside.dao.DataBuilder/locationDescription7Cat3</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>Gemütliche Sitzmöglichkeiten!</env-entry-value>
+      </env-entry>
+      <env-entry>
+        <env-entry-name>de.muensterinside.dao.DataBuilder/locationDescription1Cat4</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>Super Burger!</env-entry-value>
+      </env-entry>
+      <env-entry>
+        <env-entry-name>de.muensterinside.dao.DataBuilder/locationDescription2Cat4</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>Gemütliche Sitzmöglichkeiten!</env-entry-value>
+      </env-entry>
+      <env-entry>
+        <env-entry-name>de.muensterinside.dao.DataBuilder/locationDescription3Cat4</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>Gemütliche Sitzmöglichkeiten!</env-entry-value>
+      </env-entry>
+      <env-entry>
+        <env-entry-name>de.muensterinside.dao.DataBuilder/locationDescription4Cat4</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>Gemütliche Sitzmöglichkeiten!</env-entry-value>
+      </env-entry>
+      <env-entry>
+        <env-entry-name>de.muensterinside.dao.DataBuilder/locationDescription5Cat4</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>Gemütliche Sitzmöglichkeiten!</env-entry-value>
+      </env-entry>
+      <env-entry>
+        <env-entry-name>de.muensterinside.dao.DataBuilder/locationDescription6Cat4</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>Gemütliche Sitzmöglichkeiten!</env-entry-value>
+      </env-entry>
+      <env-entry>
+        <env-entry-name>de.muensterinside.dao.DataBuilder/locationDescription7Cat4</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>Gemütliche Sitzmöglichkeiten!</env-entry-value>
+      </env-entry>
+      <env-entry>
+        <env-entry-name>de.muensterinside.dao.DataBuilder/locationLink1Cat1</env-entry-name>
         <env-entry-type>java.lang.String</env-entry-type>
         <env-entry-value>http://www.burgercult.de</env-entry-value>
       </env-entry>
       <env-entry>
-        <env-entry-name>de.muensterinside.dao.DataBuilder/locationLink2</env-entry-name>
+        <env-entry-name>de.muensterinside.dao.DataBuilder/locationLink2Cat1</env-entry-name>
         <env-entry-type>java.lang.String</env-entry-type>
         <env-entry-value>http://www.cafesieben.de</env-entry-value>
+      </env-entry>
+      <env-entry>
+        <env-entry-name>de.muensterinside.dao.DataBuilder/locationLink3Cat1</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>https://de.vapiano.com</env-entry-value>
+      </env-entry>
+      <env-entry>
+        <env-entry-name>de.muensterinside.dao.DataBuilder/locationLink4Cat1</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>http://www.tennessee-mountain.de</env-entry-value>
+      </env-entry>
+      <env-entry>
+        <env-entry-name>de.muensterinside.dao.DataBuilder/locationLink5Cat1</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>http://www.pierhouse.de</env-entry-value>
+      </env-entry>
+      <env-entry>
+        <env-entry-name>de.muensterinside.dao.DataBuilder/locationLink6Cat1</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>http://www.lumina-restaurant.de</env-entry-value>
+      </env-entry>
+      <env-entry>
+        <env-entry-name>de.muensterinside.dao.DataBuilder/locationLink7Cat1</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>http://cafe-med.de</env-entry-value>
+      </env-entry>
+      <env-entry>
+        <env-entry-name>de.muensterinside.dao.DataBuilder/locationLink1Cat2</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>https://www.facebook.com/TIDEdiebar/</env-entry-value>
+      </env-entry>
+      <env-entry>
+        <env-entry-name>de.muensterinside.dao.DataBuilder/locationLink2Cat2</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>http://www.gorilla-bar.de</env-entry-value>
+      </env-entry>
+      <env-entry>
+        <env-entry-name>de.muensterinside.dao.DataBuilder/locationLink3Cat2</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>http://destille-muenster.com</env-entry-value>
+      </env-entry>
+      <env-entry>
+        <env-entry-name>de.muensterinside.dao.DataBuilder/locationLink4Cat2</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>http://www.peacock-muenster.de</env-entry-value>
+      </env-entry>
+      <env-entry>
+        <env-entry-name>de.muensterinside.dao.DataBuilder/locationLink5Cat2</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>http://himmelhoellebar.de</env-entry-value>
+      </env-entry>
+      <env-entry>
+        <env-entry-name>de.muensterinside.dao.DataBuilder/locationLink6Cat2</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>http://www.mutter-birken.de</env-entry-value>
+      </env-entry>
+      <env-entry>
+        <env-entry-name>de.muensterinside.dao.DataBuilder/locationLink7Cat2</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>http://www.blaue-haus-muenster.de</env-entry-value>
+      </env-entry>
+	  <env-entry>
+        <env-entry-name>de.muensterinside.dao.DataBuilder/locationLink1Cat3</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>http://www.kaiserhof-muenster.de</env-entry-value>
+      </env-entry>
+      <env-entry>
+        <env-entry-name>de.muensterinside.dao.DataBuilder/locationLink2Cat3</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>http://www.schloss-wilkinghege.de</env-entry-value>
+      </env-entry>
+      <env-entry>
+        <env-entry-name>de.muensterinside.dao.DataBuilder/locationLink3Cat3</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>http://www.hotel-am-schlosspark-muenster.de</env-entry-value>
+      </env-entry>
+      <env-entry>
+        <env-entry-name>de.muensterinside.dao.DataBuilder/locationLink4Cat3</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>http://www.tennessee-mountain.de</env-entry-value>
+      </env-entry>
+      <env-entry>
+        <env-entry-name>de.muensterinside.dao.DataBuilder/locationLink5Cat3</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>http://www.factoryhotel-muenster.de</env-entry-value>
+      </env-entry>
+      <env-entry>
+        <env-entry-name>de.muensterinside.dao.DataBuilder/locationLink6Cat3</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>http://www.hotel-jellentrup.de</env-entry-value>
+      </env-entry>
+      <env-entry>
+        <env-entry-name>de.muensterinside.dao.DataBuilder/locationLink7Cat3</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>https://www.stadthotel-muenster.de</env-entry-value>
+      </env-entry>
+      <env-entry>
+        <env-entry-name>de.muensterinside.dao.DataBuilder/locationLink1Cat4</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>https://www.galeria-kaufhof.de</env-entry-value>
+      </env-entry>
+      <env-entry>
+        <env-entry-name>de.muensterinside.dao.DataBuilder/locationLink2Cat4</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>www.saturn.de</env-entry-value>
+      </env-entry>
+      <env-entry>
+        <env-entry-name>de.muensterinside.dao.DataBuilder/locationLink3Cat4</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>http://www.mediamarkt.de</env-entry-value>
+      </env-entry>
+      <env-entry>
+        <env-entry-name>de.muensterinside.dao.DataBuilder/locationLink4Cat4</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>http://www.intersport.de</env-entry-value>
+      </env-entry>
+      <env-entry>
+        <env-entry-name>de.muensterinside.dao.DataBuilder/locationLink5Cat4</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>http://www.zara.com/de/</env-entry-value>
+      </env-entry>
+      <env-entry>
+        <env-entry-name>de.muensterinside.dao.DataBuilder/locationLink6Cat4</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>http://www.veromoda.de/?forcecountry=DE</env-entry-value>
+      </env-entry>
+      <env-entry>
+        <env-entry-name>de.muensterinside.dao.DataBuilder/locationLink7Cat4</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>http://jackjones.de/?forcecountry=DE</env-entry-value>
       </env-entry>
       <env-entry>
         <env-entry-name>de.muensterinside.dao.DataBuilder/commentText1</env-entry-name>
