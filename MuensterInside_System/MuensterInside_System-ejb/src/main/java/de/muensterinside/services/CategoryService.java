@@ -14,6 +14,7 @@ import de.muensterinside.exceptions.MuensterInsideException;
 import de.muensterinside.exceptions.NoDataException;
 import de.muensterinside.util.DtoAssembler;
 import de.muensterinside.util.Messages;
+import de.muensterinside.util.OutputRequesterBean;
 
 /**
  * siehe Interface-Beschreibung
@@ -29,6 +30,9 @@ public class CategoryService implements CategoryServiceLocal {
 
 	@EJB
 	private DtoAssembler dtoAssembler;
+	
+	@EJB
+	private OutputRequesterBean outputRequester;
 
 	public CategoryListResponse getCategories() {
 		CategoryListResponse response = new CategoryListResponse();
@@ -42,6 +46,8 @@ public class CategoryService implements CategoryServiceLocal {
 
 			response.setCategoryList(dtoAssembler.makeDTOCategoryList(categories));
 			logger.info("Eine Liste von Kategorien wird zurückgegeben");
+			//TODO: Nur für Testzwecke eingebaut, muss wieder entfernt werden.
+			outputRequester.printLog("Dies ist der erste Test log!");
 		} catch (MuensterInsideException e) {
 			logger.error("Fehler " + e.getErrorCode() + ": " + e.getMessage());
 			response.setReturnCode(e.getErrorCode());
