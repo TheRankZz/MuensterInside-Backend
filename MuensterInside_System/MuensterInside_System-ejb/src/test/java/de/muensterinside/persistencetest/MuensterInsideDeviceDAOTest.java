@@ -26,7 +26,7 @@ public class MuensterInsideDeviceDAOTest {
 	
 	@Deployment
     public static WebArchive createDeployment() {
-    	return ShrinkWrap.create(WebArchive.class, "test.war")
+    	return ShrinkWrap.create(WebArchive.class, "test3.war")
                .addPackages(true,"de/muensterinside")
                .addAsResource("META-INF/test-persistence.xml", "META-INF/persistence.xml")
                .addAsWebInfResource("META-INF/ejb-jar.xml", "ejb-jar.xml");
