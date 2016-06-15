@@ -18,7 +18,7 @@ public class OutputRequesterBean {
 	@Resource(mappedName="java:/JmsXA")
 	private ConnectionFactory jmsFactory;
 	
-	@Resource(mappedName="java:/jms/queue/MuensterInsideOutput")
+	@Resource(mappedName="java:/jms/queue/Queue1")
 	private Queue outputQueue;
 	
     
