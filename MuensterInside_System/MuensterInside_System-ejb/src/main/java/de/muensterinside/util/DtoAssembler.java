@@ -15,13 +15,11 @@ import de.muensterinside.entities.Device;
 import de.muensterinside.entities.Location;
 
 /**
- * 
+ * Mappt die Datenklassen in TO-Klassen um
  * @author Lennart Giesen, Julius Wessing
- *
  */
 @Stateless
 public class DtoAssembler {
-
 
 	public List<CategoryTO> makeDTOCategoryList(List<Category> categories) {
 		ArrayList<CategoryTO> dtoList = new ArrayList<>();
