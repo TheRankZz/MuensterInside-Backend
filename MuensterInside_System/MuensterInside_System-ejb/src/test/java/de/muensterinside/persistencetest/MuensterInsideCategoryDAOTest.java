@@ -16,6 +16,9 @@ import org.junit.runner.RunWith;
 import de.muensterinside.dao.CategoryDAOLocal;
 import de.muensterinside.entities.Category;
 
+/**
+ * @author Julius Wessing
+ */
 @RunWith(Arquillian.class)
 public class MuensterInsideCategoryDAOTest {
 

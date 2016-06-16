@@ -15,6 +15,9 @@ import org.junit.runner.RunWith;
 import de.muensterinside.dao.DeviceDAOLocal;
 import de.muensterinside.entities.Device;
 
+/**
+ * @author Julius Wessing
+ */
 @RunWith(Arquillian.class)
 public class MuensterInsideDeviceDAOTest {
 

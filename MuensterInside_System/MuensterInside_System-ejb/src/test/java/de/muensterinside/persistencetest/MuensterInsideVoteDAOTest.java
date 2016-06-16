@@ -27,6 +27,10 @@ import de.muensterinside.entities.Location;
 import de.muensterinside.entities.Vote;
 import de.muensterinside.entities.VoteType;
 
+
+/**
+ * @author Julius Wessing
+ */
 @RunWith(Arquillian.class)
 public class MuensterInsideVoteDAOTest {
 

@@ -21,6 +21,9 @@ import de.muensterinside.entities.Comment;
 import de.muensterinside.entities.Device;
 import de.muensterinside.entities.Location;
 
+/**
+ * @author Julius Wessing
+ */
 @RunWith(Arquillian.class)
 public class MuensterInsideCommentDAOTest {
 
