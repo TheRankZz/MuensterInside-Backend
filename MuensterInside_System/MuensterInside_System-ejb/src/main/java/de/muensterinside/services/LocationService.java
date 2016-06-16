@@ -5,6 +5,8 @@ import java.util.List;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 
+import org.jboss.logging.Logger;
+
 import de.muensterinside.dao.CategoryDAOLocal;
 import de.muensterinside.dao.DeviceDAOLocal;
 import de.muensterinside.dao.LocationDAOLocal;
@@ -28,6 +30,8 @@ import de.muensterinside.util.Messages;
 @Stateless
 public class LocationService implements LocationServiceLocal {
 
+	private static final Logger logger = Logger.getLogger(LocationService.class);
+	
 	@EJB
 	LocationDAOLocal locationDAO;
 
@@ -53,9 +57,11 @@ public class LocationService implements LocationServiceLocal {
 			response.setLocationList(dtoAssembler.makeDTOLocationList(locationList));
 
 		} catch (MuensterInsideException e) {
+			logger.error("Fehler " + e.getErrorCode() + ": " + e.getMessage());
 			response.setReturnCode(e.getErrorCode());
 			response.setMessage(e.getMessage());
 		} catch (Exception e) {
+			logger.fatal("Unbekannter Fehler " + Messages.SYSTEM_ERROR_CODE + ":" + e.getMessage());
 			response.setReturnCode(Messages.SYSTEM_ERROR_CODE);
 			response.setMessage(Messages.SYSTEM_ERROR_MSG);
 		}
@@ -83,11 +89,13 @@ public class LocationService implements LocationServiceLocal {
 
 			if (!locationDAO.insert(location))
 				throw new NoSavedException(Messages.NO_SAVED_EXCEPTION_MSG);
-
+			logger.info("Location(" + name + ") wurde angelegt");
 		} catch (MuensterInsideException e) {
+			logger.error("Fehler " + e.getErrorCode() + ": " + e.getMessage());
 			response.setReturnCode(e.getErrorCode());
 			response.setMessage(e.getMessage());
 		} catch (Exception e) {
+			logger.fatal("Unbekannter Fehler " + Messages.SYSTEM_ERROR_CODE + ":" + e.getMessage());
 			response.setReturnCode(Messages.SYSTEM_ERROR_CODE);
 			response.setMessage(Messages.SYSTEM_ERROR_MSG);
 		}
@@ -100,7 +108,6 @@ public class LocationService implements LocationServiceLocal {
 		LocationResponse response = new LocationResponse();
 		
 		try {
-			
 			Location loc = locationDAO.findById(id);
 			if(loc == null) 
 				throw new NoDataException(Messages.NO_DATA_EXCEPTION_MSG);
@@ -108,9 +115,11 @@ public class LocationService implements LocationServiceLocal {
 			response.setLocation(dtoAssembler.makeDTO(loc));
 			
 		} catch (MuensterInsideException e) {
+			logger.error("Fehler " + e.getErrorCode() + ": " + e.getMessage());
 			response.setReturnCode(e.getErrorCode());
 			response.setMessage(e.getMessage());
 		} catch (Exception e) {
+			logger.fatal("Unbekannter Fehler " + Messages.SYSTEM_ERROR_CODE + ":" + e.getMessage());
 			response.setReturnCode(Messages.SYSTEM_ERROR_CODE);
 			response.setMessage(Messages.SYSTEM_ERROR_MSG);
 		}
@@ -132,9 +141,11 @@ public class LocationService implements LocationServiceLocal {
 			
 			
 		} catch (MuensterInsideException e) {
+			logger.error("Fehler " + e.getErrorCode() + ": " + e.getMessage());
 			response.setReturnCode(e.getErrorCode());
 			response.setMessage(e.getMessage());
 		} catch (Exception e) {
+			logger.fatal("Unbekannter Fehler " + Messages.SYSTEM_ERROR_CODE + ":" + e.getMessage());
 			response.setReturnCode(Messages.SYSTEM_ERROR_CODE);
 			response.setMessage(Messages.SYSTEM_ERROR_MSG);
 		}

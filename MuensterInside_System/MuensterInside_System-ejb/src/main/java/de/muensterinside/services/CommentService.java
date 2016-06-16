@@ -6,6 +6,8 @@ import java.util.List;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 
+import org.jboss.logging.Logger;
+
 import de.muensterinside.dao.CommentDAOLocal;
 import de.muensterinside.dao.DeviceDAOLocal;
 import de.muensterinside.dao.LocationDAOLocal;
@@ -27,6 +29,8 @@ import de.muensterinside.util.Messages;
 @Stateless
 public class CommentService implements CommentServiceLocal {
 
+	private static final Logger logger = Logger.getLogger(CommentService.class);
+	
 	@EJB
 	CommentDAOLocal commentDAO;
 
@@ -54,9 +58,11 @@ public class CommentService implements CommentServiceLocal {
 			//Zum Response hinzufügen
 			response.setCommentList(dtoAssembler.makeDTOCommentList(comments));
 		} catch (MuensterInsideException e) {
+			logger.error("Fehler " + e.getErrorCode() + ": " + e.getMessage());
 			response.setReturnCode(e.getErrorCode());
 			response.setMessage(e.getMessage());
 		} catch (Exception e) {
+			logger.fatal("Unbekannter Fehler " + Messages.SYSTEM_ERROR_CODE + ":" + e.getMessage());
 			response.setReturnCode(Messages.SYSTEM_ERROR_CODE);
 			response.setMessage(Messages.SYSTEM_ERROR_MSG);
 		}
@@ -79,9 +85,11 @@ public class CommentService implements CommentServiceLocal {
 			//Zum Response hinzufügen
 			response.setCommentList(dtoAssembler.makeDTOCommentList(comments));
 		} catch (MuensterInsideException e) {
+			logger.error("Fehler " + e.getErrorCode() + ": " + e.getMessage());
 			response.setReturnCode(e.getErrorCode());
 			response.setMessage(e.getMessage());
 		} catch (Exception e) {
+			logger.fatal("Unbekannter Fehler " + Messages.SYSTEM_ERROR_CODE + ":" + e.getMessage());
 			response.setReturnCode(Messages.SYSTEM_ERROR_CODE);
 			response.setMessage(Messages.SYSTEM_ERROR_MSG);
 		}
@@ -109,11 +117,14 @@ public class CommentService implements CommentServiceLocal {
 			//Prüfen ob das anlegen in der db erfolgreich war.
 			if (!commentDAO.insert(comment))
 				throw new NoSavedException(Messages.NO_SAVED_EXCEPTION_MSG);
-
+			logger.info("Kommentar("+ text + ") wurde angelegt");
+			
 		} catch (MuensterInsideException e) {
+			logger.error("Fehler " + e.getErrorCode() + ": " + e.getMessage());
 			response.setReturnCode(e.getErrorCode());
 			response.setMessage(e.getMessage());
 		} catch (Exception e) {
+			logger.fatal("Unbekannter Fehler " + Messages.SYSTEM_ERROR_CODE + ":" + e.getMessage());
 			response.setReturnCode(Messages.SYSTEM_ERROR_CODE);
 			response.setMessage(Messages.SYSTEM_ERROR_MSG);
 		}
@@ -129,10 +140,13 @@ public class CommentService implements CommentServiceLocal {
 			//Prüfen ob das löschen in der db erfolgreich war.
 			if (!commentDAO.delete(comment_id))
 				throw new NoSavedException(Messages.NO_DELETE_EXCEPTION_MSG);
+			logger.info("Kommentar("+ comment_id + ") wurde gelöscht");
 		} catch (MuensterInsideException e) {
+			logger.error("Fehler " + e.getErrorCode() + ": " + e.getMessage());
 			response.setReturnCode(e.getErrorCode());
 			response.setMessage(e.getMessage());
 		} catch (Exception e) {
+			logger.fatal("Unbekannter Fehler " + Messages.SYSTEM_ERROR_CODE + ":" + e.getMessage());
 			response.setReturnCode(Messages.SYSTEM_ERROR_CODE);
 			response.setMessage(Messages.SYSTEM_ERROR_MSG);
 		}
