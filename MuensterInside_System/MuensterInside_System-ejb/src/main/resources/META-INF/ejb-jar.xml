@@ -132,7 +132,7 @@
       <env-entry>
         <env-entry-name>de.muensterinside.dao.DataBuilder/locationName1Cat2</env-entry-name>
         <env-entry-type>java.lang.String</env-entry-type>
-        <env-entry-value>TIDE</env-entry-value>
+        <env-entry-value>Haifischbar</env-entry-value>
       </env-entry>
       <env-entry>
         <env-entry-name>de.muensterinside.dao.DataBuilder/locationName2Cat2</env-entry-name>
@@ -237,12 +237,15 @@
       <env-entry>
         <env-entry-name>de.muensterinside.dao.DataBuilder/locationDescription1Cat1</env-entry-name>
         <env-entry-type>java.lang.String</env-entry-type>
-        <env-entry-value>Super Burger!</env-entry-value>
+        <env-entry-value>Burgercult steht für beste Qualität und frische Zutaten aus der Region.
+Wir hoffen, Ihnen mit unseren einzigartigen Burgerkreationen etwas Besonderes bieten zu können.
+
+Unser Rindfleisch beziehen wir, wie gewohnt, aus unserer mehrfach ausgezeichneten Landfleischerei. Wir stellen die Burger-Pattys in „Cult Qualität“ täglich frisch für Sie her. Genießen können Sie Ihren Burger wahlweise mit einem Weizen- oder einem Dinkelbrötchen.</env-entry-value>
       </env-entry>
       <env-entry>
         <env-entry-name>de.muensterinside.dao.DataBuilder/locationDescription2Cat1</env-entry-name>
         <env-entry-type>java.lang.String</env-entry-type>
-        <env-entry-value>Gemütliche Sitzmöglichkeiten!</env-entry-value>
+        <env-entry-value>Direkt an Münsters schönem Hafen, dem Kreativkai, liegt das 350 Quadratmeter große Café Sieben, in dem täglich ab 10 Uhr rund 120 Gäste im Innen- und 220 Gäste im Außenbereich ihren Platz finden. 2008 wurde das moderne Lokal am Hafenweg 18 - 20 eröffnet. Kunst, Kultur und Szeneclubs sorgen im Hafen dafür, dass rund um die Uhr immer eine Menge los ist. Die Mischung aus alten Speicherhäusern und moderner Architektur machen den besonderen Reiz des Stadthafens aus.</env-entry-value>
       </env-entry>
       <env-entry>
         <env-entry-name>de.muensterinside.dao.DataBuilder/locationDescription3Cat1</env-entry-name>
@@ -272,12 +275,17 @@
       <env-entry>
         <env-entry-name>de.muensterinside.dao.DataBuilder/locationDescription1Cat2</env-entry-name>
         <env-entry-type>java.lang.String</env-entry-type>
-        <env-entry-value>Sehr gut Musik</env-entry-value>
+        <env-entry-value>Bei uns könnt ihr im chilligen Surfer-Ambiente alle wichtigen Sportereignisse auf zwei Grossbildleinwänden und einem Plasma TV verfolgen. Kneipensportfreunde kommen hier ebenfalls voll auf ihre Kosten: 
+
+Kickern, Knobeln, Louping Louie und vieles mehr.</env-entry-value>
       </env-entry>
       <env-entry>
         <env-entry-name>de.muensterinside.dao.DataBuilder/locationDescription2Cat2</env-entry-name>
         <env-entry-type>java.lang.String</env-entry-type>
-        <env-entry-value>Schöne Atmosphäre</env-entry-value>
+        <env-entry-value>Wir sind stets 
+bemüht in allen Sparten, ob es Musik, Kleinkunst oder weißderGeier was
+für Aktionen, qualitativ immer nur wirklich schöne Events für Euch anLand
+zu ziehen.</env-entry-value>
       </env-entry>
       <env-entry>
         <env-entry-name>de.muensterinside.dao.DataBuilder/locationDescription3Cat2</env-entry-name>
@@ -307,72 +315,98 @@
 	  <env-entry>
         <env-entry-name>de.muensterinside.dao.DataBuilder/locationDescription1Cat3</env-entry-name>
         <env-entry-type>java.lang.String</env-entry-type>
-        <env-entry-value>Leckeres Frühstück</env-entry-value>
+        <env-entry-value>Herzlich Willkommen im familiengeführten 4-Sterne-Superior Hotel Münster (NRW) – dem Kaiserhof. Erleben Sie als Gäste des Hotels herzlichen Service sowie Qualität und Komfort auf höchstem Niveau. Unser Hotel liegt gegenüber dem Hauptbahnhof Münster, in geringer Entfernung zu allen Sehenswürdigkeiten und Einkaufsstraßen der Innenstadt. Ideal, um die lebhafte Universitäts-Stadt Münster rund um den Aasee zu entdecken. Reisen Sie mit der Bahn oder dem PKW an. Unsere livrierten Wagenmeister übernehmen gerne das Parken Ihres Wagens und helfen mit dem Gepäck. Auch der Flughafen Münster-Osnabrück (FMO) im Herzen von Westfalen ist per Taxi oder Direktbus schnell zu erreichen. Haltestellen befinden sich gleich gegenüber dem Hotel.</env-entry-value>
       </env-entry>
       <env-entry>
         <env-entry-name>de.muensterinside.dao.DataBuilder/locationDescription2Cat3</env-entry-name>
         <env-entry-type>java.lang.String</env-entry-type>
-        <env-entry-value>Gemütliche Zimmer</env-entry-value>
+        <env-entry-value>Das Besondere genießen. Hotel Schloss Wilkinghege, umgeben von einer Gräfte und einem wunderschönen Park, ist ein für das Münsterland typisches Wasserschloss. Entdecken Sie das bereits in dritter Generation privat geführte 4-Sterne-Haus vor den Toren der Stadt Münster in herrlicher Lage.
+
+Ein wunderbarer Ort sich einfach mal Zeit für sich zu nehmen. Lassen Sie sich in persönlicher Atmosphäre von unserer Küche und dem individuellen Service verwöhnen. Wer mag, kann auf dem angrenzenden Golfplatz  die Münsterländer Parklandschaft auf sportliche Weise erleben. 
+
+Ein außergewöhnliches Ambiente für besondere Anlässe. Die prachtvollen Säle stehen für bis zu 85 Personen für Familien- und Firmenfeiern, sowie Tagungen und Seminare zur Verfügung. Die Schlossterrasse mit Blick auf den Park bietet ideale Voraussetzungen für einen Empfang.
+
+Wir laden Sie herzlich ein die Tradition der Gastlichkeit bei uns zu genießen.
+
+Familie Winnecken und Mitarbeiter</env-entry-value>
       </env-entry>
       <env-entry>
         <env-entry-name>de.muensterinside.dao.DataBuilder/locationDescription3Cat3</env-entry-name>
         <env-entry-type>java.lang.String</env-entry-type>
-        <env-entry-value>Sehr sauber</env-entry-value>
+        <env-entry-value>Hinter der markanten Fassade verbirgt sich, in einer ruhigen Seitenstraße und dennoch zentral gelegen, das familiär geführte Hotel am Schlosspark.
+Die Altstadt, das Stadtzentrum und die Universitätskliniken von Münster sind in wenigen Minuten vom Hotel aus zu Fuß zu erreichen. Der Botanische Garten im angrenzenden Schlosspark lädt zu jeder Jahreszeit zu einem entspannten Spaziergang ein.</env-entry-value>
       </env-entry>
       <env-entry>
         <env-entry-name>de.muensterinside.dao.DataBuilder/locationDescription4Cat3</env-entry-name>
         <env-entry-type>java.lang.String</env-entry-type>
-        <env-entry-value>Sauber! - Passt alles</env-entry-value>
+        <env-entry-value>Wer sich unser Logo ansieht, dem fallen schnell die fünf Unternehmensbereiche SLEEP, MEET, EAT, DRINK und DANCE auf. Sie stehen für den Hotelbetrieb, unseren Tagungs- und Veranstaltungsbereich, sowie die zwei Restaurants und unsere Bar TIDE. Wir freuen uns, dass unsere vielseitigen Angebote nicht nur bei Hotelgästen, sondern auch bei Menschen aus Münster und der Region beliebt sind. Daher haben alle unsere Outlets auch externe Ein und Ausgänge. Im Factory Hotel treffen Reisende und Einheimische bei einem Wiener Schnitzel, einem guten Glas Wein oder beim Feiern aufeinander. Darauf sind wir besonders stolz.</env-entry-value>
       </env-entry>
       <env-entry>
         <env-entry-name>de.muensterinside.dao.DataBuilder/locationDescription5Cat3</env-entry-name>
         <env-entry-type>java.lang.String</env-entry-type>
-        <env-entry-value>Sehr lecker</env-entry-value>
+        <env-entry-value>Das Hotel Jellentrup ist ein charmantes und familienfreundliches Hotel in Münster.
+
+Ob Sie geschäftlich oder privat unterwegs sind – nur für eine Nacht oder für länger in Münster bleiben – das Hotel Jellentrup freut sich darauf, Sie begrüßen zu dürfen.
+
+Unser Hotel liegt verkehrsgünstig zur Innenstadt und dem Universitätsklinikum Münster.
+
+Mit der nur ein paar Schritte von uns entfernten Bushaltestelle sind wir auch mit dem Bus problemlos und schnell erreichbar.
+
+Das Hotel bietet Ihnen den idealen Ausgangspunkt, um Münster und seine Sehenswürdigkeiten zu erkunden.
+
+Unsere Zimmer sind geräumig, hell und komfortabel ausgestattet.
+Warme Farben und liebevolle Details erzeugen ein Ambiente zum Wohlfühlen.
+
+Gönnen Sie sich das wohltuende Gefühl, nach einem erlebnisreichen Tag in Münster, wirklich zu Hause zu sein.
+
+Informieren Sie sich und planen Sie ihren nächsten Aufenthalt mit uns.
+Lassen Sie sich von uns und unserem Hotel überzeugen!</env-entry-value>
       </env-entry>
       <env-entry>
         <env-entry-name>de.muensterinside.dao.DataBuilder/locationDescription6Cat3</env-entry-name>
         <env-entry-type>java.lang.String</env-entry-type>
-        <env-entry-value>Preis-Leistung stimmt</env-entry-value>
+        <env-entry-value>Das STADTHOTEL MÜNSTER verbindet 3-Sterne-Superior-Komfort mit persönlicher Atmosphäre, wohltuenden Annehmlichkeiten und zuvorkommenden Services.
+Für Privat- und Geschäftsreisende. Für Konferenzen oder Tagesveranstaltungen. Für einen kurzen Zwischenstopp oder einen längeren Aufenthalt. In zentraler Innenstadtlage, mit Parkplätzen direkt am Haus.</env-entry-value>
       </env-entry>
       <env-entry>
         <env-entry-name>de.muensterinside.dao.DataBuilder/locationDescription7Cat3</env-entry-name>
         <env-entry-type>java.lang.String</env-entry-type>
-        <env-entry-value>Gemütliche Sitzmöglichkeiten!</env-entry-value>
+        <env-entry-value>Herzlich Willkommen in Münster! In fußläufiger Entfernung zur Altstadt, zum Bahnhof und zur Messe begrüßen Sie Familie Düssel und Team im persönlich geführten Cityhotel Amadeus. Alle 32 Zimmer des 3-Sterne klassifizierten Hotels sind komfortabel sowie funktional eingerichtet und für einen angenehmen Aufenthalt voll ausgestattet. WLAN sowie Parkplätze am Haus sind bei Buchungen über unsere Internetseite oder Buchungen direkt im Hotel (telefonisch oder via Email) im günstigen Zimmerpreis bereits enthalten. </env-entry-value>
       </env-entry>
       <env-entry>
         <env-entry-name>de.muensterinside.dao.DataBuilder/locationDescription1Cat4</env-entry-name>
         <env-entry-type>java.lang.String</env-entry-type>
-        <env-entry-value>Super Burger!</env-entry-value>
+        <env-entry-value>Die Galeria Kaufhof GmbH (Eigenschreibweise: GALERIA) ist eine deutsche Warenhauskette und in Europa eine der führenden ihrer Branche. Die Galeria Kaufhof GmbH ist seit dem 30. September 2015 Teil der kanadischen Hudson's Bay Company.</env-entry-value>
       </env-entry>
       <env-entry>
         <env-entry-name>de.muensterinside.dao.DataBuilder/locationDescription2Cat4</env-entry-name>
         <env-entry-type>java.lang.String</env-entry-type>
-        <env-entry-value>Gemütliche Sitzmöglichkeiten!</env-entry-value>
+        <env-entry-value>Die Media-Saturn-Holding GmbH (MSH) ist eine deutsche Elektronik-Fachmarktkette und die größte Europas. Sie fasst die zuvor eigenständigen Elektrohandelsketten Media Markt und Saturn (früher Saturn-Hansa) zusammen. Im März 2011 wurde der Onlinehändler redcoon durch die MSH übernommen, da es bisher nicht mit Erfolg gelungen war, einen eigenen Onlineshop aufzubauen.Das Unternehmen gehört zur Metro-Gruppe. Die Hauptverwaltung befindet sich in Ingolstadt.</env-entry-value>
       </env-entry>
       <env-entry>
         <env-entry-name>de.muensterinside.dao.DataBuilder/locationDescription3Cat4</env-entry-name>
         <env-entry-type>java.lang.String</env-entry-type>
-        <env-entry-value>Gemütliche Sitzmöglichkeiten!</env-entry-value>
+        <env-entry-value>Die Media-Saturn-Holding GmbH (MSH) ist eine deutsche Elektronik-Fachmarktkette und die größte Europas. Sie fasst die zuvor eigenständigen Elektrohandelsketten Media Markt und Saturn (früher Saturn-Hansa) zusammen. Im März 2011 wurde der Onlinehändler redcoon durch die MSH übernommen, da es bisher nicht mit Erfolg gelungen war, einen eigenen Onlineshop aufzubauen. Das Unternehmen gehört zur Metro-Gruppe. Die Hauptverwaltung befindet sich in Ingolstadt.</env-entry-value>
       </env-entry>
       <env-entry>
         <env-entry-name>de.muensterinside.dao.DataBuilder/locationDescription4Cat4</env-entry-name>
         <env-entry-type>java.lang.String</env-entry-type>
-        <env-entry-value>Gemütliche Sitzmöglichkeiten!</env-entry-value>
+        <env-entry-value>Intersport (Eigenschreibweise: INTERSPORT) ist die größte mittelständische Verbundgruppe im weltweiten Sportfachhandel. Unter dem Dach der IIC-Intersport International Corporation GmbH, der Einkaufs- und Management-Gesellschaft der Intersport-Gruppe, sind 5400 Standorte in 45 Ländern zusammengeschlossen. Diese erwirtschafteten 2014 einen Umsatz von 10,5 Mrd. Euro. Das weltweit führende Unternehmen ist mit einem Marktanteil von rund 36 % in Deutschland und über 20 % in Europa auf Platz 1 im Sportfachhandel positioniert.</env-entry-value>
       </env-entry>
       <env-entry>
         <env-entry-name>de.muensterinside.dao.DataBuilder/locationDescription5Cat4</env-entry-name>
         <env-entry-type>java.lang.String</env-entry-type>
-        <env-entry-value>Gemütliche Sitzmöglichkeiten!</env-entry-value>
+        <env-entry-value>Zara ist ein Textilunternehmen und eine Tochtergesellschaft des von Amancio Ortega und Rosalía Mera gegründeten spanischen Inditex-Konzerns. Über ein eigenes Netz von Ladengeschäften und einen Onlineshop verkauft Zara weltweit preiswerte Bekleidung, Accessoires und Schuhe für Damen, Herren und Kinder.</env-entry-value>
       </env-entry>
       <env-entry>
         <env-entry-name>de.muensterinside.dao.DataBuilder/locationDescription6Cat4</env-entry-name>
         <env-entry-type>java.lang.String</env-entry-type>
-        <env-entry-value>Gemütliche Sitzmöglichkeiten!</env-entry-value>
+        <env-entry-value>Vero Moda ist ein dänisches Textileinzelhandelsunternehmen mit Hauptsitz in der dänischen Stadt Brande und eines der größten europäischen Bekleidungsunternehmen.</env-entry-value>
       </env-entry>
       <env-entry>
         <env-entry-name>de.muensterinside.dao.DataBuilder/locationDescription7Cat4</env-entry-name>
         <env-entry-type>java.lang.String</env-entry-type>
-        <env-entry-value>Gemütliche Sitzmöglichkeiten!</env-entry-value>
+        <env-entry-value>Jack and Jones ist ein dänisches Textileinzelhandelsunternehmen mit Hauptsitz in der dänischen Stadt Brande und eines der größten europäischen Bekleidungsunternehmen.</env-entry-value>
       </env-entry>
       <env-entry>
         <env-entry-name>de.muensterinside.dao.DataBuilder/locationLink1Cat1</env-entry-name>

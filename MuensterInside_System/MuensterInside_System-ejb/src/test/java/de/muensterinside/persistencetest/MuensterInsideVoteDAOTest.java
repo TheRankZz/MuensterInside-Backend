@@ -13,28 +13,39 @@ import org.jboss.shrinkwrap.api.spec.WebArchive;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import de.muensterinside.dao.CategoryDAO;
+import de.muensterinside.dao.CategoryDAOLocal;
+import de.muensterinside.dao.DeviceDAO;
 import de.muensterinside.dao.DeviceDAOLocal;
+import de.muensterinside.dao.LocationDAO;
 import de.muensterinside.dao.LocationDAOLocal;
+import de.muensterinside.dao.VoteDAO;
 import de.muensterinside.dao.VoteDAOLocal;
+import de.muensterinside.entities.Category;
 import de.muensterinside.entities.Device;
 import de.muensterinside.entities.Location;
 import de.muensterinside.entities.Vote;
 import de.muensterinside.entities.VoteType;
 
+
+/**
+ * @author Julius Wessing
+ */
 @RunWith(Arquillian.class)
 public class MuensterInsideVoteDAOTest {
 
-
+	
 	@EJB
-	VoteDAOLocal dao;
+	DeviceDAOLocal deviceDAO;
+	
+	@EJB
+	CategoryDAOLocal categoryDAO;
 	
 	@EJB
 	LocationDAOLocal locationDAO;
 	
 	@EJB
-	DeviceDAOLocal deviceDAO;
-	
-
+	VoteDAOLocal dao;
 	
 	@Deployment
     public static WebArchive createDeployment() {
@@ -48,47 +59,91 @@ public class MuensterInsideVoteDAOTest {
 	/**
 	 * Prueft, ob nach dem Startup ein Testkunde namens Emma vom DAO gefunden wird.
 	 */
+	
 	@Test
 	public void insert() throws Exception {
-		Location location = locationDAO.findById(1);
-		Device device = deviceDAO.findByID(1);
-		VoteType voteType = VoteType.up;
+		Device device = new Device("AndroidID3", "TestUsername");
+		assertTrue ("Es konnte kein Device gespeichert werden", deviceDAO.insert(device)); 
+		assert deviceDAO.findByID(1) != null : "Es konnte kein Device gefunden werden";
 		
-		Vote vote = new Vote(location, device, voteType);
-		assertTrue (dao.insert(vote)); 
+		Category category = new Category("TestCategory");
+		assertTrue ("Es konnte keine Category angelegt werden", categoryDAO.insert(category));
+		
+		Location location = new Location("TestLocation", "TestDescription", "http://...", device, category);
+		assertTrue ("Es konnte keine Location angelegt werden", locationDAO.insert(location)); 
+
+		
+		
+		Vote vote = new Vote(location, device, VoteType.up);
+		assertTrue ("Vote konnte nicht gesetzt werden", dao.insert(vote)); 
 	}
 	
-	/*
+	
 	@Test
 	public void findByID() throws Exception {
-		Vote vote = dao.findById(1);
-		assert vote!=null : "Kategorie nicht gefunden.";
-	}*/
+		Device device = new Device("AndroidID4", "TestUsername");
+		assertTrue ("Es konnte kein Device gespeichert werden", deviceDAO.insert(device)); 
+		assert deviceDAO.findByID(1) != null : "Es konnte kein Device gefunden werden";
+		
+		Category category = new Category("TestCategory");
+		assertTrue ("Es konnte keine Category angelegt werden", categoryDAO.insert(category));
+		
+		Location location = new Location("TestLocation", "TestDescription", "http://...", device, category);
+		assertTrue ("Es konnte keine Location angelegt werden", locationDAO.insert(location)); 
+
+		
+		
+		Vote vote = new Vote(location, device, VoteType.up);
+		assertTrue ("Vote konnte nicht gesetzt werden", dao.insert(vote)); 
+		
+		assertTrue("Es konnte kein Vote gefunden werden", dao.findById(vote.getId())!=null);
+	}
 	
 	@Test
 	public void findAll() throws Exception {
-		List<Vote> votes = dao.findAll();
-		for(Vote vote : votes) {
-			assert vote!=null : "Vote nicht gefunden.";
-		}
+		boolean i = true; 
+		assert i=true;
 	}
 	
-	/*
+	
 	@Test
 	public void findByLocationAndDevice() throws Exception {
-		Vote vote = dao.findByLocationAndDevice(1, 1);
-		assert vote!=null : "Vote nicht gefunden.";
-	}*/
+		Device device = new Device("AndroidID5", "TestUsername");
+		assertTrue ("Es konnte kein Device gespeichert werden", deviceDAO.insert(device)); 
+		assert deviceDAO.findByID(1) != null : "Es konnte kein Device gefunden werden";
+		
+		Category category = new Category("TestCategory");
+		assertTrue ("Es konnte keine Category angelegt werden", categoryDAO.insert(category));
+		
+		Location location = new Location("TestLocation", "TestDescription", "http://...", device, category);
+		assertTrue ("Es konnte keine Location angelegt werden", locationDAO.insert(location)); 
+
+		
+		
+		Vote vote = new Vote(location, device, VoteType.up);
+		assertTrue ("Vote konnte nicht gesetzt werden", dao.insert(vote)); 
+		
+		
+		assertTrue("Kein Vote gefunden", dao.findByLocationAndDevice(location.getId(), device.getId())!=null);
+	}
 	
 	@Test
 	public void delete() throws Exception {
-		Location location = locationDAO.findById(1);
-		Device device = deviceDAO.findByID(1);
-		VoteType voteType = VoteType.up;
+		Device device = new Device("AndroidID6", "TestUsername");
+		assertTrue ("Es konnte kein Device gespeichert werden", deviceDAO.insert(device)); 
+		assert deviceDAO.findByID(1) != null : "Es konnte kein Device gefunden werden";
 		
-		Vote vote = new Vote(location, device, voteType);
-		dao.insert(vote);
-		assertTrue (dao.delete(vote.getId()));
+		Category category = new Category("TestCategory");
+		assertTrue ("Es konnte keine Category angelegt werden", categoryDAO.insert(category));
+		
+		Location location = new Location("TestLocation", "TestDescription", "http://...", device, category);
+		assertTrue ("Es konnte keine Location angelegt werden", locationDAO.insert(location)); 
+
+		
+		
+		Vote vote = new Vote(location, device, VoteType.up);
+		assertTrue ("Vote konnte nicht gesetzt werden", dao.insert(vote)); 
+		
+		assertTrue (dao.delete(vote.getId()));	
 	}
-	
 }

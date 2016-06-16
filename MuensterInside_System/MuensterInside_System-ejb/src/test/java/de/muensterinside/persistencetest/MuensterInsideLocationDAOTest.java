@@ -20,6 +20,9 @@ import de.muensterinside.entities.Category;
 import de.muensterinside.entities.Device;
 import de.muensterinside.entities.Location;
 
+/**
+ * @author Julius Wessing
+ */
 @RunWith(Arquillian.class)
 public class MuensterInsideLocationDAOTest {
 
@@ -49,55 +52,114 @@ public class MuensterInsideLocationDAOTest {
 	 */
 	@Test
 	public void insert() throws Exception {
-		Device device = deviceDAO.findByID(1);
-		Category category = categoryDAO.findByID(1);
+		Device device = new Device("TestAndroidID1", "TestUsername");
+		assertTrue ("Es konnte kein Device gespeichert werden", deviceDAO.insert(device)); 
+		assert deviceDAO.findByID(1) != null : "Es konnte kein Device gefunden werden";
+		
+		Category category = new Category("TestCategory");
+		assertTrue ("Es konnte keine Category angelegt werden", categoryDAO.insert(category));
+		
 		Location location = new Location("TestLocation", "TestDescription", "http://...", device, category);
-		assertTrue (dao.insert(location)); 
+		assertTrue ("Es konnte keine Location angelegt werden", dao.insert(location)); 
 	}
 	
 	@Test
 	public void findByID() throws Exception {
-		Location location = dao.findById(1);
-		assert location!=null : "Location nicht gefunden.";
+		Device device = new Device("TestAndroid4", "TestUsername4");
+		assertTrue ("Es konnte kein Device gespeichert werden", deviceDAO.insert(device)); 
+		
+		Category category = new Category("TestCategory");
+		assertTrue ("Es konnte keine Category angelegt werden", categoryDAO.insert(category));
+		
+		Location location = new Location("TestLocation", "TestDescription", "http://...", device, category);
+		assertTrue ("Es konnte keine Location angelegt werden", dao.insert(location)); 
+		
+		assertTrue("Es konnte keine Location gefunden werden", dao.findById(location.getId()) != null);
 	}
 	
 	@Test
 	public void findAll() throws Exception {
+		Device device = new Device("TestAndroidID2", "TestUsername");
+		assertTrue ("Es konnte kein Device gespeichert werden", deviceDAO.insert(device)); 
+		assert deviceDAO.findByID(1) != null : "Es konnte kein Device gefunden werden";
+		
+		Category category = new Category("TestCategory");
+		assertTrue ("Es konnte keine Category angelegt werden", categoryDAO.insert(category));
+		
+		Location location = new Location("TestLocation", "TestDescription", "http://...", device, category);
+		assertTrue ("Es konnte keine Location angelegt werden", dao.insert(location)); 
+		
 		List<Location> locations = dao.findAll();
-		for(Location location : locations) {
-			assert location!=null : "Kategorie nicht gefunden.";
+		for(Location locationLoop : locations) {
+			assert locationLoop!=null : "Location nicht gefunden.";
 		}
 	}
 	
-	/*
+	
 	@Test
 	public void isExists() throws Exception {
-		assertTrue (dao.isExists(2));
-	}*/
+		Device device = new Device("TestAndroidID5", "TestUsername");
+		assertTrue ("Es konnte kein Device gespeichert werden", deviceDAO.insert(device)); 
+		assert deviceDAO.findByID(1) != null : "Es konnte kein Device gefunden werden";
+		
+		Category category = new Category("TestCategory");
+		assertTrue ("Es konnte keine Category angelegt werden", categoryDAO.insert(category));
+		
+		Location location = new Location("TestLocation", "TestDescription", "http://...", device, category);
+		assertTrue ("Es konnte keine Location angelegt werden", dao.insert(location)); 
+		
+		assertTrue ("Es gibt kein Device", dao.isExists(location.getId()));
+	}
 	
 	@Test
 	public void delete() throws Exception {
-		Device device = deviceDAO.findByID(1);
-		Category category = categoryDAO.findByID(1);
-		Location location = new Location("TestLocation", "TestDescription", "http://...", device, category);
+		Device device = new Device("TestAndroidID10", "TestUsername");
+		assertTrue ("Es konnte kein Device gespeichert werden", deviceDAO.insert(device)); 
+		assert deviceDAO.findByID(1) != null : "Es konnte kein Device gefunden werden";
 		
-		dao.insert(location);
+		Category category = new Category("TestCategory");
+		assertTrue ("Es konnte keine Category angelegt werden", categoryDAO.insert(category));
+		
+		Location location = new Location("TestLocation", "TestDescription", "http://...", device, category);
+		assertTrue ("Es konnte keine Location angelegt werden", dao.insert(location)); 
+
 		assertTrue (dao.delete(location.getId()));
 	}
 	
 	@Test
 	public void findByCategory() throws Exception {
-		List<Location> locations = dao.findByCategory(1);
-		for(Location location : locations) {
-			assert location!=null : "Location nicht gefunden.";
+		Device device = new Device("TestAndroidID7", "TestUsername");
+		assertTrue ("Es konnte kein Device gespeichert werden", deviceDAO.insert(device)); 
+		assert deviceDAO.findByID(1) != null : "Es konnte kein Device gefunden werden";
+		
+		Category category = new Category("TestCategory");
+		assertTrue ("Es konnte keine Category angelegt werden", categoryDAO.insert(category));
+		
+		Location location = new Location("TestLocation", "TestDescription", "http://...", device, category);
+		assertTrue ("Es konnte keine Location angelegt werden", dao.insert(location)); 
+		
+		
+		List<Location> locations = dao.findByCategory(category.getId());
+		for(Location locationLoop : locations) {
+			assert locationLoop!=null : "Location nicht gefunden.";
 		}
 	}
 	
 	@Test
 	public void findByDevice() throws Exception {
-		List<Location> locations = dao.findByDevice(1);
-		for(Location location : locations) {
-			assert location!=null : "Location nicht gefunden.";
+		Device device = new Device("TestAndroidID9", "TestUsername");
+		assertTrue ("Es konnte kein Device gespeichert werden", deviceDAO.insert(device)); 
+		assert deviceDAO.findByID(1) != null : "Es konnte kein Device gefunden werden";
+		
+		Category category = new Category("TestCategory");
+		assertTrue ("Es konnte keine Category angelegt werden", categoryDAO.insert(category));
+		
+		Location location = new Location("TestLocation", "TestDescription", "http://...", device, category);
+		assertTrue ("Es konnte keine Location angelegt werden", dao.insert(location)); 
+		
+		List<Location> locations = dao.findByDevice(device.getId());
+		for(Location locationLoop : locations) {
+			assert locationLoop!=null : "Location nicht gefunden.";
 		}
 	}
 	
