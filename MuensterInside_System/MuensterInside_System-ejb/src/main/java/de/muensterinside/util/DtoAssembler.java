@@ -67,6 +67,7 @@ public class DtoAssembler {
 		dto.setId(location.getId());
 		dto.setName(location.getName());
 		dto.setLink(location.getLink());
+		dto.setDescription(location.getDescription());
 		dto.setVotevalue(location.getVoteValue());
 		return dto;
 	}
