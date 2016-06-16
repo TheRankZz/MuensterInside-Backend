@@ -9,7 +9,8 @@ import javax.ejb.Stateless;
 
 
 /**
- * Session Bean implementation class OutputRequesterBean
+ * 
+ * @author Julius Wessing
  */
 @Stateless
 @LocalBean

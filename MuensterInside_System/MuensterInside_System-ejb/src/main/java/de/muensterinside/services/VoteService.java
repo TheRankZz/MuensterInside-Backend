@@ -152,7 +152,7 @@ public class VoteService implements VoteServiceLocal {
 			
 			//Eine Vote anlegen
 			Vote vote = new Vote(loc, dev, typ);
-			if (daoVote.insert(vote))
+			if (!daoVote.insert(vote))
 				throw new NoSavedException(Messages.NoSavedExceptionMsg);
 
 			logger.info(
