@@ -13,6 +13,7 @@ import javax.persistence.*;
 @Table(name = "locations") 
 public class Location extends BaseEntity {
 
+	@Column(nullable = false)
 	private String name;
 
 	@Column(length=1000) 

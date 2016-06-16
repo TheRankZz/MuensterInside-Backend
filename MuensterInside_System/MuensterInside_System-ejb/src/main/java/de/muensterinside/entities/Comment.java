@@ -11,6 +11,7 @@ import javax.persistence.*;
 @Table(name = "comments") 
 public class Comment extends BaseEntity {
 
+	@Column(nullable = false, length=1000)
 	private String text;
 
 	@ManyToOne
