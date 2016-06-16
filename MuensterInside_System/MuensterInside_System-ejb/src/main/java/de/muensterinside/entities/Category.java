@@ -7,7 +7,7 @@ import javax.persistence.*;
 /**
  * Datenklasse: Kategorie
  * 
- * @author Lennart Giesen, Julius Wessing
+ * @author Lennart Giesen
  */
 @Entity
 @Table(name = "categories")  

@@ -2,6 +2,9 @@ package de.muensterinside.dto;
 
 import java.util.List;
 
+/**
+ * @author Lennart Giesen
+ */
 public class LocationListResponse extends ReturncodeResponse{
 
 	

@@ -3,9 +3,7 @@ package de.muensterinside.dto;
 import java.util.List;
 
 /**
- * 
- * @author Lennart Giesen, Julius Wessing
- *
+ * @author Lennart Giesen
  */
 public class CategoryListResponse extends ReturncodeResponse {
 

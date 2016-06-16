@@ -1,5 +1,8 @@
 package de.muensterinside.dto;
 
+/**
+ * @author Lennart Giesen
+ */
 public class ImageResponse extends ReturncodeResponse {
 
 	private String imageDataBase64;

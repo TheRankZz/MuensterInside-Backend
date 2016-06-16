@@ -7,7 +7,7 @@ import javax.ejb.Local;
 import de.muensterinside.entities.Category;
 
 /**
- * Dieses DAO-Objekt kümmert sich um die Kategorien
+ *  DAO für Kategorien
  * @author Lennart Giesen, Julius Wessing
  */
 @Local

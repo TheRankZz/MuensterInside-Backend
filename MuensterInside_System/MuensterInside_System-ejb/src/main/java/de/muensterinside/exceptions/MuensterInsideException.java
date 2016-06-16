@@ -1,5 +1,9 @@
 package de.muensterinside.exceptions;
 
+/**
+ * Allgemeine Exception
+ * @author Lennart Giesen, Julius Wessing
+ */
 public class MuensterInsideException extends Exception {
 
 	private static final long serialVersionUID = -1658425297634781761L;

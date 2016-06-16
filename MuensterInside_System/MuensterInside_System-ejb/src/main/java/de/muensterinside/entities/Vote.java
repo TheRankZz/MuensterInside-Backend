@@ -6,7 +6,7 @@ import javax.persistence.*;
 /**
  * Datenklasse: Bewertung/Stimme
  * 
- * @author Lennart Giesen, Julius Wessing
+ * @author Lennart Giesen
  */
 @Entity
 @Table(name = "votes") 

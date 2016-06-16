@@ -1,5 +1,8 @@
 package de.muensterinside.dto;
 
+/**
+ * @author Lennart Giesen
+ */
 public class LocationResponse extends ReturncodeResponse {
 	
 	private LocationTO location;

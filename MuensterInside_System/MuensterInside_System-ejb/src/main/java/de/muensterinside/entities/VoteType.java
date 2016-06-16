@@ -2,7 +2,7 @@ package de.muensterinside.entities;
 
 /**
  * 
- * @author Lennart Giesen, Julius Wessing
+ * @author Lennart Giesen
  */
 public enum VoteType {
 	up, down

@@ -3,9 +3,7 @@ package de.muensterinside.dto;
 import java.util.Date;
 
 /**
- * 
- * @author Lennart Giesen, Julius Wessing
- *
+ * @author Julius Wessing
  */
 public class CommentTO {
 

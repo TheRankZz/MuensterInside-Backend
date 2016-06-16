@@ -5,7 +5,7 @@ import javax.persistence.*;
 /**
  * Datenklasse: Kommentar
  * 
- * @author Lennart Giesen, Julius Wessing
+ * @author Lennart Giesen
  */
 @Entity
 @Table(name = "comments") 

@@ -8,7 +8,7 @@ import javax.persistence.*;
 /**
  * Basis-Klasse für die Entitäten
  * 
- * @author Lennart Giesen, Julius Wessing
+ * @author Lennart Giesen
  */
 @MappedSuperclass
 public abstract class BaseEntity implements Serializable {

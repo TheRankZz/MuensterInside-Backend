@@ -2,9 +2,7 @@ package de.muensterinside.dto;
 
 
 /**
- * 
- * @author Lennart Giesen, Julius Wessing
- *
+ * @author Julius Wessing
  */
 public class CategoryTO extends DataTransferObject {
 

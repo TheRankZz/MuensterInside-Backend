@@ -1,6 +1,8 @@
 package de.muensterinside.dto;
 
-
+/**
+ * @author Lennart Giesen
+ */
 public class DeviceResponse extends ReturncodeResponse {
 	
 	private DeviceTO device;

@@ -10,12 +10,12 @@ import javax.ejb.*;
 import javax.persistence.*;
 
 import de.muensterinside.entities.Category;
-import de.muensterinside.entities.Comment;
 import de.muensterinside.entities.Device;
 import de.muensterinside.entities.Location;
-import de.muensterinside.entities.Vote;
-import de.muensterinside.entities.VoteType;
 
+/**
+ * @author Julius Wessing
+ */
 @Singleton
 @Startup
 public class DataBuilder {

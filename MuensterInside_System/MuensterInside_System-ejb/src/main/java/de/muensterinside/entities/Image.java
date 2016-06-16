@@ -8,6 +8,10 @@ import javax.persistence.Lob;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+/**
+ * 
+ * @author Lennart Giesen
+ */
 @Entity
 @Table(name = "images")
 public class Image extends BaseEntity {

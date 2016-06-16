@@ -1,9 +1,7 @@
 package de.muensterinside.dto;
 
 /**
- * 
  * @author Lennart Giesen, Julius Wessing
- *
  */
 public class DeviceTO {
 	
