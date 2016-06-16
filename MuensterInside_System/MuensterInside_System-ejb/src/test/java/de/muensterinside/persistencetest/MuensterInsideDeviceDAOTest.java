@@ -38,42 +38,51 @@ public class MuensterInsideDeviceDAOTest {
 	 */
 	@Test
 	public void insert() throws Exception {
-		Device device = new Device("TestAndroidUuid", "TestUsername");
+		Device device = new Device("TestAndroidUuid1", "TestUsername");
 		assertTrue (dao.insert(device)); 
 	}
 	
 	@Test
 	public void findByID() throws Exception {
-		Device device = dao.findByID(1);
-		assert device!=null : "Device nicht gefunden.";
+		Device device = new Device("TestAndroidUuid2", "TestUsername2");
+		assertTrue ("Es konnte kein Device gespeichert werden", dao.insert(device)); 
+		
+		assert dao.findByID(device.getId()) != null : "Es konnte kein Device gefunden werden";
 	}
 	
 	@Test
 	public void findAll() throws Exception {
+		Device device = new Device("TestAndroidUuid3", "TestUsername3");
+		assertTrue ("Es konnte kein Device gespeichert werden", dao.insert(device)); 
+		
 		List<Device> devices = dao.findAll();
-		for(Device device : devices) {
-			assert device!=null : "Device nicht gefunden.";
+		for(Device deviceLoop : devices) {
+			assert deviceLoop!=null : "Device nicht gefunden.";
 		}
 	}
 	
 	@Test
 	public void delete() throws Exception {
-		Device device = new Device("TestAndroidUuid", "TestUsername");
+		Device device = new Device("TestAndroidUuid4", "TestUsername4");
+		assertTrue ("Es konnte kein Device gespeichert werden", dao.insert(device)); 
 		
-		dao.insert(device);
 		assertTrue (dao.delete(device.getId()));
 	}
 	
 	@Test
 	public void findByAndroidUuid() throws Exception {
-		Device device = dao.findByAndroidUuid("TestAndroidUuid");
-		assert device!=null : "Device nicht gefunden.";
+		Device device = new Device("TestAndroidUuid5", "TestUsername5");
+		assertTrue ("Es konnte kein Device gespeichert werden", dao.insert(device)); 
+		
+		assert dao.findByAndroidUuid(device.getAndroidUuid())!=null : "Device nicht gefunden.";
 	}
 	
-	/*
 	@Test
 	public void isExists() throws Exception {
-		assertTrue (dao.isExists(2));
-	}*/
+		Device device = new Device("TestAndroidUuid6", "TestUsername6");
+		assertTrue ("Es konnte kein Device gespeichert werden", dao.insert(device)); 
+		
+		assertTrue (dao.isExists(device.getId()));
+	}
 	
 }

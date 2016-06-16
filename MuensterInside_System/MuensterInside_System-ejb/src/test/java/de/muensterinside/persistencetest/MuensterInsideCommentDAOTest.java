@@ -12,6 +12,7 @@ import org.jboss.shrinkwrap.api.spec.WebArchive;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import de.muensterinside.dao.CategoryDAOLocal;
 import de.muensterinside.dao.CommentDAOLocal;
 import de.muensterinside.dao.DeviceDAOLocal;
 import de.muensterinside.dao.LocationDAOLocal;
@@ -33,6 +34,9 @@ public class MuensterInsideCommentDAOTest {
 	@EJB
 	LocationDAOLocal locationDAO;
 	
+	@EJB
+	CategoryDAOLocal categoryDAO;
+	
 
 	
 	@Deployment
@@ -49,10 +53,13 @@ public class MuensterInsideCommentDAOTest {
 	 */
 	@Test
 	public void insert() throws Exception {
-		Device device = new Device();
+		Device device = new Device("androidUuid1", "username1");
 		assertTrue ("Es konnte kein Device angelegt werden", deviceDAO.insert(device)); 
 		
-		Location location = new Location();
+		Category category = new Category("Category1");
+		assertTrue ("Es konnte kein Device angelegt werden", categoryDAO.insert(category)); 
+		
+		Location location = new Location("location1", "locationDe", "http://...", device, category);
 		assertTrue ("Es konnte keine Location angelegt werden", locationDAO.insert(location)); 
 		
 		Comment comment = new Comment("TestComment", device, location);
@@ -62,10 +69,13 @@ public class MuensterInsideCommentDAOTest {
 	
 	@Test
 	public void findByID() throws Exception {
-		Device device = new Device();
+		Device device = new Device("androidUuid2", "username2");
 		assertTrue ("Es konnte kein Device angelegt werden", deviceDAO.insert(device)); 
 		
-		Location location = new Location();
+		Category category = new Category("Category2");
+		assertTrue ("Es konnte kein Device angelegt werden", categoryDAO.insert(category)); 
+		
+		Location location = new Location("location2", "locationDe", "http://...", device, category);
 		assertTrue ("Es konnte keine Location angelegt werden", locationDAO.insert(location)); 
 		
 		Comment comment = new Comment("TestComment", device, location);
@@ -78,10 +88,13 @@ public class MuensterInsideCommentDAOTest {
 	
 	@Test
 	public void findAll() throws Exception {
-		Device device = new Device();
+		Device device = new Device("androidUuid3", "username3");
 		assertTrue ("Es konnte kein Device angelegt werden", deviceDAO.insert(device)); 
 		
-		Location location = new Location();
+		Category category = new Category("Category3");
+		assertTrue ("Es konnte kein Device angelegt werden", categoryDAO.insert(category)); 
+		
+		Location location = new Location("location3", "locationDe", "http://...", device, category);
 		assertTrue ("Es konnte keine Location angelegt werden", locationDAO.insert(location)); 
 		
 		Comment comment = new Comment("TestComment", device, location);
@@ -95,30 +108,62 @@ public class MuensterInsideCommentDAOTest {
 	}
 	
 	
-	//Hier weiter machen
 	@Test
 	public void delete() throws Exception {
-		Device device = deviceDAO.findByID(1);
-		Location location = locationDAO.findById(1);
-		Comment comment = new Comment("TestComment", device, location);
+		Device device = new Device("androidUuid4", "username4");
+		assertTrue ("Es konnte kein Device angelegt werden", deviceDAO.insert(device)); 
 		
-		dao.insert(comment);
+		Category category = new Category("Category4");
+		assertTrue ("Es konnte kein Device angelegt werden", categoryDAO.insert(category)); 
+		
+		Location location = new Location("location4", "locationDe", "http://...", device, category);
+		assertTrue ("Es konnte keine Location angelegt werden", locationDAO.insert(location)); 
+		
+		Comment comment = new Comment("TestComment", device, location);
+		assertTrue ("Es konnte kein Kommentar angelegt werden", dao.insert(comment)); 
+		
 		assertTrue (dao.delete(comment.getId()));
 	}
 	
 	@Test
 	public void findByLocation() throws Exception {
-		List<Comment> comments = dao.findByLocation(1);
-		for(Comment comment : comments) {
-			assert comment!=null : "Kommentar nicht gefunden.";
+		Device device = new Device("androidUuid5", "username5");
+		assertTrue ("Es konnte kein Device angelegt werden", deviceDAO.insert(device)); 
+		
+		Category category = new Category("Category5");
+		assertTrue ("Es konnte kein Device angelegt werden", categoryDAO.insert(category)); 
+		
+		Location location = new Location("location5", "locationDe", "http://...", device, category);
+		assertTrue ("Es konnte keine Location angelegt werden", locationDAO.insert(location)); 
+		
+		Comment comment = new Comment("TestComment", device, location);
+		assertTrue ("Es konnte kein Kommentar angelegt werden", dao.insert(comment)); 
+		
+		
+		List<Comment> comments = dao.findByLocation(location.getId());
+		for(Comment commentLoop : comments) {
+			assert commentLoop!=null : "Kommentar nicht gefunden.";
 		}
 	}
 	
 	@Test
 	public void findByDevice() throws Exception {
-		List<Comment> comments = dao.findByDevice(1);
-		for(Comment comment : comments) {
-			assert comment!=null : "Kommentar nicht gefunden.";
+		Device device = new Device("androidUuid6", "username6");
+		assertTrue ("Es konnte kein Device angelegt werden", deviceDAO.insert(device)); 
+		
+		Category category = new Category("Category6");
+		assertTrue ("Es konnte kein Device angelegt werden", categoryDAO.insert(category)); 
+		
+		Location location = new Location("location6", "locationDe", "http://...", device, category);
+		assertTrue ("Es konnte keine Location angelegt werden", locationDAO.insert(location)); 
+		
+		Comment comment = new Comment("TestComment", device, location);
+		assertTrue ("Es konnte kein Kommentar angelegt werden", dao.insert(comment)); 
+		
+		
+		List<Comment> comments = dao.findByDevice(device.getId());
+		for(Comment commentLoop : comments) {
+			assert commentLoop!=null : "Kommentar nicht gefunden.";
 		}
 	}
 	
