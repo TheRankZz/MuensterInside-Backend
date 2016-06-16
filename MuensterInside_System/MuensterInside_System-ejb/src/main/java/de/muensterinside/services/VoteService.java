@@ -22,6 +22,7 @@ import de.muensterinside.entities.Device;
 import de.muensterinside.entities.Location;
 import de.muensterinside.entities.Vote;
 import de.muensterinside.entities.VoteType;
+import de.muensterinside.exceptions.DeviceNotFoundException;
 import de.muensterinside.exceptions.MuensterInsideException;
 import de.muensterinside.exceptions.NoDataException;
 import de.muensterinside.exceptions.NoSavedException;
@@ -60,12 +61,16 @@ public class VoteService implements VoteServiceLocal {
 		LocationListResponse response = new LocationListResponse();
 
 		try {
-			Device dev = daoDevice.findByID(deviceId);
-			// TODO: Die Locations werden nicht geladen.
-			if (dev.getLocations().isEmpty())
+			//Prüfen ob Device vorhanden ist
+			if(daoDevice.isExists(deviceId))
+				throw new DeviceNotFoundException("Das Gerät ist nicht registriert");
+			
+			List<Location> locations = daoLocation.findByDevice(deviceId);
+			//Prüfen ob locations vorhanden ist
+			if (locations.isEmpty())
 				throw new NoDataException(Messages.NoDataExceptionMsg);
-
-			List<LocationTO> list = dtoAssembler.makeDTOLocationList(dev.getLocations());
+			
+			List<LocationTO> list = dtoAssembler.makeDTOLocationList(locations);
 			if (list.isEmpty())
 				throw new NoDataException(Messages.NoSavedExceptionMsg);
 
