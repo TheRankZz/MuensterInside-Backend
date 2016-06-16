@@ -40,34 +40,39 @@ public class MuensterInsideCategoryDAOTest {
 	@Test
 	public void insert() throws Exception {
 		Category category = new Category();
-		assertTrue (dao.insert(category)); 
+		assertTrue ("Kategorie konnte nicht hinzugefügt werden.", dao.insert(category)); 
 	}
 	
-	/*
+	
 	@Test
 	public void findByID() throws Exception {
-		Category category = dao.findByID(1);
-		assert category!=null : "Kategorie nicht gefunden.";
-	}*/
+		Category category = new Category();
+		assertTrue ("Kategorie konnte nicht hinzugefügt werden.", dao.insert(category)); 
+		Category categoryFind = dao.findByID(category.getId());
+		assert categoryFind!=null : "Kategorie nicht gefunden.";
+	}
 	
 	@Test
 	public void findAll() throws Exception {
+		Category category = new Category();
+		assertTrue ("Kategorie konnte nicht hinzugefügt werden.", dao.insert(category)); 
 		List<Category> categories = dao.findAll();
-		for(Category category : categories) {
-			assert category!=null : "Kategorie nicht gefunden.";
+		for(Category categoryLoop : categories) {
+			assert categoryLoop!=null : "Kategorie nicht gefunden.";
 		}
 	}
 	
 	@Test
 	public void isExists() throws Exception {
-		assertTrue (dao.isExists(2));
+		Category category = new Category();
+		assertTrue ("Kategorie konnte nicht hinzugefügt werden.", dao.insert(category)); 
+		assertTrue ("Es konnte keine Kategorie gefunden werden.", dao.isExists(category.getId()));
 	}
 	
 	@Test
 	public void delete() throws Exception {
-		Category category = new Category("Test");
-		
-		dao.insert(category);
+		Category category = new Category();
+		assertTrue ("Kategorie konnte nicht hinzugefügt werden.", dao.insert(category)); 
 		assertTrue (dao.delete(category.getId()));
 	}
 	

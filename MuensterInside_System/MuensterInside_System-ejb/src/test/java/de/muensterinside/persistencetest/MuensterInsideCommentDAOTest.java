@@ -15,6 +15,7 @@ import org.junit.runner.RunWith;
 import de.muensterinside.dao.CommentDAOLocal;
 import de.muensterinside.dao.DeviceDAOLocal;
 import de.muensterinside.dao.LocationDAOLocal;
+import de.muensterinside.entities.Category;
 import de.muensterinside.entities.Comment;
 import de.muensterinside.entities.Device;
 import de.muensterinside.entities.Location;
@@ -48,28 +49,53 @@ public class MuensterInsideCommentDAOTest {
 	 */
 	@Test
 	public void insert() throws Exception {
-		Device device = deviceDAO.findByID(1);
-		Location location = locationDAO.findById(1);
+		Device device = new Device();
+		assertTrue ("Es konnte kein Device angelegt werden", deviceDAO.insert(device)); 
+		
+		Location location = new Location();
+		assertTrue ("Es konnte keine Location angelegt werden", locationDAO.insert(location)); 
+		
 		Comment comment = new Comment("TestComment", device, location);
-		assertTrue (dao.insert(comment)); 
+		assertTrue ("Es konnte kein Kommentar angelegt werden", dao.insert(comment)); 
 	}
 	
-	/*
+	
 	@Test
 	public void findByID() throws Exception {
-		Comment comment = dao.findByID(1);
-		assert comment!=null : "Kommentar nicht gefunden.";
+		Device device = new Device();
+		assertTrue ("Es konnte kein Device angelegt werden", deviceDAO.insert(device)); 
+		
+		Location location = new Location();
+		assertTrue ("Es konnte keine Location angelegt werden", locationDAO.insert(location)); 
+		
+		Comment comment = new Comment("TestComment", device, location);
+		assertTrue ("Es konnte kein Kommentar angelegt werden", dao.insert(comment)); 
+		
+		
+		 assert dao.findByID(comment.getId())!=null : "Kommentar nicht gefunden.";
 	}
-	*/
+	
 	
 	@Test
 	public void findAll() throws Exception {
+		Device device = new Device();
+		assertTrue ("Es konnte kein Device angelegt werden", deviceDAO.insert(device)); 
+		
+		Location location = new Location();
+		assertTrue ("Es konnte keine Location angelegt werden", locationDAO.insert(location)); 
+		
+		Comment comment = new Comment("TestComment", device, location);
+		assertTrue ("Es konnte kein Kommentar angelegt werden", dao.insert(comment)); 
+		
+		
 		List<Comment> comments = dao.findAll();
-		for(Comment comment : comments) {
-			assert comment!=null : "Kommentar nicht gefunden.";
+		for(Comment commentLoop : comments) {
+			assert commentLoop!=null : "Kommentar nicht gefunden.";
 		}
 	}
 	
+	
+	//Hier weiter machen
 	@Test
 	public void delete() throws Exception {
 		Device device = deviceDAO.findByID(1);
