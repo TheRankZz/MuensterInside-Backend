@@ -13,6 +13,7 @@ import de.muensterinside.exceptions.DeviceNotFoundException;
 import de.muensterinside.exceptions.MuensterInsideException;
 import de.muensterinside.util.DtoAssembler;
 import de.muensterinside.util.Messages;
+import de.muensterinside.util.OutputRequesterBean;
 
 /**
  * siehe Interface-Beschreibung
@@ -28,6 +29,9 @@ public class DeviceService implements DeviceServiceLocal {
 
 	@EJB
 	DtoAssembler dtoAssembler;
+	
+	@EJB
+	private OutputRequesterBean outputRequester;
 
 	@Override
 	public DeviceResponse register(String androidUuid, String username) {
@@ -36,7 +40,7 @@ public class DeviceService implements DeviceServiceLocal {
 		try {
 			//Prüfen ob für dieses Android-ID schon ein Device registriert wurde
 			if (daoDevice.findByAndroidUuid(androidUuid) != null)
-				throw new DeviceExistsException("Dieses Gerät(" + androidUuid + ") wurde schon registriert");
+				throw new DeviceExistsException(String.format(Messages.DEVICE_EXISTS_EXCEPTION_MSG, androidUuid));
 
 			Device dev = new Device(androidUuid, username);
 			daoDevice.insert(dev);
@@ -47,9 +51,9 @@ public class DeviceService implements DeviceServiceLocal {
 			response.setReturnCode(e.getErrorCode());
 			response.setMessage(e.getMessage());
 		} catch (Exception e) {
-			logger.fatal("Unbekannter Fehler " + Messages.SystemErrorCode + ":" + e.getMessage());
-			response.setReturnCode(Messages.SystemErrorCode);
-			response.setMessage(e.getMessage());
+			logger.fatal("Unbekannter Fehler " + Messages.SYSTEM_ERROR_CODE + ":" + e.getMessage());
+			response.setReturnCode(Messages.SYSTEM_ERROR_CODE);
+			response.setMessage(Messages.SYSTEM_ERROR_MSG);
 		}
 
 		return response;
@@ -64,11 +68,15 @@ public class DeviceService implements DeviceServiceLocal {
 
 			// Überprüfen ob das Gerät registriert ist
 			if (dev == null)
-				throw new DeviceNotFoundException("Das Gerät(" + androidUuid + ") ist nicht registriert");
+				throw new DeviceNotFoundException(String.format(Messages.DEVICE_NOT_FOUND_EXCEPTION_MSG, androidUuid));
 
 			// Login-Datum aktualisieren
 			dev.setLastLoginAt();
 			daoDevice.update(dev);
+			
+			outputRequester.printLog("Der Benutzer(" + dev.getUsername() + ") mit der Android-ID(" +
+					dev.getAndroidUuid() + ") hat sich eingeloggt.");
+			
 			response.setMessage("Wilkommen  " + dev.getUsername() + "!");
 			response.setDevice(dtoAssembler.makeDTO(dev));
 
@@ -77,9 +85,9 @@ public class DeviceService implements DeviceServiceLocal {
 			response.setReturnCode(e.getErrorCode());
 			response.setMessage(e.getMessage());
 		} catch (Exception e) {
-			logger.fatal("Unbekannter Fehler " + Messages.SystemErrorCode + ":" + e.getMessage());
-			response.setReturnCode(Messages.SystemErrorCode);
-			response.setMessage(e.getMessage());
+			logger.fatal("Unbekannter Fehler " + Messages.SYSTEM_ERROR_CODE + ":" + e.getMessage());
+			response.setReturnCode(Messages.SYSTEM_ERROR_CODE);
+			response.setMessage(Messages.SYSTEM_ERROR_MSG);
 		}
 
 		return response;

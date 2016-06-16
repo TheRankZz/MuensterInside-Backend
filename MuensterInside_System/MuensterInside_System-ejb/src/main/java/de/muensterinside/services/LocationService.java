@@ -47,7 +47,7 @@ public class LocationService implements LocationServiceLocal {
 			List<Location> locationList = locationDAO.findByCategory(cat_id);
 
 			if (locationList.isEmpty()) {
-				throw new NoDataException(Messages.NoDataExceptionMsg);
+				throw new NoDataException(Messages.NO_DATA_EXCEPTION_MSG);
 			}
 
 			response.setLocationList(dtoAssembler.makeDTOLocationList(locationList));
@@ -56,8 +56,8 @@ public class LocationService implements LocationServiceLocal {
 			response.setReturnCode(e.getErrorCode());
 			response.setMessage(e.getMessage());
 		} catch (Exception e) {
-			response.setReturnCode(Messages.SystemErrorCode);
-			response.setMessage(e.getMessage());
+			response.setReturnCode(Messages.SYSTEM_ERROR_CODE);
+			response.setMessage(Messages.SYSTEM_ERROR_MSG);
 		}
 		
 		return response;
@@ -71,10 +71,10 @@ public class LocationService implements LocationServiceLocal {
 
 		try {
 			if (!categoryDAO.isExists(category_id))
-				throw new NoDataException(Messages.NoDataExceptionMsg);
+				throw new NoDataException(Messages.NO_DATA_EXCEPTION_MSG);
 			
 			if (!deviceDAO.isExists(deviceId))
-				throw new NoDataException(Messages.NoDataExceptionMsg);
+				throw new NoDataException(Messages.NO_DATA_EXCEPTION_MSG);
 
 			Category category = categoryDAO.findByID(category_id);
 			Device device = deviceDAO.findByID(deviceId);
@@ -82,14 +82,14 @@ public class LocationService implements LocationServiceLocal {
 			Location location = new Location(name, description, link, device, category);
 
 			if (!locationDAO.insert(location))
-				throw new NoSavedException(Messages.NoSavedExceptionMsg);
+				throw new NoSavedException(Messages.NO_SAVED_EXCEPTION_MSG);
 
 		} catch (MuensterInsideException e) {
 			response.setReturnCode(e.getErrorCode());
 			response.setMessage(e.getMessage());
 		} catch (Exception e) {
-			response.setReturnCode(Messages.SystemErrorCode);
-			response.setMessage(e.getMessage());
+			response.setReturnCode(Messages.SYSTEM_ERROR_CODE);
+			response.setMessage(Messages.SYSTEM_ERROR_MSG);
 		}
 
 		return response;
@@ -103,7 +103,7 @@ public class LocationService implements LocationServiceLocal {
 			
 			Location loc = locationDAO.findById(id);
 			if(loc == null) 
-				throw new NoDataException(Messages.NoDataExceptionMsg);
+				throw new NoDataException(Messages.NO_DATA_EXCEPTION_MSG);
 			
 			response.setLocation(dtoAssembler.makeDTO(loc));
 			
@@ -111,8 +111,8 @@ public class LocationService implements LocationServiceLocal {
 			response.setReturnCode(e.getErrorCode());
 			response.setMessage(e.getMessage());
 		} catch (Exception e) {
-			response.setReturnCode(Messages.SystemErrorCode);
-			response.setMessage(e.getMessage());
+			response.setReturnCode(Messages.SYSTEM_ERROR_CODE);
+			response.setMessage(Messages.SYSTEM_ERROR_MSG);
 		}
 		
 		return response;
@@ -126,7 +126,7 @@ public class LocationService implements LocationServiceLocal {
 			List<Location> locations = locationDAO.findByDevice(deviceId);
 			
 			if(locations.isEmpty())
-				throw new NoDataException(Messages.NoDataExceptionMsg);
+				throw new NoDataException(Messages.NO_DATA_EXCEPTION_MSG);
 			
 			response.setLocationList(dtoAssembler.makeDTOLocationList(locations));
 			
@@ -135,8 +135,8 @@ public class LocationService implements LocationServiceLocal {
 			response.setReturnCode(e.getErrorCode());
 			response.setMessage(e.getMessage());
 		} catch (Exception e) {
-			response.setReturnCode(Messages.SystemErrorCode);
-			response.setMessage(e.getMessage());
+			response.setReturnCode(Messages.SYSTEM_ERROR_CODE);
+			response.setMessage(Messages.SYSTEM_ERROR_MSG);
 		}
 		
 		return response;

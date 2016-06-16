@@ -14,7 +14,6 @@ import de.muensterinside.exceptions.MuensterInsideException;
 import de.muensterinside.exceptions.NoDataException;
 import de.muensterinside.util.DtoAssembler;
 import de.muensterinside.util.Messages;
-import de.muensterinside.util.OutputRequesterBean;
 
 /**
  * siehe Interface-Beschreibung
@@ -30,9 +29,6 @@ public class CategoryService implements CategoryServiceLocal {
 
 	@EJB
 	private DtoAssembler dtoAssembler;
-	
-	@EJB
-	private OutputRequesterBean outputRequester;
 
 	public CategoryListResponse getCategories() {
 		CategoryListResponse response = new CategoryListResponse();
@@ -41,21 +37,20 @@ public class CategoryService implements CategoryServiceLocal {
 			List<Category> categories = daoCategory.findAll();
 
 			if (categories.isEmpty()) {
-				throw new NoDataException(Messages.NoDataExceptionMsg);
+				throw new NoDataException(Messages.NO_DATA_EXCEPTION_MSG);
 			}
 
 			response.setCategoryList(dtoAssembler.makeDTOCategoryList(categories));
 			logger.info("Eine Liste von Kategorien wird zurückgegeben");
-			//TODO: Nur für Testzwecke eingebaut, muss wieder entfernt werden.
-			outputRequester.printLog("Dies ist der erste Test log!");
+			
 		} catch (MuensterInsideException e) {
 			logger.error("Fehler " + e.getErrorCode() + ": " + e.getMessage());
 			response.setReturnCode(e.getErrorCode());
 			response.setMessage(e.getMessage());
 		} catch (Exception e) {
-			logger.fatal("Unbekannter Fehler " + Messages.SystemErrorCode + ":" + e.getMessage());
-			response.setReturnCode(Messages.SystemErrorCode);
-			response.setMessage(e.getMessage());
+			logger.fatal("Unbekannter Fehler " + Messages.SYSTEM_ERROR_CODE + ":" + e.getMessage());
+			response.setReturnCode(Messages.SYSTEM_ERROR_CODE);
+			response.setMessage(Messages.SYSTEM_ERROR_MSG);
 		}
 		return response;
 	}

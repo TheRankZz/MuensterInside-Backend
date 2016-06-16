@@ -48,7 +48,7 @@ public class CommentService implements CommentServiceLocal {
 
 			//Prüfen ob Kommentaren vorhanden sind.
 			if (comments.isEmpty()) {
-				throw new NoDataException(Messages.NoDataExceptionMsg);
+				throw new NoDataException(Messages.NO_DATA_EXCEPTION_MSG);
 			}
 
 			//Zum Response hinzufügen
@@ -57,8 +57,8 @@ public class CommentService implements CommentServiceLocal {
 			response.setReturnCode(e.getErrorCode());
 			response.setMessage(e.getMessage());
 		} catch (Exception e) {
-			response.setReturnCode(Messages.SystemErrorCode);
-			response.setMessage(e.getMessage());
+			response.setReturnCode(Messages.SYSTEM_ERROR_CODE);
+			response.setMessage(Messages.SYSTEM_ERROR_MSG);
 		}
 
 		return response;
@@ -73,7 +73,7 @@ public class CommentService implements CommentServiceLocal {
 
 			//Prüfen ob Kommentare vorhanden sind.
 			if (comments.isEmpty()) {
-				throw new NoDataException(Messages.NoDataExceptionMsg);
+				throw new NoDataException(Messages.NO_DATA_EXCEPTION_MSG);
 			}
 			
 			//Zum Response hinzufügen
@@ -82,8 +82,8 @@ public class CommentService implements CommentServiceLocal {
 			response.setReturnCode(e.getErrorCode());
 			response.setMessage(e.getMessage());
 		} catch (Exception e) {
-			response.setReturnCode(Messages.SystemErrorCode);
-			response.setMessage(e.getMessage());
+			response.setReturnCode(Messages.SYSTEM_ERROR_CODE);
+			response.setMessage(Messages.SYSTEM_ERROR_MSG);
 		}
 
 		return response;
@@ -96,10 +96,10 @@ public class CommentService implements CommentServiceLocal {
 		try {
 			//Prüfen ob das Gerät exsitiert
 			if (!deviceDAO.isExists(deviceId))
-				throw new NoDataException(Messages.NoFoundExceptionMsg);
+				throw new NoDataException(Messages.NOT_FOUND_EXCEPTION_MSG);
 			//Prüfen ob die Location exsitiert
 			if (!locationDAO.isExists(locationId))
-				throw new NoDataException(Messages.NoFoundExceptionMsg);
+				throw new NoDataException(Messages.NOT_FOUND_EXCEPTION_MSG);
 
 			Device device = deviceDAO.findByID(deviceId);
 			Location location = locationDAO.findById(locationId);
@@ -108,14 +108,14 @@ public class CommentService implements CommentServiceLocal {
 
 			//Prüfen ob das anlegen in der db erfolgreich war.
 			if (!commentDAO.insert(comment))
-				throw new NoSavedException(Messages.NoSavedExceptionMsg);
+				throw new NoSavedException(Messages.NO_SAVED_EXCEPTION_MSG);
 
 		} catch (MuensterInsideException e) {
 			response.setReturnCode(e.getErrorCode());
 			response.setMessage(e.getMessage());
 		} catch (Exception e) {
-			response.setReturnCode(Messages.SystemErrorCode);
-			response.setMessage(e.getMessage());
+			response.setReturnCode(Messages.SYSTEM_ERROR_CODE);
+			response.setMessage(Messages.SYSTEM_ERROR_MSG);
 		}
 
 		return response;
@@ -128,13 +128,13 @@ public class CommentService implements CommentServiceLocal {
 		try {
 			//Prüfen ob das löschen in der db erfolgreich war.
 			if (!commentDAO.delete(comment_id))
-				throw new NoSavedException(Messages.NoDeleteExceptionMsg);
+				throw new NoSavedException(Messages.NO_DELETE_EXCEPTION_MSG);
 		} catch (MuensterInsideException e) {
 			response.setReturnCode(e.getErrorCode());
 			response.setMessage(e.getMessage());
 		} catch (Exception e) {
-			response.setReturnCode(Messages.SystemErrorCode);
-			response.setMessage(e.getMessage());
+			response.setReturnCode(Messages.SYSTEM_ERROR_CODE);
+			response.setMessage(Messages.SYSTEM_ERROR_MSG);
 		}
 
 		return response;

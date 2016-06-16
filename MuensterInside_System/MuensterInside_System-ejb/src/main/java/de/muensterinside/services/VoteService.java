@@ -63,16 +63,16 @@ public class VoteService implements VoteServiceLocal {
 		try {
 			//Prüfen ob Device vorhanden ist
 			if(daoDevice.isExists(deviceId))
-				throw new DeviceNotFoundException("Das Gerät ist nicht registriert");
+				throw new DeviceNotFoundException(Messages.DEVICE_NOT_EXISTS_MSG);
 			
 			List<Location> locations = daoLocation.findByDevice(deviceId);
 			//Prüfen ob locations vorhanden ist
 			if (locations.isEmpty())
-				throw new NoDataException(Messages.NoDataExceptionMsg);
+				throw new NoDataException(Messages.NO_DATA_EXCEPTION_MSG);
 			
 			List<LocationTO> list = dtoAssembler.makeDTOLocationList(locations);
 			if (list.isEmpty())
-				throw new NoDataException(Messages.NoSavedExceptionMsg);
+				throw new NoDataException(Messages.NO_SAVED_EXCEPTION_MSG);
 
 			response.setLocationList(list);
 			logger.info("Eine Liste von Location für Device[" + deviceId + "] wird zurückgegeben");
@@ -81,9 +81,9 @@ public class VoteService implements VoteServiceLocal {
 			response.setReturnCode(e.getErrorCode());
 			response.setMessage(e.getMessage());
 		} catch (Exception e) {
-			logger.fatal("Unbekannter Fehler " + Messages.SystemErrorCode + ":" + e.getMessage());
-			response.setReturnCode(Messages.SystemErrorCode);
-			response.setMessage(e.getMessage());
+			logger.fatal("Unbekannter Fehler " + Messages.SYSTEM_ERROR_CODE + ":" + e.getMessage());
+			response.setReturnCode(Messages.SYSTEM_ERROR_CODE);
+			response.setMessage(Messages.SYSTEM_ERROR_MSG);
 		}
 
 		return response;
@@ -115,9 +115,9 @@ public class VoteService implements VoteServiceLocal {
 				response.setIsVoted(true);
 			}
 		} catch (Exception e) {
-			logger.fatal("Unbekannter Fehler " + Messages.SystemErrorCode + ":" + e.getMessage());
-			response.setReturnCode(Messages.SystemErrorCode);
-			response.setMessage(e.getMessage());
+			logger.fatal("Unbekannter Fehler " + Messages.SYSTEM_ERROR_CODE + ":" + e.getMessage());
+			response.setReturnCode(Messages.SYSTEM_ERROR_CODE);
+			response.setMessage(Messages.SYSTEM_ERROR_MSG);
 		}
 
 		return response;
@@ -138,14 +138,14 @@ public class VoteService implements VoteServiceLocal {
 			//Prüfen ob die Location vorhanden ist
 			Location loc = daoLocation.findById(location_id);
 			if (loc == null)
-				throw new NoDataException(Messages.NoDataExceptionMsg);
+				throw new NoDataException(Messages.NO_DATA_EXCEPTION_MSG);
 			//Prüfen ob das Device vorhanden ist
 			Device dev = daoDevice.findByID(deviceId);
 			if (dev == null)
-				throw new NoDataException(Messages.NoDataExceptionMsg);
+				throw new NoDataException(Messages.NO_DATA_EXCEPTION_MSG);
 			//Prüfen ob für diese Location schon eine Bewertung mit der Device-Id abgegeben wurde.
 			if (daoVote.findByLocationAndDevice(location_id, deviceId) != null)
-				throw new VoteExistsException("Es wurde bereits für diese Location eine Stimme abgegeben!");
+				throw new VoteExistsException(Messages.VOTE_EXISTS_EXCEPTION_MSG);
 
 			
 			if (typ == VoteType.down) {
@@ -158,7 +158,7 @@ public class VoteService implements VoteServiceLocal {
 			//Eine Vote anlegen
 			Vote vote = new Vote(loc, dev, typ);
 			if (!daoVote.insert(vote))
-				throw new NoSavedException(Messages.NoSavedExceptionMsg);
+				throw new NoSavedException(Messages.NO_SAVED_EXCEPTION_MSG);
 
 			logger.info(
 					"Es wurde ein Vote für die Location[" + location_id + "] von Device[" + deviceId + "] gespeichert");
@@ -168,9 +168,9 @@ public class VoteService implements VoteServiceLocal {
 			response.setReturnCode(e.getErrorCode());
 			response.setMessage(e.getMessage());
 		} catch (Throwable e) {
-			logger.fatal("Unbekannter Fehler " + Messages.SystemErrorCode + ":" + e.getMessage());
-			response.setReturnCode(Messages.SystemErrorCode);
-			response.setMessage(e.getMessage());
+			logger.fatal("Unbekannter Fehler " + Messages.SYSTEM_ERROR_CODE + ":" + e.getMessage());
+			response.setReturnCode(Messages.SYSTEM_ERROR_CODE);
+			response.setMessage(Messages.SYSTEM_ERROR_MSG);
 		}
 
 		return response;
