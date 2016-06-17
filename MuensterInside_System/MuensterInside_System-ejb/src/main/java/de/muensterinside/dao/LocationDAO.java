@@ -61,7 +61,7 @@ public class LocationDAO implements de.muensterinside.dao.LocationDAOLocal {
 		boolean result = false;
 		
 		Location loc = findById(location_id);
-		if(loc == null) {
+		if(loc != null) {
 			em.remove(loc);
 	
 			if (findById(location_id) == null)

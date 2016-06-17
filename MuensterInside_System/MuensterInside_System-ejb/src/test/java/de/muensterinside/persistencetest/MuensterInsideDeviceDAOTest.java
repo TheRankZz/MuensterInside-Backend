@@ -69,7 +69,7 @@ public class MuensterInsideDeviceDAOTest {
 		Device device = new Device("TestAndroidUuid4", "TestUsername4");
 		assertTrue ("Es konnte kein Device gespeichert werden", dao.insert(device)); 
 		
-		assertTrue (dao.delete(device.getId()));
+		assertTrue ("Devie konnte nicht gelöscht werden", dao.delete(device.getId()));
 	}
 	
 	@Test

@@ -123,7 +123,7 @@ public class MuensterInsideLocationDAOTest {
 		Location location = new Location("TestLocation", "TestDescription", "http://...", device, category);
 		assertTrue ("Es konnte keine Location angelegt werden", dao.insert(location)); 
 
-		assertTrue (dao.delete(location.getId()));
+		assertTrue ("Device konnte nicht gelöscht werden", dao.delete(location.getId()));
 	}
 	
 	@Test

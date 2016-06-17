@@ -50,7 +50,7 @@ public class DeviceDAO implements de.muensterinside.dao.DeviceDAOLocal {
 		boolean result = false;
 		
 		Device device = em.find(Device.class, id);
-		if(device == null) {
+		if(device != null) {
 			em.remove(device);
 	
 			if (em.find(Device.class, id) == null)
