@@ -50,11 +50,14 @@ public class CategoryDAO implements de.muensterinside.dao.CategoryDAOLocal {
 	@Override
 	public boolean delete(int category_id) {
 		boolean result = false;
-		Category cat = em.find(Category.class, category_id);
-		em.remove(cat);
 		
-		if(em.find(Category.class, category_id) == null) 
-			result = true;
+		Category cat = em.find(Category.class, category_id);
+		if(cat != null) {
+			em.remove(cat);
+			
+			if(em.find(Category.class, category_id) == null) 
+				result = true;
+		}
 		
 		return result;		
 	}

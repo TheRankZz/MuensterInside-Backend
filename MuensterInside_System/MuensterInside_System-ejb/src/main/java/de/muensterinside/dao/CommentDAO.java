@@ -67,12 +67,15 @@ public class CommentDAO implements de.muensterinside.dao.CommentDAOLocal {
 	@Override
 	public boolean delete(int comment_id) {
 		boolean result = false;
-		Comment cat = em.find(Comment.class, comment_id);
-		em.remove(cat);
 		
-		if(em.find(Comment.class, comment_id) == null) 
-			result = true;
-		
+		Comment cat = em.find(Comment.class,comment_id);
+		if(cat != null) {
+			em.remove(cat);
+			
+			if(em.find(Comment.class, comment_id) == null) 
+				result = true;
+		}
+
 		return result;	
 	}
 

@@ -52,10 +52,12 @@ public class VoteDAO implements de.muensterinside.dao.VoteDAOLocal {
 		boolean result = false;
 
 		Vote vote = findById(vote_id);
-		em.remove(vote);
-
-		if (findById(vote_id) == null)
-			result = true;
+		if(vote != null) {
+			em.remove(vote);
+	
+			if (findById(vote_id) == null)
+				result = true;
+		}
 
 		return result;
 	}
