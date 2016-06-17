@@ -12,4 +12,5 @@ public final class Messages {
 	public static final String DEVICE_NOT_FOUND_EXCEPTION_MSG = "Dieses Gerät(%s) ist nicht registriert";
 	public static final String DEVICE_NOT_EXISTS_MSG = "Das Gerät konnte nicht gefunden werden";
 	public static final String VOTE_EXISTS_EXCEPTION_MSG = "Für diese Location wurde bereits eine Stimme abgegeben!";
+	public static final String NOT_ALLOWED_REQUEST_MSG = "Die Anfrage ist ungültig";
 }

@@ -26,6 +26,7 @@ import de.muensterinside.exceptions.DeviceNotFoundException;
 import de.muensterinside.exceptions.MuensterInsideException;
 import de.muensterinside.exceptions.NoDataException;
 import de.muensterinside.exceptions.NoSavedException;
+import de.muensterinside.exceptions.NotAllowedRequestException;
 import de.muensterinside.exceptions.VoteExistsException;
 import de.muensterinside.util.DtoAssembler;
 import de.muensterinside.util.Messages;
@@ -61,11 +62,16 @@ public class VoteService implements VoteServiceLocal {
 		LocationListResponse response = new LocationListResponse();
 
 		try {
+			//Anfrage prüfen
+			if(deviceId == 0)
+				throw new NotAllowedRequestException(Messages.NOT_ALLOWED_REQUEST_MSG);
+			
 			//Prüfen ob Device vorhanden ist
-			if(daoDevice.isExists(deviceId))
+			if(!daoDevice.isExists(deviceId))
 				throw new DeviceNotFoundException(Messages.DEVICE_NOT_EXISTS_MSG);
 			
-			List<Location> locations = daoLocation.findByDevice(deviceId);
+			List<Location> locations = daoLocation.findByMyVotes(deviceId);
+			
 			//Prüfen ob locations vorhanden ist
 			if (locations.isEmpty())
 				throw new NoDataException(Messages.NO_DATA_EXCEPTION_MSG);
@@ -110,10 +116,19 @@ public class VoteService implements VoteServiceLocal {
 		IsVotedRepsonse response = new IsVotedRepsonse();
 
 		try {
+			//Anfrage prüfen
+			if(deviceId == 0 || location_id == 0)
+				throw new NotAllowedRequestException(Messages.NOT_ALLOWED_REQUEST_MSG);
+			
 			Vote vote = daoVote.findByLocationAndDevice(location_id, deviceId);
 			if (vote != null) {
 				response.setIsVoted(true);
 			}
+			
+		} catch (MuensterInsideException e) {
+			logger.error("Fehler " + e.getErrorCode() + ": " + e.getMessage());
+			response.setReturnCode(e.getErrorCode());
+			response.setMessage(e.getMessage());
 		} catch (Exception e) {
 			logger.fatal("Unbekannter Fehler " + Messages.SYSTEM_ERROR_CODE + ":" + e.getMessage());
 			response.setReturnCode(Messages.SYSTEM_ERROR_CODE);
@@ -135,6 +150,10 @@ public class VoteService implements VoteServiceLocal {
 		ReturncodeResponse response = new ReturncodeResponse();
 
 		try {
+			//Anfrage prüfen
+			if(location_id == 0 || deviceId == 0)
+				throw new NotAllowedRequestException(Messages.NOT_ALLOWED_REQUEST_MSG);
+			
 			//Prüfen ob die Location vorhanden ist
 			Location loc = daoLocation.findById(location_id);
 			if (loc == null)
