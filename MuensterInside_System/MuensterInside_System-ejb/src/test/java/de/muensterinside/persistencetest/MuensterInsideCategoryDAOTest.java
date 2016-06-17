@@ -42,14 +42,14 @@ public class MuensterInsideCategoryDAOTest {
 	 */
 	@Test
 	public void insert() throws Exception {
-		Category category = new Category();
+		Category category = new Category("Category1");
 		assertTrue ("Kategorie konnte nicht hinzugefügt werden.", dao.insert(category)); 
 	}
 	
 	
 	@Test
 	public void findByID() throws Exception {
-		Category category = new Category();
+		Category category = new Category("Category2");
 		assertTrue ("Kategorie konnte nicht hinzugefügt werden.", dao.insert(category)); 
 		Category categoryFind = dao.findByID(category.getId());
 		assert categoryFind!=null : "Kategorie nicht gefunden.";
@@ -57,7 +57,7 @@ public class MuensterInsideCategoryDAOTest {
 	
 	@Test
 	public void findAll() throws Exception {
-		Category category = new Category();
+		Category category = new Category("Category3");
 		assertTrue ("Kategorie konnte nicht hinzugefügt werden.", dao.insert(category)); 
 		List<Category> categories = dao.findAll();
 		for(Category categoryLoop : categories) {
@@ -67,14 +67,14 @@ public class MuensterInsideCategoryDAOTest {
 	
 	@Test
 	public void isExists() throws Exception {
-		Category category = new Category();
+		Category category = new Category("Category4");
 		assertTrue ("Kategorie konnte nicht hinzugefügt werden.", dao.insert(category)); 
 		assertTrue ("Es konnte keine Kategorie gefunden werden.", dao.isExists(category.getId()));
 	}
 	
 	@Test
 	public void delete() throws Exception {
-		Category category = new Category();
+		Category category = new Category("Category5");
 		assertTrue ("Kategorie konnte nicht hinzugefügt werden.", dao.insert(category)); 
 		assertTrue (dao.delete(category.getId()));
 	}
