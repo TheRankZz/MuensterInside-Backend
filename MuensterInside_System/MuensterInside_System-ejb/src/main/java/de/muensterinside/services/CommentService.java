@@ -19,6 +19,7 @@ import de.muensterinside.entities.Location;
 import de.muensterinside.exceptions.MuensterInsideException;
 import de.muensterinside.exceptions.NoDataException;
 import de.muensterinside.exceptions.NoSavedException;
+import de.muensterinside.exceptions.NotAllowedRequestException;
 import de.muensterinside.util.DtoAssembler;
 import de.muensterinside.util.Messages;
 
@@ -48,6 +49,10 @@ public class CommentService implements CommentServiceLocal {
 		CommentListResponse response = new CommentListResponse();
 
 		try {
+			//Anfrage prüfen
+			if(loc_id == 0)
+				throw new NotAllowedRequestException(Messages.NOT_ALLOWED_REQUEST_MSG);
+			
 			List<Comment> comments = commentDAO.findByLocation(loc_id);
 
 			//Prüfen ob Kommentaren vorhanden sind.
@@ -75,6 +80,11 @@ public class CommentService implements CommentServiceLocal {
 		CommentListResponse response = new CommentListResponse();
 
 		try {
+			//Anfrage prüfen
+			if(deviceId == 0)
+				throw new NotAllowedRequestException(Messages.NOT_ALLOWED_REQUEST_MSG);
+			
+			//Kommentare holen
 			List<Comment> comments = commentDAO.findByDevice(deviceId);
 
 			//Prüfen ob Kommentare vorhanden sind.
@@ -102,9 +112,15 @@ public class CommentService implements CommentServiceLocal {
 		ReturncodeResponse response = new ReturncodeResponse();
 
 		try {
+			//Anfrage prüfen
+			text = text.trim();
+			if(text.isEmpty() || deviceId == 0 || locationId == 0)
+				throw new NotAllowedRequestException(Messages.NOT_ALLOWED_REQUEST_MSG);
+			
 			//Prüfen ob das Gerät exsitiert
 			if (!deviceDAO.isExists(deviceId))
 				throw new NoDataException(Messages.NOT_FOUND_EXCEPTION_MSG);
+			
 			//Prüfen ob die Location exsitiert
 			if (!locationDAO.isExists(locationId))
 				throw new NoDataException(Messages.NOT_FOUND_EXCEPTION_MSG);
@@ -137,10 +153,17 @@ public class CommentService implements CommentServiceLocal {
 		ReturncodeResponse response = new ReturncodeResponse();
 
 		try {
-			//Prüfen ob das löschen in der db erfolgreich war.
+			//Anfrage prüfen
+			if(comment_id == 0)
+				throw new NotAllowedRequestException(Messages.NOT_ALLOWED_REQUEST_MSG);
+				
+			
+			//Löschen und prüfen ob löschen erfolgreich war.
 			if (!commentDAO.delete(comment_id))
 				throw new NoSavedException(Messages.NO_DELETE_EXCEPTION_MSG);
+			
 			logger.info("Kommentar("+ comment_id + ") wurde gelöscht");
+			
 		} catch (MuensterInsideException e) {
 			logger.error("Fehler " + e.getErrorCode() + ": " + e.getMessage());
 			response.setReturnCode(e.getErrorCode());

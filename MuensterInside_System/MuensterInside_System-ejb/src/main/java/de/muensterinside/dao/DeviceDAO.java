@@ -48,12 +48,15 @@ public class DeviceDAO implements de.muensterinside.dao.DeviceDAOLocal {
 	@Override
 	public boolean delete(int id) {
 		boolean result = false;
+		
 		Device device = em.find(Device.class, id);
-		em.remove(device);
-
-		if (em.find(Device.class, id) == null)
-			result = true;
-
+		if(device == null) {
+			em.remove(device);
+	
+			if (em.find(Device.class, id) == null)
+				result = true;
+		}
+		
 		return result;
 	}
 

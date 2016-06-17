@@ -20,6 +20,7 @@ import de.muensterinside.entities.Location;
 import de.muensterinside.exceptions.MuensterInsideException;
 import de.muensterinside.exceptions.NoDataException;
 import de.muensterinside.exceptions.NoSavedException;
+import de.muensterinside.exceptions.NotAllowedRequestException;
 import de.muensterinside.util.DtoAssembler;
 import de.muensterinside.util.Messages;
 
@@ -48,6 +49,11 @@ public class LocationService implements LocationServiceLocal {
 	public LocationListResponse getLocationsByCategory(int cat_id) {
 		LocationListResponse response = new LocationListResponse();
 		try {
+			//Anfrage prüfen
+			if(cat_id == 0)
+				throw new NotAllowedRequestException(Messages.NOT_ALLOWED_REQUEST_MSG);
+			
+			//Locations holen
 			List<Location> locationList = locationDAO.findByCategory(cat_id);
 
 			if (locationList.isEmpty()) {
@@ -74,8 +80,12 @@ public class LocationService implements LocationServiceLocal {
 			int deviceId) {
 
 		ReturncodeResponse response = new ReturncodeResponse();
-
+		
 		try {
+			//Anfrage prüfen
+			if(name == null || name.isEmpty() || category_id == 0 || deviceId == 0) 
+				throw new NotAllowedRequestException(Messages.NOT_ALLOWED_REQUEST_MSG);
+		
 			if (!categoryDAO.isExists(category_id))
 				throw new NoDataException(Messages.NO_DATA_EXCEPTION_MSG);
 			
@@ -87,8 +97,10 @@ public class LocationService implements LocationServiceLocal {
 
 			Location location = new Location(name, description, link, device, category);
 
+			//Location speichern und prüfen ob Speichern erfolgreich war.
 			if (!locationDAO.insert(location))
 				throw new NoSavedException(Messages.NO_SAVED_EXCEPTION_MSG);
+			
 			logger.info("Location(" + name + ") wurde angelegt");
 		} catch (MuensterInsideException e) {
 			logger.error("Fehler " + e.getErrorCode() + ": " + e.getMessage());
@@ -108,6 +120,10 @@ public class LocationService implements LocationServiceLocal {
 		LocationResponse response = new LocationResponse();
 		
 		try {
+			//Anfrage prüfen
+			if(id == 0)
+				throw new NotAllowedRequestException(Messages.NOT_ALLOWED_REQUEST_MSG);
+			
 			Location loc = locationDAO.findById(id);
 			if(loc == null) 
 				throw new NoDataException(Messages.NO_DATA_EXCEPTION_MSG);
@@ -132,13 +148,17 @@ public class LocationService implements LocationServiceLocal {
 		LocationListResponse response = new LocationListResponse();
 		
 		try {
+			//Anfrage prüfen
+			if(deviceId == 0)
+				throw new NotAllowedRequestException(Messages.NOT_ALLOWED_REQUEST_MSG);
+			
+			//Location holen
 			List<Location> locations = locationDAO.findByDevice(deviceId);
 			
 			if(locations.isEmpty())
 				throw new NoDataException(Messages.NO_DATA_EXCEPTION_MSG);
 			
 			response.setLocationList(dtoAssembler.makeDTOLocationList(locations));
-			
 			
 		} catch (MuensterInsideException e) {
 			logger.error("Fehler " + e.getErrorCode() + ": " + e.getMessage());

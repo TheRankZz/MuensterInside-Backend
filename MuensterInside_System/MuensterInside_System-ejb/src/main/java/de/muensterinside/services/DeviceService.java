@@ -11,6 +11,7 @@ import de.muensterinside.entities.Device;
 import de.muensterinside.exceptions.DeviceExistsException;
 import de.muensterinside.exceptions.DeviceNotFoundException;
 import de.muensterinside.exceptions.MuensterInsideException;
+import de.muensterinside.exceptions.NotAllowedRequestException;
 import de.muensterinside.util.DtoAssembler;
 import de.muensterinside.util.Messages;
 import de.muensterinside.util.OutputRequesterBean;
@@ -38,13 +39,22 @@ public class DeviceService implements DeviceServiceLocal {
 		DeviceResponse response = new DeviceResponse();
 
 		try {
+			//Anfrage prüfen
+			androidUuid = androidUuid.trim();
+			username = username.trim();
+			
+			if(androidUuid.isEmpty() || username.isEmpty())
+				throw new NotAllowedRequestException(Messages.NOT_ALLOWED_REQUEST_MSG);
+			
 			//Prüfen ob für dieses Android-ID schon ein Device registriert wurde
 			if (daoDevice.findByAndroidUuid(androidUuid) != null)
 				throw new DeviceExistsException(String.format(Messages.DEVICE_EXISTS_EXCEPTION_MSG, androidUuid));
 
+			//Device-Objekt erstellen und in die DB speichern
 			Device dev = new Device(androidUuid, username);
 			daoDevice.insert(dev);
 			response.setDevice(dtoAssembler.makeDTO(dev));
+			
 			logger.info("Ein Device(" + androidUuid + "," + username + ") wurde gespeichert");
 		} catch (MuensterInsideException e) {
 			logger.error("Fehler " + e.getErrorCode() + ": " + e.getMessage());
@@ -64,6 +74,12 @@ public class DeviceService implements DeviceServiceLocal {
 		DeviceResponse response = new DeviceResponse();
 
 		try {
+			//Anfrage prüfen
+			androidUuid = androidUuid.trim();
+			if(androidUuid.isEmpty())
+				throw new NotAllowedRequestException(Messages.NOT_ALLOWED_REQUEST_MSG);
+			
+			//Device-Objekt holen
 			Device dev = daoDevice.findByAndroidUuid(androidUuid);
 
 			// Überprüfen ob das Gerät registriert ist
@@ -74,6 +90,7 @@ public class DeviceService implements DeviceServiceLocal {
 			dev.setLastLoginAt();
 			daoDevice.update(dev);
 			
+			//Java-Messages-Bean 
 			outputRequester.printLog("Der Benutzer(" + dev.getUsername() + ") mit der Android-ID(" +
 					dev.getAndroidUuid() + ") hat sich eingeloggt.");
 			

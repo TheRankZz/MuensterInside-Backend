@@ -66,4 +66,11 @@ public interface LocationDAOLocal {
 	 * @return Liste von Location
 	 */
 	List<Location> findByDevice(int deviceId);
+	
+	/**
+	 * Gibt Locations der Votes zurück
+	 * @param deviceId
+	 * @return
+	 */
+	public List<Location> findByMyVotes(int deviceId);
 }

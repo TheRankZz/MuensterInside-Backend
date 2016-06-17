@@ -59,12 +59,15 @@ public class LocationDAO implements de.muensterinside.dao.LocationDAOLocal {
 	@Override
 	public boolean delete(int location_id) {
 		boolean result = false;
+		
 		Location loc = findById(location_id);
-		em.remove(loc);
-
-		if (findById(location_id) == null)
-			result = true;
-
+		if(loc == null) {
+			em.remove(loc);
+	
+			if (findById(location_id) == null)
+				result = true;
+		}
+		
 		return result;
 	}
 	
@@ -82,6 +85,18 @@ public class LocationDAO implements de.muensterinside.dao.LocationDAOLocal {
 	public List<Location> findByDevice(int deviceId) {
 		@SuppressWarnings("unchecked")
 		List<Location> list = em.createQuery("SELECT l FROM Location l WHERE l.device.id = :deviceId")
+				.setParameter("deviceId", deviceId)
+				.getResultList();
+		
+		return list;
+	}
+	
+	
+	public List<Location> findByMyVotes(int deviceId) {
+		@SuppressWarnings("unchecked")
+		List<Location> list = em.createQuery("SELECT l FROM Location l "
+				+ "JOIN l.votes v "
+				+ "WHERE v.device.id = :deviceId")
 				.setParameter("deviceId", deviceId)
 				.getResultList();
 		

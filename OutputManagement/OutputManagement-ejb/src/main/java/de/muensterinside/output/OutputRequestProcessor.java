@@ -12,6 +12,7 @@ import org.jboss.logging.Logger;
 
 /**
  * Message-Driven Bean implementation class for: OutputRequestProcessor
+ * @author Julius Wessing
  */
 @MessageDriven(
 		activationConfig = { 
