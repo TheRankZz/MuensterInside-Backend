@@ -95,7 +95,7 @@ public class LocationDAO implements de.muensterinside.dao.LocationDAOLocal {
 	public List<Location> findByMyVotes(int deviceId) {
 		@SuppressWarnings("unchecked")
 		List<Location> list = em.createQuery("SELECT l FROM Location l "
-				+ "JOIN l.votes v ON v.location.id = l.id "
+				+ "JOIN l.votes v "
 				+ "WHERE v.device.id = :deviceId")
 				.setParameter("deviceId", deviceId)
 				.getResultList();
