@@ -33,7 +33,8 @@ public class LocationDAO implements de.muensterinside.dao.LocationDAOLocal {
 	@Override
 	public List<Location> findByCategory(int cat_id) {
 		@SuppressWarnings("unchecked")
-		List<Location> list = em.createQuery("SELECT l FROM Location l WHERE l.category.id = :categoryId")
+		List<Location> list = em.createQuery("SELECT l FROM Location l WHERE l.category.id = :categoryId "
+				+ "ORDER BY l.voteValue DESC")
 				.setParameter("categoryId", cat_id)
 				.getResultList();
 		

@@ -33,7 +33,8 @@ public class CommentDAO implements de.muensterinside.dao.CommentDAOLocal {
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Comment> findByLocation(int loc_id) {
-		List<Comment> list = em.createQuery("SELECT c FROM Comment c WHERE c.location.id = :LocationId")
+		List<Comment> list = em.createQuery("SELECT c FROM Comment c WHERE c.location.id = :LocationId "
+				+ "ORDER BY c.createdAt DESC")
 				.setParameter("LocationId", loc_id)
 				.getResultList();
 		return list;
@@ -42,7 +43,8 @@ public class CommentDAO implements de.muensterinside.dao.CommentDAOLocal {
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Comment> findByDevice(int dev_id) {
-		List<Comment> list = em.createQuery("SELECT c FROM Comment c WHERE c.device.id = :deviceId")
+		List<Comment> list = em.createQuery("SELECT c FROM Comment c WHERE c.device.id = :deviceId "
+				+ "ORDER BY c.createdAt DESC")
 				.setParameter("deviceId", dev_id)
 				.getResultList();
 		return list;
