@@ -6,6 +6,8 @@ import javax.annotation.Resource;
 import javax.ejb.EJB;
 import javax.ejb.EJBContext;
 import javax.ejb.Stateless;
+import javax.ejb.TransactionAttribute;
+import javax.ejb.TransactionAttributeType;
 import javax.ejb.TransactionManagement;
 import javax.ejb.TransactionManagementType;
 
@@ -37,7 +39,7 @@ import de.muensterinside.util.Messages;
  * @author Lennart Giesen, Julius Wessing
  */
 @Stateless
-@TransactionManagement(TransactionManagementType.BEAN)
+@TransactionManagement(TransactionManagementType.CONTAINER)
 public class VoteService implements VoteServiceLocal {
 
 	private static final Logger logger = Logger.getLogger(VoteService.class);
@@ -145,6 +147,7 @@ public class VoteService implements VoteServiceLocal {
 	 * @param typ Ist es ein up-Vote oder ein down-Vote.
 	 * @return
 	 */
+	@TransactionAttribute(TransactionAttributeType.REQUIRED)
 	private ReturncodeResponse vote(int location_id, int deviceId, VoteType typ) {
 
 		ReturncodeResponse response = new ReturncodeResponse();
