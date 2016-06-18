@@ -5,7 +5,7 @@
         http://xmlns.jcp.org/xml/ns/persistence
         http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
 	<persistence-unit name="primary">
-		<jta-data-source>java:jboss/datasources/ExampleDS</jta-data-source>
+		<jta-data-source>java:jboss/datasources/MySQLDS</jta-data-source>
 		
 		<class>de.muensterinside.entities.Category</class>
 		<class>de.muensterinside.entities.Comment</class>
